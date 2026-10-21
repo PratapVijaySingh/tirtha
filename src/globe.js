@@ -5,6 +5,11 @@ const IMAGERY = 'https://services.arcgisonline.com/ArcGIS/rest/services/World_Im
 const LABELS = 'https://services.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer';
 const ROADS = 'https://services.arcgisonline.com/ArcGIS/rest/services/Reference/World_Transportation/MapServer';
 
+function isPhone() {
+  return /Android|iPhone|iPad|iPod|Mobile|webOS/i.test(navigator.userAgent)
+    || (navigator.maxTouchPoints > 1 && window.matchMedia('(max-width: 900px)').matches);
+}
+
 function pinImage(tradition, big = false) {
   const { color, glyph } = TRADITIONS[tradition];
   const s = big ? 1.35 : 1;
@@ -45,28 +50,47 @@ function pinImage(tradition, big = false) {
 
 export class Globe {
   constructor(el) {
+    const phone = isPhone();
+    const globe = new C.Globe();
+    // Android/Chrome paints a black Earth at orbit when ground atmosphere is on.
+    // Pins still draw, which is what people see on first load in mobile Chrome.
+    globe.showGroundAtmosphere = !phone;
+    globe.enableLighting = !phone;
+    globe.dynamicAtmosphereLighting = !phone;
+    globe.depthTestAgainstTerrain = false;
+    globe.baseColor = C.Color.fromCssColorString('#1a3a5c');
     this.viewer = new C.Viewer(el, {
+      globe,
       baseLayer: C.ImageryLayer.fromProviderAsync(C.ArcGisMapServerImageryProvider.fromUrl(IMAGERY, { enablePickFeatures: false })),
       baseLayerPicker: false, geocoder: false, homeButton: false, sceneModePicker: false,
       navigationHelpButton: false, animation: false, timeline: false, fullscreenButton: false,
-      infoBox: false, selectionIndicator: false, msaaSamples: 4,
+      infoBox: false, selectionIndicator: false,
+      msaaSamples: phone ? 1 : 4,
+      orderIndependentTranslucency: !phone,
+      contextOptions: {
+        webgl: { alpha: false, antialias: true, failIfMajorPerformanceCaveat: false },
+      },
     });
     const v = this.viewer;
     const scene = v.scene;
-    v.imageryLayers.add(C.ImageryLayer.fromProviderAsync(C.ArcGisMapServerImageryProvider.fromUrl(ROADS, { enablePickFeatures: false }), { alpha: 0.55, minimumTerrainLevel: 12 }));
+    if (!phone) {
+      v.imageryLayers.add(C.ImageryLayer.fromProviderAsync(C.ArcGisMapServerImageryProvider.fromUrl(ROADS, { enablePickFeatures: false }), { alpha: 0.55, minimumTerrainLevel: 12 }));
+    }
     v.imageryLayers.add(C.ImageryLayer.fromProviderAsync(C.ArcGisMapServerImageryProvider.fromUrl(LABELS, { enablePickFeatures: false }), { alpha: 0.9 }));
-    scene.globe.enableLighting = true;
-    scene.globe.dynamicAtmosphereLighting = true;
-    scene.globe.showGroundAtmosphere = true;
-    scene.globe.depthTestAgainstTerrain = false;
-    scene.fog.enabled = true;
+    scene.fog.enabled = !phone;
     scene.skyAtmosphere.show = true;
     scene.highDynamicRange = false;
-    scene.postProcessStages.fxaa.enabled = true;
+    scene.postProcessStages.fxaa.enabled = !phone;
+    if (phone) scene.globe.maximumScreenSpaceError = 3;
     v.clock.currentTime = C.JulianDate.fromIso8601('2026-10-21T06:30:00Z');
     v.clock.shouldAnimate = false;
     scene.screenSpaceCameraController.minimumZoomDistance = 8;
     scene.screenSpaceCameraController.maximumZoomDistance = 4.5e7;
+    this.fitCanvas();
+    window.addEventListener('resize', () => this.fitCanvas());
+    window.addEventListener('orientationchange', () => setTimeout(() => this.fitCanvas(), 200));
+    window.visualViewport?.addEventListener('resize', () => this.fitCanvas());
+    requestAnimationFrame(() => this.fitCanvas());
     // World terrain looks correct from far away but smears satellite photos
     // at shrine scale, so we keep the ellipsoid and published elevations.
 
@@ -109,6 +133,16 @@ export class Globe {
       const site = this.siteAt(c.position);
       if (site && this.onSelect) this.onSelect(site);
     }, C.ScreenSpaceEventType.LEFT_CLICK);
+  }
+
+  fitCanvas() {
+    const el = this.viewer?.container;
+    if (!el) return;
+    const w = Math.max(1, Math.round(window.visualViewport?.width || window.innerWidth || el.clientWidth));
+    const h = Math.max(1, Math.round(window.visualViewport?.height || window.innerHeight || el.clientHeight));
+    el.style.width = `${w}px`;
+    el.style.height = `${h}px`;
+    this.viewer.resize();
   }
 
   makeRing(metres, color, alpha) {
