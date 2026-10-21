@@ -96,7 +96,7 @@ export class TempleViewer {
 
     ui.pradakshina.onclick = () => this.setMode(this.mode === 'pradakshina' ? 'orbit' : 'pradakshina');
     ui.walk.onclick = () => this.setMode(this.mode === 'walk' ? 'orbit' : 'walk');
-    ui.aarti.onclick = () => this.aarti();
+    ui.aarti.onclick = () => this.playRite();
     ui.time.onclick = () => this.setTime(ORDER[(this.timeIdx + 1) % 3]);
     ui.reset.onclick = () => { this.setMode('orbit'); this.resetView(true); };
   }
@@ -351,20 +351,79 @@ export class TempleViewer {
     if (p) this.ui.hud?.classList.remove('minimized');
   }
 
-  // ------------------------------------------------------------ aarti (Hindu only)
+  // ------------------------------------------------------------ rites (sound follows the faith)
 
-  aarti() {
-    if (!this.ritual?.rite) return;
+  playRite() {
+    const r = this.ritual;
+    if (!r?.sound) return;
     this.audio ||= new AudioContext();
     const ac = this.audio;
     if (ac.state === 'suspended') ac.resume();
     const master = ac.createGain();
-    master.gain.value = 0.5;
+    master.gain.value = r.sound === 'bowl' ? 0.42 : 0.48;
     master.connect(ac.destination);
-    this.conch(ac, master, ac.currentTime);
-    for (let i = 0; i < 7; i++) this.bell(ac, master, ac.currentTime + 2.2 + i * 0.9, i % 2 ? 1.12 : 1);
-    this.petals.burst(this.temple.focus, this.temple.radius);
-    this.aartiUntil = this.clock.elapsedTime + 11;
+    const t0 = ac.currentTime;
+    if (r.sound === 'aarti') this.playAarti(ac, master, t0);
+    else if (r.sound === 'kirtan') this.playKirtan(ac, master, t0);
+    else if (r.sound === 'qawwali') this.playQawwali(ac, master, t0);
+    else if (r.sound === 'bowl') this.playBowl(ac, master, t0);
+    else if (r.sound === 'stavan') this.playStavan(ac, master, t0);
+    if (r.petals) this.petals.burst(this.temple.focus, this.temple.radius, r.petals);
+    this.aartiUntil = this.clock.elapsedTime + (r.glow || 11);
+  }
+
+  playAarti(ac, out, t) {
+    this.conch(ac, out, t);
+    for (let i = 0; i < 7; i++) this.bell(ac, out, t + 2.2 + i * 0.9, i % 2 ? 1.12 : 1);
+  }
+
+  playKirtan(ac, out, t) {
+    this.drone(ac, out, t, 110, 13, 0.07);
+    this.drone(ac, out, t, 165, 13, 0.05);
+    this.drone(ac, out, t, 220, 13, 0.03, 'triangle');
+    const chord = [261.6, 329.6, 392];
+    chord.forEach((f, i) => this.harmonium(ac, out, t + 0.4, f, 12, 0.045 - i * 0.006));
+    for (let i = 0; i < 20; i++) {
+      const beat = t + 0.8 + i * 0.62;
+      this.tabla(ac, out, beat, true);
+      if (i % 2) this.tabla(ac, out, beat + 0.31, false);
+    }
+  }
+
+  playQawwali(ac, out, t) {
+    this.drone(ac, out, t, 110, 13.5, 0.06);
+    this.drone(ac, out, t, 164.8, 13.5, 0.035, 'triangle');
+    this.harmonium(ac, out, t + 0.2, 220, 13, 0.04);
+    this.harmonium(ac, out, t + 0.2, 277.2, 13, 0.03);
+    const melody = [
+      [220, 0, 0.45], [233, 0.45, 0.35], [277, 0.8, 0.5], [293.7, 1.3, 0.4],
+      [329.6, 1.7, 0.7], [293.7, 2.45, 0.35], [277, 2.8, 0.45], [233, 3.3, 0.4],
+      [220, 3.7, 0.8], [277, 4.6, 0.4], [329.6, 5.05, 0.55], [440, 5.65, 0.9],
+      [392, 6.6, 0.45], [329.6, 7.1, 0.5], [277, 7.65, 0.55], [220, 8.25, 1.2],
+    ];
+    melody.forEach(([f, off, dur]) => this.voice(ac, out, t + 1.1 + off, f, dur, 0.11));
+    melody.forEach(([f, off, dur]) => this.voice(ac, out, t + 1.1 + off, f * 2, dur, 0.035));
+    for (let i = 0; i < 22; i++) {
+      const beat = t + 0.6 + i * 0.55;
+      this.daf(ac, out, beat, i % 4 === 0);
+      if (i % 2 === 0) this.clap(ac, out, beat + 0.27);
+    }
+  }
+
+  playBowl(ac, out, t) {
+    this.singingBowl(ac, out, t, 196);
+    this.singingBowl(ac, out, t + 3.2, 147);
+    this.singingBowl(ac, out, t + 6.6, 220);
+    this.woodblock(ac, out, t);
+    this.woodblock(ac, out, t + 3.2);
+  }
+
+  playStavan(ac, out, t) {
+    this.drone(ac, out, t, 196, 11, 0.05);
+    this.drone(ac, out, t, 294, 11, 0.03, 'triangle');
+    for (let i = 0; i < 5; i++) this.softBell(ac, out, t + 0.35 + i * 1.7, i % 2 ? 1.12 : 1);
+    const notes = [392, 440, 523.25, 587.33, 523.25, 440, 392];
+    notes.forEach((f, i) => this.voice(ac, out, t + 0.8 + i * 1.1, f, 1.05, 0.07));
   }
 
   bell(ac, out, t, k = 1) {
@@ -379,6 +438,176 @@ export class TempleViewer {
       o.start(t);
       o.stop(t + 4.5);
     });
+  }
+
+  drone(ac, out, t, freq, dur, gain = 0.06, type = 'sine') {
+    const o = ac.createOscillator();
+    o.type = type;
+    o.frequency.value = freq;
+    const lfo = ac.createOscillator();
+    const lg = ac.createGain();
+    lfo.frequency.value = 0.18;
+    lg.gain.value = freq * 0.004;
+    lfo.connect(lg).connect(o.frequency);
+    const g = ac.createGain();
+    g.gain.setValueAtTime(0.0001, t);
+    g.gain.linearRampToValueAtTime(gain, t + 0.5);
+    g.gain.setValueAtTime(gain, t + dur - 0.9);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+    o.connect(g).connect(out);
+    o.start(t);
+    lfo.start(t);
+    o.stop(t + dur + 0.05);
+    lfo.stop(t + dur + 0.05);
+  }
+
+  harmonium(ac, out, t, freq, dur, gain = 0.04) {
+    const o = ac.createOscillator();
+    o.type = 'sawtooth';
+    o.frequency.value = freq;
+    const f = ac.createBiquadFilter();
+    f.type = 'lowpass';
+    f.frequency.value = 900;
+    f.Q.value = 0.7;
+    const g = ac.createGain();
+    g.gain.setValueAtTime(0.0001, t);
+    g.gain.linearRampToValueAtTime(gain, t + 0.35);
+    g.gain.setValueAtTime(gain, t + dur - 0.8);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+    o.connect(f).connect(g).connect(out);
+    o.start(t);
+    o.stop(t + dur + 0.05);
+  }
+
+  voice(ac, out, t, freq, dur, gain = 0.1) {
+    const o = ac.createOscillator();
+    const o2 = ac.createOscillator();
+    o.type = 'sine';
+    o2.type = 'triangle';
+    o.frequency.setValueAtTime(freq, t);
+    o2.frequency.setValueAtTime(freq * 2.01, t);
+    const vib = ac.createOscillator();
+    const vg = ac.createGain();
+    vib.frequency.value = 5.2;
+    vg.gain.value = 6;
+    vib.connect(vg).connect(o.frequency);
+    const f = ac.createBiquadFilter();
+    f.type = 'lowpass';
+    f.frequency.value = 1800;
+    const g = ac.createGain();
+    g.gain.setValueAtTime(0.0001, t);
+    g.gain.linearRampToValueAtTime(gain, t + 0.08);
+    g.gain.setValueAtTime(gain * 0.85, t + dur * 0.7);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+    o.connect(f);
+    o2.connect(f);
+    f.connect(g).connect(out);
+    o.start(t);
+    o2.start(t);
+    vib.start(t);
+    o.stop(t + dur + 0.05);
+    o2.stop(t + dur + 0.05);
+    vib.stop(t + dur + 0.05);
+  }
+
+  noiseBuf(ac) {
+    if (this._noise && this._noise.sampleRate === ac.sampleRate) return this._noise;
+    const n = ac.sampleRate;
+    const b = ac.createBuffer(1, n, n);
+    const d = b.getChannelData(0);
+    for (let i = 0; i < n; i++) d[i] = Math.random() * 2 - 1;
+    this._noise = b;
+    return b;
+  }
+
+  noiseBurst(ac, out, t, dur, gain, freq, q = 1.4) {
+    const src = ac.createBufferSource();
+    src.buffer = this.noiseBuf(ac);
+    const f = ac.createBiquadFilter();
+    f.type = 'bandpass';
+    f.frequency.value = freq;
+    f.Q.value = q;
+    const g = ac.createGain();
+    g.gain.setValueAtTime(gain, t);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+    src.connect(f).connect(g).connect(out);
+    src.start(t);
+    src.stop(t + dur + 0.02);
+  }
+
+  tabla(ac, out, t, dum) {
+    const o = ac.createOscillator();
+    o.type = 'sine';
+    o.frequency.setValueAtTime(dum ? 78 : 190, t);
+    o.frequency.exponentialRampToValueAtTime(dum ? 42 : 95, t + 0.12);
+    const g = ac.createGain();
+    g.gain.setValueAtTime(dum ? 0.32 : 0.16, t);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + (dum ? 0.28 : 0.11));
+    o.connect(g).connect(out);
+    o.start(t);
+    o.stop(t + 0.32);
+    this.noiseBurst(ac, out, t, dum ? 0.05 : 0.03, dum ? 0.1 : 0.2, dum ? 220 : 1900, dum ? 1 : 3);
+  }
+
+  daf(ac, out, t, dum) {
+    const o = ac.createOscillator();
+    o.type = 'sine';
+    o.frequency.setValueAtTime(dum ? 70 : 160, t);
+    o.frequency.exponentialRampToValueAtTime(dum ? 38 : 80, t + 0.14);
+    const g = ac.createGain();
+    g.gain.setValueAtTime(dum ? 0.34 : 0.14, t);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + (dum ? 0.32 : 0.1));
+    o.connect(g).connect(out);
+    o.start(t);
+    o.stop(t + 0.35);
+    this.noiseBurst(ac, out, t, 0.06, dum ? 0.16 : 0.12, dum ? 180 : 900, 0.9);
+  }
+
+  clap(ac, out, t) {
+    this.noiseBurst(ac, out, t, 0.045, 0.22, 2200, 0.8);
+    this.noiseBurst(ac, out, t, 0.03, 0.12, 4800, 1.2);
+  }
+
+  softBell(ac, out, t, k = 1) {
+    [1, 2.45, 4.1].forEach((p, i) => {
+      const o = ac.createOscillator();
+      const g = ac.createGain();
+      o.frequency.value = 784 * k * p;
+      g.gain.setValueAtTime(0.0001, t);
+      g.gain.exponentialRampToValueAtTime(0.16 / (i + 1), t + 0.004);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + 2.4 / (1 + i * 0.5));
+      o.connect(g).connect(out);
+      o.start(t);
+      o.stop(t + 2.6);
+    });
+  }
+
+  singingBowl(ac, out, t, fund) {
+    [1, 2.76, 5.4, 8.93].forEach((p, i) => {
+      const o = ac.createOscillator();
+      o.frequency.value = fund * p;
+      const g = ac.createGain();
+      g.gain.setValueAtTime(0.0001, t);
+      g.gain.linearRampToValueAtTime((0.16 / (i + 1)), t + 0.03);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + 7.5 / (1 + i * 0.12));
+      o.connect(g).connect(out);
+      o.start(t);
+      o.stop(t + 8);
+    });
+  }
+
+  woodblock(ac, out, t) {
+    this.noiseBurst(ac, out, t, 0.04, 0.18, 980, 6);
+    const o = ac.createOscillator();
+    o.type = 'sine';
+    o.frequency.setValueAtTime(890, t);
+    o.frequency.exponentialRampToValueAtTime(420, t + 0.06);
+    const g = ac.createGain();
+    g.gain.setValueAtTime(0.12, t);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + 0.08);
+    o.connect(g).connect(out);
+    o.start(t);
+    o.stop(t + 0.1);
   }
 
   conch(ac, out, t) {
@@ -422,7 +651,11 @@ export class TempleViewer {
     const m = new THREE.Matrix4(), q = new THREE.Quaternion(), one = new THREE.Vector3(1, 1, 1), zero = new THREE.Vector3();
     return {
       mesh,
-      burst(center, radius) {
+      burst(center, radius, cols) {
+        if (cols) {
+          P.forEach((_, i) => mesh.setColorAt(i, new THREE.Color(cols[i % cols.length])));
+          if (mesh.instanceColor) mesh.instanceColor.needsUpdate = true;
+        }
         const r = Math.min(40, radius * 0.5);
         P.forEach((p) => {
           const a = Math.random() * Math.PI * 2, d = Math.sqrt(Math.random()) * r;
@@ -464,7 +697,12 @@ export class TempleViewer {
     this.petals.update(dt, t);
 
     if (this.aartiUntil && t < this.aartiUntil) {
-      this.applyLamps(1.8 + Math.sin(t * 9) * 0.35 + Math.sin(t * 23) * 0.2);
+      const s = this.ritual?.sound;
+      if (s === 'kirtan') this.applyLamps(1.32 + Math.sin(t * 2.2) * 0.08);
+      else if (s === 'qawwali') this.applyLamps(1.55 + Math.sin(t * 1.7) * 0.22);
+      else if (s === 'bowl') this.applyLamps(1.16 + Math.sin(t * 1.1) * 0.06);
+      else if (s === 'stavan') this.applyLamps(1.38 + Math.sin(t * 5) * 0.14);
+      else this.applyLamps(1.8 + Math.sin(t * 9) * 0.35 + Math.sin(t * 23) * 0.2);
     } else if (this.aartiUntil) {
       this.aartiUntil = 0;
       this.applyLamps(1);
