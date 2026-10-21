@@ -8,6 +8,70 @@ export const TRADITIONS = {
   Jain: { color: '#e04b6a', glyph: '✋' },
 };
 
+/** 3D-viewer labels and rituals. Aarti / conch / bells are Hindu only. */
+export const RITUALS = {
+  Hindu: {
+    place: 'temple',
+    explore: '🛕 Explore temple in 3D',
+    pradakshina: '↻ Pradakshina',
+    walk: '🚶 Walk inside',
+    rite: '🪔 Aarti',
+    circleHint: 'Circling clockwise, keeping the shrine on your right · drag to stop',
+    inspect: 'Click any part of the temple',
+    inspectBody: 'Tower, sanctum, halls, gateways, flags, lamps and pilgrims each explain their meaning and history.',
+    lamps: ['Diyas (oil lamps)', 'Rows of ghee and oil lamps. Lighting a diya is an offering of light to dispel ignorance, and at aarti the whole temple glows.'],
+    pilgrims: ['Pilgrims', 'Devotees doing pradakshina, walking clockwise so the sacred stays on their right. Many come from thousands of kilometres away.'],
+  },
+  Sikh: {
+    place: 'gurdwara',
+    explore: '🛕 Explore gurdwara in 3D',
+    pradakshina: '↻ Parikrama',
+    walk: '🚶 Walk inside',
+    rite: null,
+    circleHint: 'Walking the parikrama around the sarovar · drag to stop',
+    inspect: 'Click any part of the gurdwara',
+    inspectBody: 'Harmandir, sarovar, causeway, langar hall and Nishan Sahib each explain their meaning and history.',
+    lamps: ['Lamps', 'Gilded lamps along the causeway and parikrama. Their light is kept burning as a mark of reverence for the Guru Granth Sahib.'],
+    pilgrims: ['Pilgrims', 'Devotees walking the parikrama around the sarovar, many reciting Gurbani. The four doors welcome people of every faith.'],
+  },
+  Buddhist: {
+    place: 'temple',
+    explore: '☸ Explore temple in 3D',
+    pradakshina: '↻ Pradakshina',
+    walk: '🚶 Walk inside',
+    rite: null,
+    circleHint: 'Circling clockwise around the shrine · drag to stop',
+    inspect: 'Click any part of the temple',
+    inspectBody: 'The shrine, walkways, flags, lamps and pilgrims each explain their meaning and history.',
+    lamps: ['Butter lamps', 'Rows of lamps offered by pilgrims. Lighting one is a prayer that wisdom will shine as clearly as this flame.'],
+    pilgrims: ['Pilgrims', 'Devotees circling the shrine clockwise, some in meditation, some offering flowers and flags at the Bodhi tree.'],
+  },
+  Sufi: {
+    place: 'dargah',
+    explore: '🕌 Explore dargah in 3D',
+    pradakshina: '↻ Walk the courtyard',
+    walk: '🚶 Walk inside',
+    rite: null,
+    circleHint: 'Walking around the courtyard · drag to stop',
+    inspect: 'Click any part of the dargah',
+    inspectBody: 'The shrine, courtyard, gates, lamps and devotees each explain their meaning and history.',
+    lamps: ['Chirag (lamps)', 'Oil lamps around the shrine. Lighting them is a quiet offering at the dargah, especially at dusk.'],
+    pilgrims: ['Devotees', 'People of many faiths come for ziyarat, offering chadars of flowers and sitting in the courtyard of Gharib Nawaz.'],
+  },
+  Jain: {
+    place: 'temple',
+    explore: '🛕 Explore temple in 3D',
+    pradakshina: '↻ Pradakshina',
+    walk: '🚶 Walk inside',
+    rite: null,
+    circleHint: 'Circling clockwise, keeping the shrine on your right · drag to stop',
+    inspect: 'Click any part of the temple',
+    inspectBody: 'Shikhara, sanctum, halls, gateways, flags, lamps and pilgrims each explain their meaning and history.',
+    lamps: ['Diyas (oil lamps)', 'Lamps kept around the shrines. Lighting a diya is an offering of light on the path of the tirthankaras.'],
+    pilgrims: ['Pilgrims', 'Devotees climbing and circling the shrines. Many have taken vows of fasting and walk the hills barefoot.'],
+  },
+};
+
 export const SITES = [
   {
     id: 'kashi',

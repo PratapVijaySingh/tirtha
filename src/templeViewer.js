@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { Sky } from 'three/addons/objects/Sky.js';
 import { buildTemple } from './templeBuilders.js';
-import { TRADITIONS } from './sites.js';
+import { TRADITIONS, RITUALS } from './sites.js';
 
 const TIMES = {
   day: { label: '☀ Day', elev: 48, az: 135, sun: 3.2, sunColor: 0xfff0dc, hemi: 0.75, exposure: 0.5, lamps: 0.6, point: 0, stars: false, fog: 0xd9d6c8 },
@@ -119,10 +119,17 @@ export class TempleViewer {
     });
 
     const tr = TRADITIONS[site.tradition];
+    this.ritual = RITUALS[site.tradition] || RITUALS.Hindu;
     this.ui.tradition.textContent = site.tradition;
     this.ui.tradition.style.background = tr.color;
     this.ui.name.textContent = site.name;
     this.ui.style.textContent = this.temple.styleLabel;
+    this.ui.pradakshina.textContent = this.ritual.pradakshina;
+    this.ui.walk.textContent = this.ritual.walk;
+    const hasRite = !!this.ritual.rite;
+    this.ui.aarti.textContent = this.ritual.rite || '';
+    this.ui.aarti.classList.toggle('hidden', !hasRite);
+    this.aartiUntil = 0;
     this.showPart(null);
 
     const ext = Math.max(this.temple.bounds.w, this.temple.bounds.d);
@@ -222,7 +229,7 @@ export class TempleViewer {
     this.ui.hint.textContent = mode === 'walk'
       ? 'W A S D to walk · drag to look · Shift to run · climb steps by walking into them · Esc to stop'
       : mode === 'pradakshina'
-        ? 'Circling clockwise, keeping the shrine on your right · drag to stop'
+        ? (this.ritual?.circleHint || 'Circling clockwise, keeping the shrine on your right · drag to stop')
         : 'Drag to orbit · Right-drag to pan · Scroll to zoom · Click to inspect';
     if (mode === 'walk' && this.temple) {
       const s = this.temple.walkStart;
@@ -337,15 +344,17 @@ export class TempleViewer {
   }
 
   showPart(p) {
+    const r = this.ritual || RITUALS.Hindu;
     this.ui.part.innerHTML = p
       ? `<b>${p.userData.part.name}</b><p>${p.userData.part.desc}</p>`
-      : '<b>Click any part of the temple</b><p>Tower, sanctum, halls, gateways, flags, lamps and pilgrims each explain their meaning and history.</p>';
+      : `<b>${r.inspect}</b><p>${r.inspectBody}</p>`;
     if (p) this.ui.hud?.classList.remove('minimized');
   }
 
-  // ------------------------------------------------------------ aarti
+  // ------------------------------------------------------------ aarti (Hindu only)
 
   aarti() {
+    if (!this.ritual?.rite) return;
     this.audio ||= new AudioContext();
     const ac = this.audio;
     if (ac.state === 'suspended') ac.resume();

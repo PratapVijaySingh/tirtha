@@ -1,4 +1,4 @@
-import { SITES, TRADITIONS } from './sites.js';
+import { SITES, TRADITIONS, RITUALS } from './sites.js';
 import { Globe } from './globe.js';
 import { StreetWalker } from './streetWalk.js';
 import { INFO_VERIFIED, fetchWeather, haversineKm, getUserPosition } from './visitorInfo.js';
@@ -214,6 +214,7 @@ function showInfo(site) {
   $('linkMaps').href = `https://www.google.com/maps/search/?api=1&query=${site.lat},${site.lon}`;
   $('linkWiki').href = `https://en.wikipedia.org/wiki/${site.wiki}`;
   $('infoDisclaimer').textContent = `Confirm hours and tickets on the official site before you travel. Visitor facts last checked ${INFO_VERIFIED}.`;
+  $('actTemple').textContent = (RITUALS[site.tradition] || RITUALS.Hindu).explore;
   $('infoPanel').classList.remove('hidden');
   loadWikiImage(site);
   loadWeather(site);

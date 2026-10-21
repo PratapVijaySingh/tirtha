@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { RITUALS } from './sites.js';
 
 const V2 = (x, y) => new THREE.Vector2(x, y);
 const SQ2 = Math.SQRT2;
@@ -530,7 +531,8 @@ function devotees(ctx, count, path, colors = ROBES) {
   };
   update(0);
   ctx.animators.push(update);
-  const g = part('Pilgrims', 'Devotees doing pradakshina, walking clockwise so the sacred stays on their right. Many come from thousands of kilometres away.', mesh, heads);
+  const copy = (RITUALS[ctx.site.tradition] || RITUALS.Hindu).pilgrims;
+  const g = part(copy[0], copy[1], mesh, heads);
   g.traverse((o) => (o.userData.noCollide = true));
   return g;
 }
@@ -1599,7 +1601,8 @@ export function buildTemple(site) {
   const lampMesh = new THREE.InstancedMesh(lampGeo, lampMat, ctx.lamps.length);
   ctx.lamps.forEach((p, i) => lampMesh.setMatrixAt(i, mat4(p.x, p.y + 0.11, p.z)));
   lampMesh.userData.noCollide = true;
-  res.root.add(part('Diyas (oil lamps)', 'Rows of ghee and oil lamps. Lighting a diya is an offering of light to dispel ignorance, and at aarti the whole temple glows.', lampMesh));
+  const lampCopy = (RITUALS[site.tradition] || RITUALS.Hindu).lamps;
+  res.root.add(part(lampCopy[0], lampCopy[1], lampMesh));
 
   scene.traverse((o) => {
     if (!o.userData.part) return;
