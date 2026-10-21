@@ -1,0 +1,272 @@
+[
+  {
+    "id": "ajmer",
+    "lat": 26.4561,
+    "lon": 74.6282,
+    "elevation_m": 480,
+    "timings": "Summer approx 4 AM–10 PM, winter approx 5 AM–9 PM; khidmat at dawn and afternoon; Roshni (lamp-lighting) dua before Maghrib",
+    "closures": "Open all year; hours extend (approx 5 AM–1 AM) during Urs",
+    "entry": "Free",
+    "booking": {
+      "name": "No booking needed for ziyarat (Dargah Committee site for info)",
+      "url": "https://gharibnawaz.minorityaffairs.gov.in"
+    },
+    "official_site": "https://gharibnawaz.minorityaffairs.gov.in",
+    "dress_code": "Modest clothing; head must be covered for all (scarf/cap); women commonly wear saree or salwar suit",
+    "rules": [
+      "Cover your head before entering the shrine",
+      "Remove footwear; wash hands and feet before entering",
+      "Expect security checks at the gates",
+      "Managed by the Dargah Committee under the Dargah Khwaja Saheb Act, 1955"
+    ],
+    "best_time": "October–February for pleasant weather; early morning or evening Roshni for calmer visits",
+    "festivals": [
+      { "name": "Urs of Khwaja Gharib Nawaz", "when": "1–6 Rajab (Islamic calendar); 815th Urs expected approx 11–19 Dec 2026, moon-dependent" },
+      { "name": "Flag (Jhanda) ceremony before Urs", "when": "Approx 6 Dec 2026 (per khadim sources)" },
+      { "name": "Jannati Darwaza opening", "when": "Opened during Urs (approx 11–16 Dec 2026 per khadim sources)" }
+    ],
+    "reach": {
+      "airport": { "name": "Kishangarh Airport", "code": "KQH", "km": 30 },
+      "railway": { "name": "Ajmer Junction", "km": 2 },
+      "road": "On NH-48 corridor; Jaipur approx 135 km by highway; frequent RSRTC buses",
+      "local": "Shrine is in the old city near Taragarh hill; lanes are narrow, so walk or take an e-rickshaw for the last stretch"
+    },
+    "trek": null,
+    "avg_visit_time": "1–2 hours (much longer during Urs)",
+    "tips": [
+      "Kishangarh has few flights; Jaipur International (JAI) is the better-connected alternative",
+      "Avoid Urs week if you dislike huge crowds; book stays weeks ahead if you go then",
+      "Carry a scarf or cap for head covering",
+      "Buy chadar/flowers only from shops you choose; politely decline pushy touts",
+      "Combine with Pushkar (approx 15 km) and Adhai Din Ka Jhonpra nearby"
+    ],
+    "notes": "Daily hours come from khadim-run sites, not the Dargah Committee site. Official Urs dates depend on Rajab moon sighting. Phone/camera rules inside the shrine could not be verified from an official source. Airport km is approximate (Wikipedia: KQH is 27 km NE of Ajmer city).",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Ajmer_Sharif_Dargah",
+      "https://en.wikipedia.org/wiki/Ajmer",
+      "https://gharibnawaz.minorityaffairs.gov.in/aboutdksa",
+      "https://gharibnawaz.minorityaffairs.gov.in/contactus",
+      "https://www.syedajmersharif.com/post/ajmersharifdargahtimings",
+      "https://chishtyajmersharif.com/Urs-Ajmer-Sharif.html",
+      "https://www.ajmer-sharif.com/Urs%20Ajmer%20Dargah.html",
+      "https://en.wikipedia.org/wiki/Kishangarh_Airport",
+      "https://www.tv9hindi.com/webstories/religion/keep-these-things-in-mind-before-going-to-ajmer-sharif"
+    ]
+  },
+  {
+    "id": "khajuraho",
+    "lat": 24.8530,
+    "lon": 79.9197,
+    "elevation_m": 282,
+    "timings": "Western Group: sunrise–sunset daily (approx 6 AM–6 PM); ASI online slots 6–12 and 12–18",
+    "closures": "Open all year, every day",
+    "entry": "ASI ticket: Indian/SAARC/BIMSTEC ₹35 online (₹40 cash), foreigners ₹550 online (₹600 cash), under-15 free. Sound & light: Indian ₹300/₹150 child, foreign ₹800/₹400",
+    "booking": {
+      "name": "ASI e-ticketing (circle: Jabalpur → Western Group of Temples, Khajuraho)",
+      "url": "https://asi.paygov.org.in/asi-webapp/"
+    },
+    "official_site": "https://asi.nic.in/pages/WorldHeritageKhajuraho",
+    "dress_code": "No formal dress code (ASI monument); modest clothing advised as Matangeshwar next door is an active temple",
+    "rules": [
+      "Carry the QR ticket plus photo ID",
+      "Only the Western Group is ticketed; Eastern and Southern groups are free",
+      "Sound & light show is a separate MP Tourism ticket bought at the venue",
+      "Do not climb on or touch the sculptures"
+    ],
+    "best_time": "October–March; early morning or late afternoon for the best light on the carvings",
+    "festivals": [
+      { "name": "Khajuraho Dance Festival", "when": "Late February annually (2026 edition: 20–26 Feb)" },
+      { "name": "Mahashivratri (at adjacent Matangeshwar Temple)", "when": "Feb/Mar" }
+    ],
+    "reach": {
+      "airport": { "name": "Khajuraho Airport", "code": "HJR", "km": 6 },
+      "railway": { "name": "Khajuraho (KURJ)", "km": 9 },
+      "road": "Chhatarpur 47 km, Panna 43 km, Mahoba 55 km, Jhansi approx 175 km",
+      "local": "Western Group is in the village centre; walk, cycle, auto-rickshaw or taxi"
+    },
+    "trek": null,
+    "avg_visit_time": "2–3 hours for the Western Group; add an evening for the show",
+    "tips": [
+      "Buy tickets online for a ₹5–50 discount and to skip the counter",
+      "Sound & light shows: Oct–Feb English 6:30 PM, Hindi 7:25 PM; Mar–Sep English 7:30 PM, Hindi 8:25 PM",
+      "Hire an ASI-approved guide at the gate to understand the iconography",
+      "Summer (Apr–Jun) is very hot; start at opening time",
+      "Panna Tiger Reserve and Raneh Falls make good add-ons"
+    ],
+    "notes": "Kandariya Mahadeva itself is a protected monument, not an active worship temple. Airport/railway km are from Wikipedia and vary (5–8 km) across guides. ASI's own page still lists cash prices ₹40/₹600.",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Kandariya_Mahadeva_Temple",
+      "https://asi.nic.in/pages/WorldHeritageKhajuraho",
+      "https://asi.paygov.org.in/asi-webapp/",
+      "https://theentryfee.com/tickets/khajuraho/",
+      "https://sightsale.com/khajuraho/",
+      "https://www.mptourism.com/sound-light-show-in-madhya-pradesh.html",
+      "https://www.freepressjournal.in/bhopal/light-and-sound-event-begins-in-khajuraho-temple-again",
+      "https://mpcg.ndtv.in/madhya-pradesh-news/khajuraho-dance-festival-2026-nataraj-theme-52nd-international-khajuraho-nritya-samaroh-padma-shri-sangeet-natak-akademi-awardee-dancers-prastuti-11093436"
+    ]
+  },
+  {
+    "id": "akshardham",
+    "lat": 28.6125,
+    "lon": 77.2772,
+    "elevation_m": 205,
+    "timings": "Tue–Sun, entry 10 AM–6:30 PM (last entry); mandir darshan 10 AM–8 PM; arti 10:30 AM & 6 PM; water show after sunset (currently 7:30 PM)",
+    "closures": "Closed every Monday",
+    "entry": "Complex and mandir free. Exhibitions ₹260 adult, ₹210 senior 60+, ₹160 child 4–11. Water show ₹110 adult/senior, ₹80 child. Under-4 free",
+    "booking": {
+      "name": "No booking for darshan; exhibition/water-show tickets at on-site counters (see official visitor info)",
+      "url": "https://akshardham.com/visitor-info/"
+    },
+    "official_site": "https://akshardham.com",
+    "dress_code": "Cover shoulders, chest, back and upper arms; lower wear below knees; no sleeveless/shorts. Sarong sold at ₹100",
+    "rules": [
+      "No mobile phones, cameras, USB drives, smartwatches or any electronics inside",
+      "No food, drinks, pets, tobacco, alcohol or drones",
+      "Deposit banned items at the free cloakroom (switched off) before security",
+      "Metal detectors and frisking for all visitors; vehicles are searched",
+      "Photography is not allowed"
+    ],
+    "best_time": "October–March weekdays (Tue–Fri); arrive by early afternoon to fit in the water show",
+    "festivals": [
+      { "name": "Diwali & Annakut", "when": "Oct/Nov" }
+    ],
+    "reach": {
+      "airport": { "name": "Indira Gandhi International Airport", "code": "DEL", "km": 21 },
+      "railway": { "name": "Hazrat Nizamuddin (NZM)", "km": 6 },
+      "road": "On NH-24 / Pramukh Swami Maharaj Marg by the Yamuna; New Delhi station 11 km",
+      "local": "Akshardham Metro (Blue Line) is 350 m walk to Gate 1; paid visitor parking"
+    },
+    "trek": null,
+    "avg_visit_time": "3–4 hours; 5–6 hours with exhibitions and water show",
+    "tips": [
+      "Leave your phone at the hotel to skip the cloakroom queue (30–45 min on weekends)",
+      "Exhibition ticket window closes at 6 PM; the three halls take about 2 hours",
+      "Front rows at the water show can get wet in wind; show is in Hindi",
+      "Don't plan a Monday visit — it's closed",
+      "Vegetarian food court on site"
+    ],
+    "notes": "Elevation is approximate (Delhi plains on the Yamuna floodplain); not verified for the exact site. Water-show prices come from 2026 guides citing the official page; the official water-show page itself lists no price. Festival programme dates not verified on the official site.",
+    "sources": [
+      "https://akshardham.com/visitor-info/",
+      "https://akshardham.com/explore/exhibitions/",
+      "https://akshardham.com/explore/water-show/",
+      "https://en.wikipedia.org/wiki/Swaminarayan_Akshardham_(Delhi)",
+      "https://travell.cc/delhi/akshardham-temple-guide/",
+      "https://outstationride.com/akshardham-ticket-price/",
+      "https://delhitourism.gov.in/tourist_place/akshardham_temple.html"
+    ]
+  },
+  {
+    "id": "ujjain",
+    "lat": 23.1828,
+    "lon": 75.7683,
+    "elevation_m": 494,
+    "timings": "Approx 4 AM–11 PM. Bhasma Aarti 4–6 AM; Sandhya 7–7:45 PM (Chaitra–Ashwin) / 6:30–7:15 PM (Kartik–Phalgun); Shayan 10:30–11 PM",
+    "closures": "Open all year; darshan pauses during each aarti",
+    "entry": "General darshan free. Sheeghra (fast-track) darshan ₹250. Bhasma Aarti online booking; Tatkal ₹200 per person. Mahakal Lok corridor free",
+    "booking": {
+      "name": "Shri Mahakaleshwar Jyotirlinga official portal (Bhasma Aarti, Sheeghra Darshan, aarti, guest houses)",
+      "url": "https://www.shrimahakaleshwar.mp.gov.in/"
+    },
+    "official_site": "https://www.shrimahakaleshwar.mp.gov.in/",
+    "dress_code": "General darshan: modest full-length clothes, no shorts/sleeveless. Bhasma Aarti/sanctum areas: men unstitched dhoti + sola, women saree",
+    "rules": [
+      "Bhasma Aarti is online-only since 9 Apr 2026; offline free passes discontinued",
+      "Regular Bhasma Aarti booking opens 1st of the previous month, 8 AM; Tatkal opens 1 day before, 8 AM",
+      "Carry the same original photo ID used for booking",
+      "Phones, cameras, leather items and bags go in lockers before inner security",
+      "General public entry into the Garbhagriha (sanctum) is currently closed"
+    ],
+    "best_time": "October–March; weekday mornings are least crowded",
+    "festivals": [
+      { "name": "Mahashivratri", "when": "Feb/Mar" },
+      { "name": "Mahakal Sawari (procession)", "when": "Mondays of Shravan–Bhadrapada (Jul–Sep)" },
+      { "name": "Nag Panchami (Nagchandreshwar shrine opens)", "when": "Once a year, Jul/Aug" },
+      { "name": "Simhastha Kumbh", "when": "27 Mar–27 May 2028 (announced)" }
+    ],
+    "reach": {
+      "airport": { "name": "Devi Ahilya Bai Holkar Airport, Indore", "code": "IDR", "km": 58 },
+      "railway": { "name": "Ujjain Junction", "km": 2 },
+      "road": "Indore approx 55 km via 4-lane highway; Omkareshwar approx 140 km",
+      "local": "Enter via Mahakal Lok (Nandi Dwar); e-carts and wheelchairs at gates; autos/e-rickshaws in town"
+    },
+    "trek": null,
+    "avg_visit_time": "2–5 hours (general queue 2–5 h; Sheeghra pass much shorter)",
+    "tips": [
+      "Book Bhasma Aarti only on the official portal — slots fill fast and agents are not allowed",
+      "Report well before 4 AM for Bhasma Aarti; late entry is usually denied",
+      "Carry a printout of your pass since phones go into lockers",
+      "Walk Mahakal Lok after sunset for the illuminated corridor (open approx 6 AM–10 PM)",
+      "Avoid Shravan Mondays and Mahashivratri unless prepared for 6+ hour queues"
+    ],
+    "notes": "Tatkal fee (₹200) is from NDTV (Apr 2026); confirm the fee shown on the portal. Bhasma Aarti dress rule details are from guides, not an official notice. Sanctum-entry status changes; check the portal before travel. Simhastha bathing dates not officially announced yet.",
+    "sources": [
+      "https://www.shrimahakaleshwar.mp.gov.in/",
+      "https://www.shrimahakaleshwar.mp.gov.in/timing",
+      "https://www.shrimahakaleshwar.mp.gov.in/services/",
+      "https://en.wikipedia.org/wiki/Mahakaleshwar_Jyotirlinga",
+      "https://en.wikipedia.org/wiki/Ujjain",
+      "https://ndtv.in/madhya-pradesh-chhattisgarh/ujjain-news-srimahakaleshwar-temple-offline-bhasma-aarti-mahakal-temple-samiti-online-booking-booking-timings-changed-11359782",
+      "https://timesofindia.indiatimes.com/life-style/travel/things-to-do/mahakaleshwar-bhasma-aarti-2026-complete-booking-guide-rituals-and-what-travellers-must-know/articleshow/130675537.cms",
+      "https://bhasmaartibooking.com/mahakal-darshan-guide/",
+      "https://www.incredibleindia.gov.in/en/madhya-pradesh/ujjain/mahakal-lok-corridor-and-its-enchanting-attractions",
+      "https://thenationmirror.in/madhya-pradesh-news/ujjain-simhastha-2028-mp-cm-dr-mohan-yadav-announces-dates-for-the-fair/180069"
+    ]
+  },
+  {
+    "id": "palitana",
+    "lat": 21.4830,
+    "lon": 71.7940,
+    "elevation_m": 603,
+    "timings": "Ram Pol gate opens at sunrise, closes 5 PM (Kartik–Magh) / 5:30 PM (Phalgun–Ashadh); Adinath prakshal puja approx 8:50–9:50 AM; evening aarti 4–4:30 PM",
+    "closures": "Yatra closed during Chaturmas (monsoon): after Ashadh Sud 14 until Kartik Purnima. 2026 reopening: 24 Nov 2026",
+    "entry": "Free",
+    "booking": {
+      "name": "No booking needed; dharamshalas and doli info via Seth Anandji Kalyanji Pedhi",
+      "url": "https://anandjikalyanjipedhi.org/tirth/shatrunjaya-palitana/"
+    },
+    "official_site": "https://anandjikalyanjipedhi.org/tirth/shatrunjaya-palitana/",
+    "dress_code": "Modest clothing covering shoulders and knees; footwear removed at temples",
+    "rules": [
+      "No one may stay on the hill overnight — not even priests; descend before evening",
+      "Do not eat or carry food on the way up",
+      "Leather items should not be carried",
+      "Climbing is not done during Chaturmas out of respect for ahimsa"
+    ],
+    "best_time": "November–February; start the climb at sunrise to avoid heat",
+    "festivals": [
+      { "name": "Kartik Purnima (hill reopens; Chha Gau yatra)", "when": "Oct/Nov full moon; 24 Nov 2026" },
+      { "name": "Fagun Sud 13 (Chha Gau / 6-Gaon pradakshina)", "when": "Feb/Mar" },
+      { "name": "Akshaya Tritiya (Varshitap parna)", "when": "Apr/May" }
+    ],
+    "reach": {
+      "airport": { "name": "Bhavnagar Airport", "code": "BHU", "km": 56 },
+      "railway": { "name": "Palitana", "km": 2 },
+      "road": "Bhavnagar 51 km, Ahmedabad approx 225 km; GSRTC buses",
+      "local": "Taleti (hill base) is about 2 km from Palitana station/bus stand; autos available; 200+ dharamshalas"
+    },
+    "trek": {
+      "from": "Jay Taleti (base of Shatrunjaya hill), Palitana",
+      "km": 3.6,
+      "notes": "About 3,501 stone steps per the managing trust (often quoted as 3,500–3,750+); 2–3 hours up; rest stops and water en route; doli chairs at Taleti"
+    },
+    "avg_visit_time": "Full day (5–8 hours including climb, darshan and descent)",
+    "tips": [
+      "Begin the climb at dawn and carry water; there's little shade",
+      "Doli (palanquin) rates vary by season and crowd; confirm at the Taleti office",
+      "Bhavnagar has limited flights; Ahmedabad is the usual gateway",
+      "Book dharamshalas early around Kartik Purnima",
+      "Bamboo walking sticks are available at the base"
+    ],
+    "notes": "Coordinates are Wikipedia's for the temple complex (approx, summit area). Elevation 603 m is Wikipedia's peak figure; the trust says approx 2,000 ft. Gujarat Tourism lists 6:30 AM–6 PM hours and 3,750+ steps; trust timings used instead. Leather rule is from a secondary guide.",
+    "sources": [
+      "https://anandjikalyanjipedhi.org/tirth/shatrunjaya-palitana/",
+      "https://en.wikipedia.org/wiki/Palitana_temples",
+      "https://bhavnagar.nic.in/tourist-place/palitana-temple/",
+      "https://gujarattourism.com/saurashtra/bhavnagar/palitana-and-shatrunjaya-hill.html",
+      "https://sanatanbodh.in/en/jain/kartik-purnima-shatrunjaya/",
+      "https://adisthan.com/places/palitana-shatrunjaya",
+      "https://www.travelmath.com/drive-distance/from/BHU/to/Palitana,+India"
+    ]
+  }
+]

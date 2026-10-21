@@ -1,0 +1,295 @@
+[
+  {
+    "id": "konark",
+    "name": "Konark Sun Temple",
+    "lat": 19.8875,
+    "lon": 86.0947,
+    "elevation_m": null,
+    "timings": "Sunrise to sunset (ASI). Light & sound show: Mar–Nov 7:30 & 8:20 PM; Dec–Feb 6:30 & 7:20 PM.",
+    "closures": "Open all year (ASI monument). No active worship; it is a protected heritage site.",
+    "entry": "ASI ticket: Indians & SAARC/BIMSTEC ₹40 cash / ₹35 online; other foreigners ₹600 cash / ₹550 online; under-15 free.",
+    "booking": {
+      "name": "ASI online entry ticket (via ASI 'Must See' page)",
+      "url": "https://asimustsee.nic.in/sun-temple-konark.php"
+    },
+    "official_site": "https://asi.nic.in/pages/WorldHeritageKonarak",
+    "dress_code": "No formal dress code (monument). Modest clothing, a hat and comfortable footwear are advisable.",
+    "rules": [
+      "Do not climb on, touch or deface carvings",
+      "Follow ASI barricades and restricted zones",
+      "Light & sound show tickets are sold separately at the venue",
+      "Keep the UNESCO site litter-free"
+    ],
+    "best_time": "October to February (winter); ASI lists winter as the best season.",
+    "festivals": [
+      { "name": "Konark Dance Festival", "when": "1–5 December annually (2026: 1–5 Dec)" },
+      { "name": "International Sand Art Festival, Chandrabhaga Beach", "when": "1–5 December 2026, alongside Konark Festival" },
+      { "name": "Chandrabhaga Mela / Magha Saptami", "when": "Magha Shukla Saptami (Jan–Feb); holy dip at Chandrabhaga" }
+    ],
+    "reach": {
+      "airport": { "name": "Biju Patnaik International Airport, Bhubaneswar", "code": "BBI", "km": 65 },
+      "railway": { "name": "Puri Railway Station", "km": 35 },
+      "road": "35 km NE of Puri via Marine Drive; ~65 km from Bhubaneswar. Regular buses to Konark Bus Station.",
+      "local": "Walk from Konark bus stand; autos/taxis to Chandrabhaga Beach (~1 km) and Puri."
+    },
+    "trek": null,
+    "avg_visit_time": "2–3 hours (plus ~45 min for the evening light & sound show)",
+    "tips": [
+      "Arrive at opening for cooler weather, softer light and fewer crowds",
+      "Book online to save ₹5 per ticket and skip the cash queue",
+      "Hire an approved guide to understand the wheel sundials and carvings",
+      "Combine with Chandrabhaga Beach and Puri on the Marine Drive route",
+      "Carry water and sun protection; there is little shade in the complex"
+    ],
+    "notes": "Elevation not verified from an authoritative source (coastal, near sea level). A secondary source says the light & sound show is closed on Mondays; not confirmed officially. Show ticket prices are approximate per Odisha Tourism.",
+    "sources": [
+      "https://asi.nic.in/pages/WorldHeritageKonarak",
+      "https://asimustsee.nic.in/sun-temple-konark.php",
+      "https://odishatourism.gov.in/en/light-sound-shows",
+      "https://www.incredibleindia.gov.in/en/festivals-and-events/konark-festival",
+      "https://odishatourism.gov.in/documents/d/guest/applicants-rules-and-regulations-sand-art-festival-2026-1-",
+      "https://en.wikipedia.org/wiki/Konark_Sun_Temple"
+    ]
+  },
+  {
+    "id": "somnath",
+    "name": "Somnath Jyotirlinga Temple",
+    "lat": 20.8880,
+    "lon": 70.4014,
+    "elevation_m": null,
+    "timings": "Darshan 6:00 AM–10:00 PM. Aarti 7:00 AM, 12:00 noon, 7:00 PM. 'Jay Somnath' light & sound show 8–9 PM.",
+    "closures": "Open all year. Light & sound show not held in the monsoon/rainy season.",
+    "entry": "Free entry. Pooja vidhi and guest houses are paid.",
+    "booking": {
+      "name": "Shree Somnath Trust – Online Pooja Vidhi / Donation & Guest House booking",
+      "url": "https://somnath.org/online-donation/"
+    },
+    "official_site": "https://somnath.org/",
+    "dress_code": "Indian wear, trousers, T-shirts and skirts allowed; mini skirts and disrespectful dress not permitted.",
+    "rules": [
+      "Mobiles, cameras, smartwatches and all electronics prohibited; free cloak room lockers",
+      "Photography strictly prohibited inside",
+      "Remove footwear; free shoe house near the cloak room",
+      "No smoking anywhere near the temple",
+      "Prayer open to persons with faith in Hinduism (per Trust FAQ)"
+    ],
+    "best_time": "October to March for pleasant coastal weather; Shravan month and Mahashivratri for festivities (crowded).",
+    "festivals": [
+      { "name": "Shravan Maas", "when": "Shravan month (Jul–Aug), especially Mondays" },
+      { "name": "Mahashivratri", "when": "Phalguna (Feb–Mar)" },
+      { "name": "Kartik Purnima Fair", "when": "Kartik Purnima (Oct–Nov), 5 days" },
+      { "name": "Golokdham Utsav", "when": "Annual, per Shree Somnath Trust" },
+      { "name": "Somnath Sthapana Divas", "when": "11 May (temple re-consecration anniversary)" }
+    ],
+    "reach": {
+      "airport": { "name": "Keshod Airport", "code": "IXK", "km": 57 },
+      "railway": { "name": "Somnath Railway Station (Veraval Jn ~7 km)", "km": 2.5 },
+      "road": "Well connected by GSRTC buses; Somnath ST bus stand ~0.8 km. Ahmedabad ~400 km, Junagadh ~82 km.",
+      "local": "Walk or auto-rickshaw. Trust's Tirth Darshan bus to nearby shrines leaves main gate at 8:30 AM & 3:30 PM."
+    },
+    "trek": null,
+    "avg_visit_time": "2–3 hours (half day with light & sound show and nearby tirthas)",
+    "tips": [
+      "Deposit phones at the free cloak room before queueing; no electronics are allowed",
+      "Stay for the evening aarti and the 8 PM light & sound show (not in monsoon)",
+      "Book Trust guest houses (Sagar Darshan, Lilavati, Maheshwari) online in advance",
+      "Wheelchairs/golf carts at main gate and a lift inside help seniors",
+      "Visit Bhalka Tirth and Triveni Sangam via the Trust's Tirth Darshan bus"
+    ],
+    "notes": "Elevation not verified (seashore). Trust FAQ lists Diu (85 km) as nearest airport and Somnath station at 0.5 km; Keshod (57 km) and 2.5 km station distance are from Wikipedia/utsav.gov.in. Sthapana Divas date (11 May) is from general history, not the Trust FAQ.",
+    "sources": [
+      "https://somnath.org/faq/",
+      "https://somnath.org/online-donation/",
+      "https://somnath.org/guesthouse/guesthouse-booking-new/",
+      "https://utsav.gov.in/view-darshan/somnath-live-darshan",
+      "https://en.wikipedia.org/wiki/Somnath_temple"
+    ]
+  },
+  {
+    "id": "dwarka",
+    "name": "Dwarkadhish Temple (Jagat Mandir)",
+    "lat": 22.2379,
+    "lon": 68.9676,
+    "elevation_m": 12,
+    "timings": "Darshan 6:30 AM–1:00 PM and 5:00–9:30 PM. Mangla Aarti 6:30 AM, Sandhya Aarti ~7:30 PM, Shayan Aarti ~8:30 PM.",
+    "closures": "Open all year. Darshan pauses briefly for bhog/rituals; closed ~1–5 PM. Timings change on festival days.",
+    "entry": "Free general darshan. No official VIP darshan; seva/bhog offerings are paid.",
+    "booking": {
+      "name": "Shree Dwarkadhish Temple – Online Bhog/Seva & Donation",
+      "url": "https://www.dwarkadhish.org/"
+    },
+    "official_site": "https://www.dwarkadhish.org/",
+    "dress_code": "Clothes suited to Indian culture. Shorts, mini/midi skirts, sleeveless tops, low-waist jeans and short T-shirts are not allowed.",
+    "rules": [
+      "Deposit mobiles, cameras and leather items at lockers before entry",
+      "No photography inside the temple",
+      "Remove footwear before entering",
+      "Short or revealing clothes will be refused entry",
+      "Beware of agents selling 'VIP' darshan; general darshan is free"
+    ],
+    "best_time": "October to March; Janmashtami for festivities (very crowded).",
+    "festivals": [
+      { "name": "Krishna Janmashtami", "when": "Bhadrapada Krishna Ashtami (Aug–Sep)" },
+      { "name": "Holi / Phuldol Utsav", "when": "Phalguna Purnima (Mar)" },
+      { "name": "Annakut / Diwali", "when": "Kartik (Oct–Nov)" }
+    ],
+    "reach": {
+      "airport": { "name": "Porbandar Airport", "code": "PBD", "km": 110 },
+      "railway": { "name": "Dwarka Railway Station", "km": 2.5 },
+      "road": "NH-947 links Dwarka with Jamnagar and Porbandar. Dwarka ST bus stand ~1.2 km from temple.",
+      "local": "Autos and walking around old town; Gomti Ghat via 56 steps from Swarg Dwar. Bet Dwarka via Sudarshan Setu."
+    },
+    "trek": null,
+    "avg_visit_time": "1.5–3 hours (longer on weekends and festivals)",
+    "tips": [
+      "Reach before Mangla Aarti (6:30 AM) for shorter queues",
+      "Check the ritual break schedule; darshan pauses during bhog",
+      "Dip at Gomti Ghat and enter via Swarg Dwar as per tradition",
+      "Wear traditional clothes to avoid being turned away",
+      "Pair with Rukmini Temple, Nageshwar Jyotirlinga and Bet Dwarka"
+    ],
+    "notes": "Detailed aarti slot times come from a secondary source and match the Ministry of Tourism darshan hours; the official site has no published timings page. Jamnagar airport (JGA) is also used. Festival list beyond Janmashtami is general knowledge, not from an official schedule.",
+    "sources": [
+      "https://www.dwarkadhish.org/",
+      "https://utsav.gov.in/view-darshan/dwarkadhish-temple-live-darshan-1",
+      "https://tours.sacredyatra.com/dwarka/dwarkadhish-temple-timings/",
+      "https://navbharattimes.indiatimes.com/state/gujarat/ahmedabad/shree-dwarkadhish-vyavasthapak-samiti-bans-entry-in-short-clothes-only-indian-culture-clothes-allowed/articleshow/101752199.cms",
+      "https://deshgujarat.com/2023/07/14/wear-clothes-that-maintain-dignity-of-dwarkadhish-mandir-management-to-devotees/",
+      "https://en.wikipedia.org/wiki/Dwarkadhish_Temple"
+    ]
+  },
+  {
+    "id": "kedarnath",
+    "name": "Kedarnath Temple",
+    "lat": 30.7352,
+    "lon": 79.0669,
+    "elevation_m": 3583,
+    "timings": "Abhishek pujas early morning (book slot at counter a day prior). Evening aarti ~6:00 PM in summer. No fixed public darshan timetable published.",
+    "closures": "Seasonal: 2026 season opened 22 Apr (8 AM); closes for winter on Bhai Dooj, 11 Nov 2026. Winter puja at Omkareshwar Temple, Ukhimath.",
+    "entry": "Free darshan. Mandatory free Char Dham registration. Pujas paid via BKTC; helicopter fares extra.",
+    "booking": {
+      "name": "Uttarakhand Char Dham Yatra Registration (mandatory, free)",
+      "url": "https://registrationandtouristcare.uk.gov.in/",
+      "puja": { "name": "BKTC online puja booking", "url": "https://badrinath-kedarnath.gov.in/online-services/book-puja-online/Book_Pooja_Online.aspx" },
+      "helicopter": { "name": "IRCTC HeliYatra (only official helicopter booking)", "url": "https://heliyatra.irctc.co.in/" }
+    },
+    "official_site": "https://badrinath-kedarnath.gov.in/",
+    "dress_code": "No formal code published; modest clothing. Heavy woollens, rain gear and trekking shoes essential.",
+    "rules": [
+      "Char Dham registration mandatory; QR pass checked at Sonprayag and the Dham",
+      "Mobile phones banned in temple premises (2026); photos only at a point ~80 m away",
+      "No reels, videography or unauthorised drones",
+      "Touching idols, scriptures and bells is prohibited",
+      "Night driving on hill roads restricted 10 PM–4 AM",
+      "Medical certificate advised for pilgrims over 50 or with health conditions"
+    ],
+    "best_time": "May–June and September–October; avoid peak monsoon (July–mid Sept) due to landslides.",
+    "festivals": [
+      { "name": "Kapat opening", "when": "Date fixed on Mahashivratri; Vaishakh (2026: 22 April)" },
+      { "name": "Shravan Maas", "when": "Jul–Aug" },
+      { "name": "Badri-Kedar Utsav", "when": "June (8 days)" },
+      { "name": "Kapat closing", "when": "Bhai Dooj (2026: 11 November)" }
+    ],
+    "reach": {
+      "airport": { "name": "Jolly Grant Airport, Dehradun", "code": "DED", "km": 248 },
+      "railway": { "name": "Rishikesh", "km": 228 },
+      "road": "Road via Rudraprayag–Guptkashi to Sonprayag; private vehicles stop at Sonprayag. Shuttle (₹50) runs 5 km to Gaurikund.",
+      "local": "From Gaurikund: walk, pony, palki or porter. Helicopters from Guptkashi, Phata and Sirsi helipads."
+    },
+    "trek": {
+      "from": "Gaurikund",
+      "km": 16,
+      "notes": "Steep uphill trek, typically 6–8 hours. BKTC/UK Tourism say 16 km; Rudraprayag district says 17 km."
+    },
+    "avg_visit_time": "1 day at the Dham (BKTC); plan 2–3 days from Rishikesh/Guptkashi",
+    "tips": [
+      "Register free on the official portal or the Tourist Care Uttarakhand app; use no agents",
+      "Book helicopters only on heliyatra.irctc.co.in; tickets sell out within hours of opening",
+      "2026 heli round-trip base fares: Guptkashi ₹12,154, Phata ₹9,680, Sirsi ₹6,086 (plus GST)",
+      "Start the trek at dawn and acclimatise; carry woollens, rain gear and medicines",
+      "Deposit your phone at the locker near the temple before darshan"
+    ],
+    "notes": "Distances to airport/railway are BKTC figures to Kedarnath road head; BKTC elsewhere quotes 235 km (airport) and 243 km (Rishikesh). Elevation: BKTC states 3,581–3,584 m. Detailed daily darshan hours are not officially published.",
+    "sources": [
+      "https://digital.uk.gov.in/char-dham-yatra",
+      "https://registrationandtouristcare.uk.gov.in/",
+      "https://heliyatra.irctc.co.in/",
+      "https://badrinath-kedarnath.gov.in/",
+      "https://www.badrinath-kedarnath.gov.in/AboutUs/shri-kedarnath.aspx",
+      "https://badrinath-kedarnath.gov.in/online-services/book-puja-online/Book_Pooja_Online.aspx",
+      "https://www.uttarakhandtourism.gov.in/destination/kedarnath",
+      "https://rudraprayag.gov.in/kedarnath-yatra-2/",
+      "https://timesofindia.indiatimes.com/religion/religious-places/kedarnath-yatra-2026-opening-and-closing-dates-of-kedarnath-temple-know-how-to-register/articleshow/130014233.cms",
+      "https://www.pmindia.gov.in/en/news_updates/pm-marks-opening-of-shri-kedarnath-dham-and-commencement-of-chardham-yatra/",
+      "https://www.etvbharat.com/hi/bharat/doors-of-kedarnath-shrine-in-uttarakhand-will-close-on-november-11-utn26102001912",
+      "https://www.etvbharat.com/en/bharat/char-dham-yatra-2026-begins-complete-ban-on-mobile-phones-in-kedarnath-smart-monitoring-and-tight-security-in-place-enn26042103861",
+      "https://www.hindustantimes.com/india-news/no-reels-no-phones-no-drones-in-kedarnath-dham-temple-list-of-banned-items-and-activities-as-yatra-begins-today-101776833407332.html",
+      "https://www.dailyexcelsior.com/all-heli-tickets-for-kedarnath-sold-within-few-hours-of-opening-online-booking-flights-from-dehradun-already-cancelled/",
+      "https://pioneeredge.in/220-vehicle-shuttle-service-continues-between-sonprayag-and-gaurikund/",
+      "https://www.news18.com/india/char-dham-yatra-registration-opens-from-today-how-to-apply-ws-l-9946390.html",
+      "https://www.cnbctv18.com/travel/kedarnath-temple-opens-for-2026-yatra-registration-route-and-travel-guide-ws-l-19891044.htm",
+      "https://en.wikipedia.org/wiki/Kedarnath_Temple"
+    ]
+  },
+  {
+    "id": "badrinath",
+    "name": "Badrinath Temple",
+    "lat": 30.7447,
+    "lon": 79.4912,
+    "elevation_m": 3133,
+    "timings": "Abhishek 4:30–6:30 AM; darshan ~7 AM–1 PM and ~4–9 PM (approx.). Evening aarti from ~6 PM; Shayan Aarti after queue clears.",
+    "closures": "Seasonal: 2026 season opened 23 Apr (6:15 AM); closes for winter on 16 Nov 2026 at 9:37 PM. Closed during solar/lunar eclipses.",
+    "entry": "Free darshan. Mandatory free Char Dham registration. Pujas paid via BKTC.",
+    "booking": {
+      "name": "Uttarakhand Char Dham Yatra Registration (mandatory, free)",
+      "url": "https://registrationandtouristcare.uk.gov.in/",
+      "puja": { "name": "BKTC online puja booking (Indian mobile number required)", "url": "https://badrinath-kedarnath.gov.in/online-services/book-puja-online/Book_Pooja_Online.aspx" }
+    },
+    "official_site": "https://badrinath-kedarnath.gov.in/",
+    "dress_code": "No formal code published; modest clothing. Warm woollens needed even in summer.",
+    "rules": [
+      "Char Dham registration mandatory; verify at Pandukeshwar/Badrinath checkpoints",
+      "Carry valid government photo ID (passport + visa for foreigners) for pujas",
+      "Reach 15–30 min early for booked abhishek, path or aarti",
+      "Collect a darshan slot token for smoother darshan",
+      "No alcohol or tobacco; do not litter"
+    ],
+    "best_time": "May–June and September–October; monsoon brings landslide risk on the highway.",
+    "festivals": [
+      { "name": "Kapat opening", "when": "Date fixed on Basant Panchami (2026: 23 April)" },
+      { "name": "Badri-Kedar Utsav", "when": "June (8 days)" },
+      { "name": "Mata Murti Ka Mela", "when": "Annual (Bhadrapada, ~Sept) at Mata Murti temple, Mana" },
+      { "name": "Kapat closing", "when": "Date fixed on Vijayadashami (2026: 16 November)" }
+    ],
+    "reach": {
+      "airport": { "name": "Jolly Grant Airport, Dehradun", "code": "DED", "km": 314 },
+      "railway": { "name": "Rishikesh", "km": 295 },
+      "road": "Motorable via Rishikesh–Rudraprayag–Joshimath highway. Joshimath ~45 km before Badrinath. Night driving restricted.",
+      "local": "Temple is a short walk from Badrinath town; Mana village 3 km by road; Tapt Kund beside the temple."
+    },
+    "trek": null,
+    "avg_visit_time": "1 day (BKTC); stay at Joshimath or Badrinath",
+    "tips": [
+      "Register free on the official portal before travel; skip unofficial sites charging fees",
+      "Bathe at Tapt Kund (hot spring) before darshan, as is tradition",
+      "Join the queue early morning; afternoons have a ritual break",
+      "Visit Mana village, Vyas Gufa and Bheem Pul (~3 km)",
+      "Check weather and road status; landslides can close the highway"
+    ],
+    "notes": "General darshan hours (7 AM–1 PM, 4–9 PM) are from secondary sources; BKTC publishes only puja/aarti slot times. Elevation 3,133 m per Wikipedia (infobox says 3,100 m). Mata Murti Mela timing is approximate.",
+    "sources": [
+      "https://digital.uk.gov.in/char-dham-yatra",
+      "https://registrationandtouristcare.uk.gov.in/",
+      "https://badrinath-kedarnath.gov.in/",
+      "https://www.badrinath-kedarnath.gov.in/AboutUs/shri-badrinath.aspx",
+      "https://badrinath-kedarnath.gov.in/online-services/book-puja-online/Book_Pooja_Online.aspx",
+      "https://badrinath-kedarnath.gov.in/web-policy.aspx",
+      "https://ddnews.gov.in/en/char-dham-yatra-2026-badrinath-temple-opens-with-vedic-rituals-uttarakhand-cm-dhami-offers-prayers/",
+      "https://timesofindia.indiatimes.com/city/dehradun/badrinath-portals-to-open-on-april-23/articleshow/127315883.cms",
+      "https://timesofindia.indiatimes.com/city/dehradun/char-dham-season-nears-end-badrinath-temple-to-close-its-portals-on-november-16/articleshow/135069729.cms",
+      "https://hindi.news18.com/news/uttarakhand/chamoli-badrinath-kapat-close-date-2026-winter-16th-november-at-9-37-pm-in-kark-lagan-10923404.html",
+      "https://gokshetra.com/badrinath-temple-timings-today/",
+      "https://en.wikipedia.org/wiki/Badrinath_Temple"
+    ]
+  }
+]

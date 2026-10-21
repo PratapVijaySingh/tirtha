@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tirtha — 3D Pilgrimage Atlas of India</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://cesium.com/downloads/cesiumjs/releases/1.146/Build/Cesium/Widgets/widgets.css" rel="stylesheet" />
+  <link href="/src/style.css" rel="stylesheet" />
+  <script src="https://cesium.com/downloads/cesiumjs/releases/1.146/Build/Cesium/Cesium.js"></script>
+</head>
+<body>
+  <div id="globe"></div>
+
+  <header id="topbar" class="glass hidden">
+    <div class="brand"><span class="brand-mark">ॐ</span> Tirtha <small>3D Pilgrimage Atlas</small></div>
+    <nav>
+      <button id="btnSites" class="ghost">☰ Sites</button>
+      <button id="btnTour" class="ghost">▶ Yatra tour</button>
+      <button id="btnIndia" class="ghost">⌂ India</button>
+      <button id="btnEarth" class="ghost">◍ Earth</button>
+      <button id="btnSettings" class="ghost" title="Photorealistic 3D settings">⚙</button>
+    </nav>
+  </header>
+
+  <aside id="sitesPanel" class="glass hidden">
+    <input id="search" type="search" placeholder="Search temple, city, deity…" autocomplete="off" />
+    <div id="filters"></div>
+    <ul id="siteList"></ul>
+  </aside>
+
+  <aside id="infoPanel" class="glass hidden">
+    <button class="close" id="infoClose" aria-label="Close">×</button>
+    <div id="infoImage"></div>
+    <div class="info-body">
+      <div id="infoTradition" class="pill"></div>
+      <h2 id="infoName"></h2>
+      <div id="infoPlace" class="muted"></div>
+      <div id="infoDeity" class="deity"></div>
+      <div id="infoLive" class="live-row"></div>
+      <p id="infoSummary"></p>
+      <div id="infoVisit"></div>
+      <div class="actions">
+        <button id="actOrbit" class="primary">✈ Fly in &amp; orbit</button>
+        <button id="actWalk">🚶 Walk the streets</button>
+        <button id="actTemple" class="accent">🛕 Explore temple in 3D</button>
+      </div>
+      <div class="links">
+        <a id="linkOfficial" target="_blank" rel="noopener">Official site ↗</a>
+        <a id="linkBook" target="_blank" rel="noopener">Book / register ↗</a>
+      </div>
+      <div class="links">
+        <a id="linkStreetView" target="_blank" rel="noopener">Street View ↗</a>
+        <a id="linkMaps" target="_blank" rel="noopener">Open in Maps ↗</a>
+        <a id="linkWiki" target="_blank" rel="noopener">Wikipedia ↗</a>
+      </div>
+      <p id="infoDisclaimer" class="muted small"></p>
+    </div>
+  </aside>
+
+  <div id="walkHud" class="glass hidden">
+    <div><b>Street walk</b> · <span id="walkMode"></span></div>
+    <div class="keys"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> move · drag mouse to look · <kbd>Shift</kbd> run · <kbd>Q</kbd>/<kbd>E</kbd> rise/lower · wheel speed · <kbd>Esc</kbd> exit</div>
+    <button id="walkExit">Exit walk</button>
+  </div>
+
+  <div id="intro">
+    <div class="intro-inner">
+      <div class="om">ॐ</div>
+      <h1>Tirtha</h1>
+      <p>Descend from orbit to the sacred places of India. Fly over them, walk their lanes, and step inside every shrine in 3D.</p>
+      <button id="btnBegin" class="primary big">Begin the Yatra</button>
+      <div class="intro-hint">Drag to spin the Earth · Scroll to zoom</div>
+    </div>
+  </div>
+
+  <div id="templeView" class="hidden">
+    <canvas id="templeCanvas"></canvas>
+    <div id="templeHud" class="glass">
+      <div class="th-head">
+        <div>
+          <div id="tvTradition" class="pill"></div>
+          <h3 id="tvName"></h3>
+          <div id="tvStyle" class="muted"></div>
+        </div>
+        <button class="close" id="tvClose" aria-label="Close">×</button>
+      </div>
+      <div id="tvPart" class="part-card">
+        <b>Click any part of the temple</b>
+        <p>Shikhara, vimana, gopuram, mandapa, sanctum, flag… each one explains its meaning.</p>
+      </div>
+      <div class="tv-actions">
+        <button id="tvPradakshina">↻ Pradakshina</button>
+        <button id="tvWalk">🚶 Walk inside</button>
+        <button id="tvAarti" class="accent">🪔 Aarti</button>
+        <button id="tvTime">☀ Day</button>
+        <button id="tvReset">⟲ Reset view</button>
+      </div>
+      <div class="muted small" id="tvHint">Drag to orbit · Right-drag to pan · Scroll to zoom · Click to inspect</div>
+    </div>
+    <div id="tvTooltip" class="hidden"></div>
+  </div>
+
+  <dialog id="settings" class="glass">
+    <form method="dialog">
+      <h3>Photorealistic 3D cities</h3>
+      <p class="muted">With a Google Maps Platform key that has the <b>Map Tiles API</b> enabled, you get real 3D buildings, temples and streets instead of flat satellite imagery. The key is stored only in this browser.</p>
+      <input id="googleKey" type="password" placeholder="Google Maps API key (optional)" autocomplete="off" />
+      <div class="actions row">
+        <button value="cancel">Cancel</button>
+        <button id="keyClear" value="clear">Remove key</button>
+        <button id="keySave" value="save" class="primary">Save &amp; load 3D</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div id="globeHud" class="glass hidden">
+    <span id="hudAlt"></span>
+    <span id="hudDist"></span>
+    <span id="hudScale"></span>
+  </div>
+
+  <div id="toast" class="glass hidden"></div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

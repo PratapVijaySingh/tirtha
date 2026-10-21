@@ -1,0 +1,300 @@
+[
+  {
+    "id": "kashi",
+    "name": "Shri Kashi Vishwanath Temple",
+    "location": "Varanasi, Uttar Pradesh",
+    "lat": 25.3108,
+    "lon": 83.0106,
+    "elevation_m": 80,
+    "timings": "3:00 AM – 11:00 PM; Mangala Aarti 3–4 AM, Bhog 11:15 AM, Saptarishi 7 PM, Shringar 9 PM, Shayan 10:30 PM",
+    "closures": "Open all year; general darshan pauses during each aarti. Sparsh (touch) darshan is often suspended in Shravan, Mahashivratri and peak crowds",
+    "entry": "Free. Sugam Darshan ₹250 (6 AM–6 PM, per official schedule; older FAQ says ₹300). Mangala Aarti ₹500; other aartis ₹300; Shayan Aarti free",
+    "booking": {
+      "name": "Shri Kashi Vishwanath Temple Trust – official portal / app",
+      "url": "https://shrikashivishwanath.org/"
+    },
+    "official_site": "https://shrikashivishwanath.org/",
+    "dress_code": "No strict code for darshan, decent clothes advised; Sparsh darshan: unstitched dhoti for men, saree for women",
+    "rules": [
+      "Mobile phones, cameras, smartwatches and all electronic gadgets not allowed",
+      "Pens, bags, belts and leather purses not allowed",
+      "Lockers/baggage counters may be closed on peak days (e.g. Mahashivratri) – leave items at hotel",
+      "Mangala Aarti: report by 2:30 AM, enter via Gate No. 1",
+      "Aarti bookings are non-refundable and dates cannot be changed"
+    ],
+    "best_time": "October – March",
+    "festivals": [
+      { "name": "Maha Shivaratri", "when": "Feb–Mar (15 Feb 2026, with ~26-hour continuous darshan)" },
+      { "name": "Rangbhari Ekadashi", "when": "Phalgun Shukla Ekadashi, ~12 days after Shivaratri" },
+      { "name": "Shravan month (Mondays)", "when": "July–August" },
+      { "name": "Dev Deepawali (Kartik Purnima)", "when": "Oct–Nov (24 Nov 2026)" }
+    ],
+    "reach": {
+      "airport": { "name": "Lal Bahadur Shastri International Airport, Babatpur", "code": "VNS", "km": 25 },
+      "railway": { "name": "Varanasi Junction (Cantt)", "km": 6 },
+      "road": "Varanasi is linked by NH to Prayagraj, Lucknow and Patna; Chaudhary Charan Singh Bus Stand is the main bus station (km approx.)",
+      "local": "Cars stop short of the old city; e-rickshaw/auto to Godowlia then walk, or approach from Lalita Ghat via the Kashi Vishwanath Dham corridor"
+    },
+    "trek": null,
+    "avg_visit_time": "1–3 hours (much longer on Mondays, Shravan and festivals)",
+    "tips": [
+      "Leave phone, bag, belt and pen at your hotel – security is strict",
+      "Book Mangala Aarti well in advance on the official site; tickets cannot be cancelled",
+      "Sugam Darshan includes a guide (Shastri), prasad box and locker",
+      "Avoid Mondays and Shravan if you want short queues",
+      "Free Shayan Aarti at 10:30 PM is a good no-ticket option"
+    ],
+    "notes": "Sugam Darshan fee differs between official pages (₹250 on daily schedule vs ₹300 in FAQ PDF). Airport/station km are approximate road distances.",
+    "sources": [
+      "https://shrikashivishwanath.org/general/daily_schedule",
+      "https://shrikashivishwanath.org/general/rituals",
+      "https://shrikashivishwanath.org/general/aarti",
+      "https://www.shrikashivishwanath.org/pdffile/FAQ_SHRI_KASHI_VISHWANTH_TEMPLE_2_0_pdf.pdf",
+      "https://en.wikipedia.org/wiki/Kashi_Vishwanath_Temple",
+      "https://tajcitynews.com/ban-on-mobile-belt-and-purse-in-kashi-vishwanath-temple-sparsh-darshan-will-not-be-possible-on-mahashivratri-temple-trust-issued-advice/",
+      "https://www.indiatv.in/uttar-pradesh/shri-kashi-vishwanath-temple-in-sawan-sparsh-darshan-has-been-banned-take-special-care-of-these-things-2025-07-09-1148042",
+      "https://www.drikpanchang.com/diwali/dev-diwali/dev-deepawali-date-time.html?year=2026"
+    ]
+  },
+  {
+    "id": "golden",
+    "name": "Harmandir Sahib (Golden Temple)",
+    "location": "Amritsar, Punjab",
+    "lat": 31.62,
+    "lon": 74.8764,
+    "elevation_m": 234,
+    "timings": "Complex open 24 hrs; Prakash (Palki Sahib to sanctum) ~4–5 AM, Sukhasan ~9:45–10:45 PM – exact times shift by season (SGPC)",
+    "closures": "Open all year",
+    "entry": "Free; Guru Ka Langar (free meals) served to all",
+    "booking": {
+      "name": "No darshan booking required (SGPC official site for info / sarai)",
+      "url": "https://sgpc.net/"
+    },
+    "official_site": "https://sgpc.net/",
+    "dress_code": "Head must be covered (free scarves at entrances); modest clothing, avoid short or showy clothes; shoes and socks removed",
+    "rules": [
+      "Cover your head and remove shoes and socks; wash hands and feet before entering",
+      "Tobacco, cigarettes, alcohol and intoxicants strictly prohibited – not even in pockets or bags",
+      "Photography/videography without permission prohibited; keep phones silent",
+      "Sit cross-legged on the parikrama; no feeding fish or throwing items in the sarovar",
+      "Open to people of all faiths; follow sewadar instructions"
+    ],
+    "best_time": "November – March",
+    "festivals": [
+      { "name": "Vaisakhi", "when": "Mid-April (usually 13/14 April)" },
+      { "name": "Bandi Chhor Divas (with Diwali)", "when": "Oct–Nov (8 Nov 2026)" },
+      { "name": "Guru Nanak Gurpurab", "when": "Kartik Purnima, Nov (24 Nov 2026)" },
+      { "name": "Guru Ram Das Prakash Purab", "when": "Oct–Nov (lunar date varies)" }
+    ],
+    "reach": {
+      "airport": { "name": "Sri Guru Ram Dass Jee International Airport", "code": "ATQ", "km": 13 },
+      "railway": { "name": "Amritsar Junction", "km": 2 },
+      "road": "Amritsar bus stand is ~1.7 km away; well connected by NH to Jalandhar, Delhi and Jammu",
+      "local": "Auto/e-rickshaw to Heritage Street, then walk through the pedestrian plaza to the main entrance"
+    },
+    "trek": null,
+    "avg_visit_time": "2–4 hours (including langar)",
+    "tips": [
+      "Visit around the early-morning Palki Sahib procession – atmospheric and less crowded",
+      "Free shoe deposit and head-scarves are at every main entrance",
+      "Eat at Guru Ka Langar and consider volunteering (seva) in the kitchen",
+      "Expect long sanctum queues on weekends and Gurpurabs; night visits are quieter",
+      "Check sgpc.net daily routine for the current season's Prakash/Sukhasan times"
+    ],
+    "notes": "Exact Prakash/Sukhasan clock times change through the year; values here are ranges. Guru Ram Das Prakash Purab 2026 date not verified. Elevation is approximate (Amritsar city).",
+    "sources": [
+      "https://sgpc.net/daily-routine/",
+      "https://punjabtourism.punjab.gov.in/sri-harmandir-sahib.php",
+      "https://amritsar.nic.in/tourist-place/sri-harmandir-sahib/",
+      "https://www.thestatesman.com/india/want-to-visit-golden-temple-know-the-dos-donts-1503185341.html",
+      "https://en.wikipedia.org/wiki/Golden_Temple",
+      "https://www.aai.aero/en/airports/amritsar",
+      "https://www.drikpanchang.com/calendars/indian/sikh-festivals/jayanti/guru-nanak-jayanti-date.html?time-format=12hour&year=2026",
+      "https://astrotathya.com/festival/bandi-chhor-divas"
+    ]
+  },
+  {
+    "id": "tirumala",
+    "name": "Sri Venkateswara Temple",
+    "location": "Tirumala (Tirupati), Andhra Pradesh",
+    "lat": 13.6833,
+    "lon": 79.3472,
+    "elevation_m": 853,
+    "timings": "Suprabhatam ~2:30–3 AM; darshan roughly 7/9:30 AM – 7 PM and 8 PM – ~1 AM (varies by weekday); Ekanta Seva ~12:45–1:30 AM",
+    "closures": "Open all year; schedules change on festivals, and privileged/VIP darshans are cancelled during Brahmotsavams",
+    "entry": "Sarva Darshan free (SSD tokens); Special Entry Darshan ₹300 (online, time-slotted); arjitha sevas priced separately",
+    "booking": {
+      "name": "TTD Online Services (official) / TTD mobile app",
+      "url": "https://ttdevasthanams.ap.gov.in"
+    },
+    "official_site": "https://www.tirumala.org/",
+    "dress_code": "Traditional dress for ₹300 darshan, sevas & VIP: men dhoti or kurta-pyjama; women saree/half-saree or churidar with dupatta",
+    "rules": [
+      "Mobile phones, cameras and electronic gadgets not allowed inside – deposit at counters near VQC",
+      "Enter queue only at your allotted SSD/₹300 time slot (strictly enforced since Mar 2026)",
+      "Non-Hindus must sign a faith declaration (free) at VQC or TTD offices before darshan",
+      "Book only via the official TTD site/app; beware of touts selling tickets",
+      "Ghat roads normally closed to vehicles 12 AM – 3 AM"
+    ],
+    "best_time": "September – February (avoid weekends and holidays)",
+    "festivals": [
+      { "name": "Srivari Salakatla Brahmotsavams", "when": "Sep–Oct (2026: 15–23 Sep; Garuda Seva 19 Sep)" },
+      { "name": "Navaratri Brahmotsavams (adhikamasa years)", "when": "2026: 12–20 Oct" },
+      { "name": "Vaikunta Ekadasi", "when": "Dec–Jan (Dhanurmasam)" },
+      { "name": "Ratha Saptami", "when": "Jan–Feb" }
+    ],
+    "reach": {
+      "airport": { "name": "Tirupati International Airport, Renigunta", "code": "TIR", "km": 39 },
+      "railway": { "name": "Tirupati Railway Station", "km": 26 },
+      "road": "Up ghat road Tirupati–Tirumala 17.8 km; APSRTC buses from Tirupati roughly every few minutes",
+      "local": "Free TTD buses around Tirumala; walk from your VQC/queue entry to the temple"
+    },
+    "trek": {
+      "from": "Alipiri (Tirupati); alternative Srivari Mettu (Chandragiri)",
+      "km": 11,
+      "notes": "TTD pages variously give Alipiri as ~11 km or 7.8 km (~3 hrs) and Srivari Mettu as ~6 km or 2.1 km (~1.5 hrs). Free luggage transfer; Divya Darshan tokens for walkers"
+    },
+    "avg_visit_time": "Half day to a full day (free Sarva Darshan queues can take many hours on peak days)",
+    "tips": [
+      "Book ₹300 Special Entry Darshan online early – quotas release on fixed dates",
+      "Arrive exactly at your slot; early or late arrivals are turned away",
+      "Leave phones at the free deposit counter and keep the receipt",
+      "Walkers: deposit luggage at Alipiri for free transport to Tirumala",
+      "Collect laddu prasadam at the counter after darshan"
+    ],
+    "notes": "Footpath lengths conflict across TTD's own pages. Daily schedule varies by weekday (official day-schedule shows 9:30 AM–7 PM & 8 PM–12:30 AM for 21 Oct 2026). Vaikunta Ekadasi 2026/27 date not verified from TTD. Airport km approximate.",
+    "sources": [
+      "https://www.tirumala.org/dosanddonts.aspx",
+      "https://tirumala.org/DailySevas.aspx",
+      "https://www.tirumala.org/DressCode.aspx",
+      "https://www.tirumala.org/Downloads/MoreFaqs.pdf",
+      "https://www.tirumala.org/Howtoreach_TirupatiandTirumala.aspx",
+      "https://www.tirumala.org/TravellingfromTirupatitoTirumala.aspx",
+      "https://www.tirumala.org/TirumalatoTirupathiOnFoot.aspx/SpecialEntryDarshan.aspx",
+      "https://news.tirumala.org/srivari-annual-brahmotsavams-from-september-15-to-23-_-%e0%b0%b8%e0%b1%86%e0%b0%aa%e0%b1%8d%e0%b0%9f%e0%b1%86%e0%b0%82%e0%b0%ac%e0%b0%b0%e0%b1%8d-15-%e0%b0%a8%e0%b1%81%e0%b0%82%e0%b0%a1%e0%b0%bf-23/",
+      "https://news.tirumala.org/ttd-to-release-rs-300-sed-tickets-on-october-7-_-%e0%b0%85%e0%b0%95%e0%b1%8d%e0%b0%9f%e0%b1%8b%e0%b0%ac%e0%b0%b0%e0%b1%8d-7%e0%b0%a8-%e0%b0%b0%e0%b1%82-300-%e0%b0%aa%e0%b1%8d%e0%b0%b0%e0%b0%a4/",
+      "https://news.tirumala.org/devotees-with-ssd-tokens-and-rs-300-sed-tickets-allowed-only-at-the-allotted-time-_-%e0%b0%b8%e0%b1%8d%e0%b0%b2%e0%b0%be%e0%b0%9f%e0%b1%86%e0%b0%a1%e0%b1%8d-%e0%b0%b8%e0%b0%b0%e0%b1%8d%e0%b0%b5/",
+      "https://news.tirumala.org/legal-action-will-be-initiated-against-ananda-nilayam-video-miscreant-ttd-chief-vigilance-and-security-officer/",
+      "https://www.thehindu.com/features/friday-review/religion/in-tirumala-declaration-by-nonhindus-mandatory/article3687794.ece",
+      "https://www.thehindu.com/news/national/andhra-pradesh/tirumala-to-witness-two-brahmotsavams-this-year/article71290773.ece",
+      "https://en.wikipedia.org/wiki/Venkateswara_Temple,_Tirumala",
+      "https://erail.in/info/tirupati-railway-station-TPTY/27430"
+    ]
+  },
+  {
+    "id": "meenakshi",
+    "name": "Meenakshi Amman Temple (Arulmigu Meenakshi Sundareswarar)",
+    "location": "Madurai, Tamil Nadu",
+    "lat": 9.9197,
+    "lon": 78.1194,
+    "elevation_m": 144,
+    "timings": "5:00 AM – 12:30 PM, 4:00 PM – 10:00 PM; Thiruvanandal Pooja 5:30 AM, Palliyarai Pooja 9:30 PM",
+    "closures": "Open all year; closed 12:30–4:00 PM daily; timings change on festival days",
+    "entry": "Free. Special entrance ₹50 (Amman or Swamy) / ₹100 (both); foreigners entry ₹50 (per 2024 HC record)",
+    "booking": {
+      "name": "Tamil Nadu HR&CE – official temple portal",
+      "url": "https://maduraimeenakshi.hrce.tn.gov.in/"
+    },
+    "official_site": "https://maduraimeenakshi.hrce.tn.gov.in/",
+    "dress_code": "Traditional/modest: men dhoti or trousers with shirt; women saree, half-saree or churidar with dupatta; avoid shorts/sleeveless",
+    "rules": [
+      "Camera phones banned inside; deposit at entrance counters (₹5, receipt issued)",
+      "Footwear left outside; cloak room ₹2",
+      "Non-Hindus not allowed beyond the kodimaram (flagstaff) / sanctums (Madras HC, Jan 2024)",
+      "Paid online tickets are non-cancellable; a government ID is needed per person"
+    ],
+    "best_time": "October – March",
+    "festivals": [
+      { "name": "Chithirai Thiruvizha & Meenakshi Thirukalyanam", "when": "Apr–May (2026: flag-hoisting 19 Apr, wedding 28 Apr)" },
+      { "name": "Navaratri (golu)", "when": "Sep–Oct (Purattasi)" },
+      { "name": "Avani Moolam", "when": "Aug–Sep" },
+      { "name": "Masi Mandala Utsavam", "when": "Feb–Mar" }
+    ],
+    "reach": {
+      "airport": { "name": "Madurai Airport", "code": "IXM", "km": 12 },
+      "railway": { "name": "Madurai Junction", "km": 1.5 },
+      "road": "Periyar bus stand is ~1 km away; Madurai is well connected by NH to Chennai, Trichy and Kanyakumari",
+      "local": "Walk or take an auto to the Chithirai streets around the temple; main entry via the four towers (gopurams)"
+    },
+    "trek": null,
+    "avg_visit_time": "2–3 hours",
+    "tips": [
+      "Go before 8 AM or soon after 4 PM reopening for shorter queues",
+      "Leave your phone at the hotel or the ₹5 deposit counter",
+      "Plan around the 12:30–4 PM closure",
+      "Don't miss the Thousand Pillar Hall (Aayiram Kaal Mandapam) museum",
+      "Maha Kumbabishekam held 17 Sep 2026 – expect updated arrangements afterwards"
+    ],
+    "notes": "Tamil Nadu Tourism lists older hours (6 AM–12:30 PM, 4–9 PM); official HR&CE hours used. Phone ban reported by Dinamalar from 1 Sep (2026). Foreigner fee is from a 2024 court record and may have changed.",
+    "sources": [
+      "https://maduraimeenakshi.hrce.tn.gov.in/hrcehome/index_temple.php?action=pooja_info&tid=31962",
+      "https://maduraimeenakshi.hrce.tn.gov.in/",
+      "https://temple.dinamalar.com/meenakshi/en/payanam/cellphone/",
+      "https://temple.dinamalar.com/meenakshi/en/faq/",
+      "https://www.tamilnadutourism.tn.gov.in/destinations/meenakshi-amman-temple",
+      "https://www.aai.aero/en/node/70611",
+      "https://www.thehindu.com/news/cities/Madurai/hrampce-begins-arrangements-for-chitirai-festival-at-meenakshi-temple/article70788783.ece",
+      "https://www.newindianexpress.com/states/tamil-nadu/2024/Jan/30/install-board-that-says-non-hindus-are-not-allowed-inside-temples-beyond-kodimaram-madras-hc",
+      "https://indiankanoon.org/doc/149095204/",
+      "https://en.wikipedia.org/wiki/Meenakshi_Temple"
+    ]
+  },
+  {
+    "id": "puri",
+    "name": "Shree Jagannath Temple",
+    "location": "Puri, Odisha",
+    "lat": 19.8047,
+    "lon": 85.8183,
+    "elevation_m": 65,
+    "timings": "~5:30 AM – ~9:00 PM; Mangala Aarti early morning; no darshan ~8–9:15 AM (Gopal Ballava Puja); ritual times vary daily",
+    "closures": "No darshan for ~15 days (Anavasara) after Snana Purnima in Jun–Jul; deities leave the temple during Rath Yatra",
+    "entry": "Free; no official paid darshan verified",
+    "booking": {
+      "name": "No darshan booking; SJTA official site (accommodation & donations)",
+      "url": "https://www.shreejagannatha.in/"
+    },
+    "official_site": "https://www.shreejagannatha.in/",
+    "dress_code": "Decent attire (since 1 Jan 2024): no shorts or torn jeans for men; no skirts, jeans or sleeveless for women",
+    "rules": [
+      "Only Hindus are allowed inside the temple",
+      "Mobile phones, cameras, electronic gadgets, footwear and leather items not allowed (free stands at Lion's Gate)",
+      "No caps, umbrellas, plastic bags, tobacco or cooked food",
+      "Lion's Gate (east) is the only entry; other gates are exits",
+      "Observe silence; beware of pickpockets and monkeys"
+    ],
+    "best_time": "October – March (Rath Yatra in Jun–Jul for the festival)",
+    "festivals": [
+      { "name": "Chandan Yatra", "when": "Apr–May (from 19 Apr 2026)" },
+      { "name": "Snana Purnima / Snana Yatra", "when": "Jyeshtha Purnima, Jun (29 Jun 2026)" },
+      { "name": "Rath Yatra", "when": "Ashadha Shukla Dwitiya, Jun–Jul (16 Jul 2026)" },
+      { "name": "Bahuda Yatra & Suna Besha", "when": "~8–9 days after Rath Yatra (24–25 Jul 2026)" }
+    ],
+    "reach": {
+      "airport": { "name": "Biju Patnaik International Airport, Bhubaneswar", "code": "BBI", "km": 60 },
+      "railway": { "name": "Puri Railway Station", "km": 3 },
+      "road": "Regular buses and taxis from Bhubaneswar (~60 km) and Cuttack (~82 km)",
+      "local": "Auto/e-rickshaw to Bada Danda (Grand Road); free battery vehicles for seniors/disabled from Jagannath Ballav parking"
+    },
+    "trek": null,
+    "avg_visit_time": "1–3 hours",
+    "tips": [
+      "Use the free shoe/mobile stands near Lion's Gate before joining the queue",
+      "Buy Mahaprasad at Ananda Bazaar inside the temple (north-east corner)",
+      "Avoid the Anavasara fortnight if darshan is your goal",
+      "Book stay months ahead for Rath Yatra; SJTA runs guest houses",
+      "Check 'Today in the Temple' on the official site for live ritual times"
+    ],
+    "notes": "Timings are approximate per SJTA; actual niti times vary daily. Odisha Tourism lists Akshaya Tritiya as 20 Apr 2026 but Chandan Yatra start as 19 Apr 2026 – used as published.",
+    "sources": [
+      "https://www.shreejagannatha.in/faqs/",
+      "https://www.shreejagannatha.in/visitor-services/",
+      "https://www.shreejagannatha.in/today-in-the-temple/",
+      "https://www.thehindu.com/news/national/other-states/puri-jagannath-temple-makes-dress-code-mandatory-for-devotees/article67695275.ece",
+      "https://shreejagannathadham.com/do-and-donts",
+      "https://odishatourism.gov.in/en/ratha-jatra-2026",
+      "https://puri.odisha.gov.in/en/tourism/tourist-places/shree-jagannath-temple",
+      "https://www.prod.incredibleindia.gov.in/content/incredible-india-v2/en/destinations/puri.html",
+      "https://en.wikipedia.org/wiki/Jagannath_Temple,_Puri"
+    ]
+  }
+]

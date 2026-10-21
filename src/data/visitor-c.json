@@ -1,0 +1,330 @@
+[
+  {
+    "id": "vaishno",
+    "lat": 33.0299,
+    "lon": 74.9482,
+    "elevation_m": 1585,
+    "timings": "Darshan round the clock; pauses ~2 hrs for Atka Aarti (approx 6:20-8:00 AM and evening ~6:20-8:00 PM winter / 7:20-8:30 PM summer).",
+    "closures": "Open all year; yatra can be suspended in bad weather or landslide risk (e.g. Aug 2025 Adhkuwari landslide). Registration pauses when daily cap is reached.",
+    "entry": "Free; yatra registration (RFID Yatra Access Card) is free. Helicopter, battery car, ropeway and Atka Aarti are paid services.",
+    "booking": {
+      "name": "Shri Mata Vaishno Devi Shrine Board online services",
+      "url": "https://online.maavaishnodevi.org"
+    },
+    "official_site": "https://www.maavaishnodevi.org",
+    "dress_code": "No formal dress code published; modest clothing advised. Carry warm layers, nights at Bhawan get cold.",
+    "rules": [
+      "RFID Yatra Access Card is mandatory; online registrants must collect it at a Yatra Registration Counter before starting",
+      "Book Shrine Board services only on the official websites; no private agents are authorised",
+      "Tarakote registration counter runs 24x7; Banganga counter issues cards to late arrivals after 10 PM",
+      "Ponies and palkis are not allowed on the Tarakote and new pedestrian tracks",
+      "Helicopter refunds for weather cancellations only at SMVDSB counters (Serli Helipad Katra, Sanjichhat, Jammu Airport)"
+    ],
+    "best_time": "Open year-round; Mar-Jun and Sep-Nov are popular. Monsoon (Jul-Aug) brings landslide risk; Navratri brings heavy crowds.",
+    "festivals": [
+      { "name": "Chaitra Navratri", "when": "Mar-Apr" },
+      { "name": "Shardiya Navratri", "when": "Sep-Oct" }
+    ],
+    "reach": {
+      "airport": { "name": "Jammu Airport", "code": "IXJ", "km": 50 },
+      "railway": { "name": "Shri Mata Vaishno Devi Katra (SVDK)", "km": 12 },
+      "road": "Katra is ~50 km by road from Jammu; buses and taxis run Jammu-Katra. Bhawan itself is not reachable by road.",
+      "local": "From Katra: trek, pony/palki, or helicopter Katra-Sanjichhat (~8 min). Battery cars run Adhkuwari-Bhawan. Ropeway Bhawan-Bhairon 9 AM-5 PM."
+    },
+    "trek": {
+      "from": "Katra (Darshani Darwaza / Banganga) or Tarakote Marg",
+      "km": 12,
+      "notes": "~12-13 km uphill via Banganga, Charan Paduka, Adhkuwari (~halfway). Sanjichhat helipad is ~2.5 km from Bhawan. Bhairon temple is a further steep climb."
+    },
+    "avg_visit_time": "1-2 days including trek (round-trip trek typically 5-8 hrs each way on foot)",
+    "tips": [
+      "Helicopter Katra-Sanjichhat: Rs 2,320 one-way until 31 Oct 2026; Rs 2,700 one-way / Rs 5,400 return from 1 Nov 2026",
+      "Bhawan-Bhairon ropeway runs 9 AM-5 PM; plan Bhairon visit in daylight",
+      "Shrine Board call centre 1800-180-7212 (24x7); WhatsApp 9906019494",
+      "Smart lockers are available at Bhawan and Adhkuwari; free at Room No. 4 for some confirmed bookings",
+      "Wear good walking shoes and start early to avoid midday heat on the track"
+    ],
+    "notes": "Battery car, ropeway and Atka Aarti fares not verified from an official source, so omitted. Railway km is the trek distance from Katra (station is in Katra). Aarti times are the Shrine Board's live-telecast windows.",
+    "sources": [
+      "https://www.maavaishnodevi.org/",
+      "http://www.maavaishnodevi.org/causes/bhawan-bhairo-ropeway",
+      "https://maavaishnodevi.org/live",
+      "https://jammutourism.gov.in/exploreJammu-Katra.html",
+      "https://timesofindia.indiatimes.com/life-style/travel/news/vaishno-devi-yatra-202526-rfid-card-rules-smart-lockers-helpline-numbers-and-helicopter-fare-revision/photostory/126332646.cms",
+      "https://www.tribuneindia.com/news/j-k/jk-cong-chief-questions-helicopter-fare-hike-for-vaishno-devi-pilgrims/",
+      "https://www.zeebiz.com/trending/news-mata-vaishno-devi-helicopter-fare-to-increase-from-november-1-one-way-ticket-to-cost-rs-2700-401697",
+      "https://www.indianholiday.com/blog/vaishno-devi-yatra-complete-guide/",
+      "https://www.vaishnodham.com/reach-katra/",
+      "https://en.wikipedia.org/wiki/Vaishno_Devi_Temple"
+    ]
+  },
+  {
+    "id": "ayodhya",
+    "lat": 26.7956,
+    "lon": 82.1943,
+    "elevation_m": 93,
+    "timings": "Free darshan slots 7 AM-9 PM (break 12-1 PM). Aarti (pass needed): Mangal 4:00 AM, Shringar 6:00 AM, Shayan 10:00 PM (Trust notice, from 18 Apr 2026).",
+    "closures": "Open all year; timings change on festivals and special events.",
+    "entry": "Free. Sugam Darshan e-pass and aarti passes are free; there is no paid or VIP darshan.",
+    "booking": {
+      "name": "Shri Ram Janmabhoomi Teerth Kshetra online portal (Sugam Darshan / Aarti pass)",
+      "url": "https://online.srjbtkshetra.org"
+    },
+    "official_site": "https://srjbtkshetra.org",
+    "dress_code": "Modest traditional dress recommended; shoulders and knees covered. Shorts, sleeveless and ripped clothing discouraged.",
+    "rules": [
+      "Mobile phones, smartwatches, cameras, bags, pens and food not allowed; leave in free cloakrooms outside",
+      "Carry the original government photo ID used when booking the pass",
+      "Footwear must be removed before the parkota; free footwear stands available",
+      "Photography prohibited inside the parkota and at all aartis",
+      "Passes are sold by no agent; treat any paid 'VIP pass' offer as fraud"
+    ],
+    "best_time": "Oct-Mar for cooler weather; first slot (7-9 AM) and evening slots are least crowded.",
+    "festivals": [
+      { "name": "Ram Navami (Surya Tilak at noon)", "when": "Mar-Apr" },
+      { "name": "Pran Pratishtha anniversary", "when": "January" },
+      { "name": "Diwali / Deepotsav", "when": "Oct-Nov" },
+      { "name": "Vivah Panchami", "when": "Nov-Dec" }
+    ],
+    "reach": {
+      "airport": { "name": "Maharishi Valmiki International Airport, Ayodhya Dham", "code": "AYJ", "km": 10 },
+      "railway": { "name": "Ayodhya Dham Junction", "km": null },
+      "road": "Well connected by road to Lucknow, Gorakhpur, Prayagraj and Varanasi.",
+      "local": "Parking at Brahma Kund and Ram Path; e-rickshaws and walkways to the entry gate."
+    },
+    "trek": null,
+    "avg_visit_time": "1.5-2 hrs on a weekday; 3-5 hrs on weekends/festivals",
+    "tips": [
+      "Book the free Sugam Darshan pass online; up to 8 devotees per booking, each needs a photo ID",
+      "Same-day Tatkal passes open early morning on the portal and go within minutes",
+      "Tuesdays, Saturdays and festivals are the most crowded days",
+      "Priority queue for seniors (60+), differently-abled and pregnant women; free wheelchairs at entry",
+      "Trust helpdesk: 05278-292000, +91-80095-22111; toll free 1860-180-1992"
+    ],
+    "notes": "Advance-booking window reported as 15 days (Jan 2026) and later as up to 90 days (NDTV); check the portal. Aug 2026 AajTak reported Shayan Aarti at 9 PM vs Trust's 10 PM. Station distance not verified (sources give 1-6 km).",
+    "sources": [
+      "https://srjbtkshetra.org/",
+      "https://ramjanmabhoomi.in/ayodhya/ram-mandir/darshan/",
+      "https://ramjanmabhoomi.in/updates/",
+      "https://ndtv.in/utility-news/ram-lalla-darshan-passes-booked-90-days-in-advance-ram-mandir-committee-approve-tatkal-darshan-passes-how-to-book-ram-mandir-darshan-pass-online-12204407",
+      "https://www.aajtak.in/uttar-pradesh/story/darshan-arrangements-changed-at-ram-mandir-find-out-how-to-get-instant-passes-for-mangala-shringar-and-shayan-aarti-lclam-strc-2615873-2026-08-05",
+      "https://ayodhya.nic.in/how-to-reach/",
+      "https://upitims.in/temple/details/shri-ram-janmabhoomi-temple",
+      "https://en.wikipedia.org/wiki/Ram_Mandir",
+      "https://en.wikipedia.org/wiki/Ayodhya"
+    ]
+  },
+  {
+    "id": "rameswaram",
+    "lat": 9.2881,
+    "lon": 79.3173,
+    "elevation_m": 10,
+    "timings": "Opens 4 AM; Spatika Linga darshan 5-6 AM; main darshan 6 AM-1 PM and 3:15-8 PM. 22-theertham bath 5:30 AM-12:30 PM and 3-7 PM.",
+    "closures": "Open all year; closed 1-3 PM daily. Festival days change the schedule.",
+    "entry": "General darshan free. Theertham bath and special darshan tickets sold at temple counters (official prices not published).",
+    "booking": {
+      "name": "Tamil Nadu HR&CE temple portal (no online darshan ticket listed; donations only)",
+      "url": "https://rameswaramramanathar.hrce.tn.gov.in/"
+    },
+    "official_site": "https://rameswaramramanathar.hrce.tn.gov.in/",
+    "dress_code": "Traditional dress expected: men dhoti or shirt and trousers; women saree or churidar with dupatta. Change out of wet clothes before darshan.",
+    "rules": [
+      "Under HR&CE rules (Oct 2026), phones may be carried only if switched off; deposit counters charge Rs 5",
+      "No photography, videography or selfies of deities or pujas",
+      "Remove footwear before entering",
+      "Bathe at the 22 theerthams only within the permitted hours"
+    ],
+    "best_time": "Nov-Mar for milder weather; NE monsoon brings rain Oct-Jan. Early morning for theertham bath.",
+    "festivals": [
+      { "name": "Maha Shivaratri", "when": "Feb-Mar" },
+      { "name": "Aadi Thirukalyanam festival", "when": "Jul-Aug (Aadi)" },
+      { "name": "Masi festival", "when": "Feb-Mar (Masi)" },
+      { "name": "Vasanthotsavam", "when": "Spring" }
+    ],
+    "reach": {
+      "airport": { "name": "Madurai Airport", "code": "IXM", "km": 175 },
+      "railway": { "name": "Rameswaram railway station", "km": 2 },
+      "road": "NH via Ramanathapuram and Mandapam, crossing the Pamban road bridge; ~3-3.5 hrs from Madurai.",
+      "local": "Autos and town buses; Dhanushkodi is ~18 km south-east."
+    },
+    "trek": null,
+    "avg_visit_time": "Half day (theertham circuit ~45-90 min plus darshan)",
+    "tips": [
+      "Order: dip at Agni Theertham (sea), then the 22 theerthams, then dry clothes, then darshan",
+      "Carry a full change of clothes, towel and small change for counters",
+      "Direct trains resumed after the new vertical-lift Pamban rail bridge opened on 6 Apr 2025",
+      "See the third corridor with ~1,212 pillars, reputed to be the longest temple corridor in India"
+    ],
+    "notes": "Theertham ticket (widely reported Rs 25 / Rs 150) and special darshan fees not confirmed by an official source. HR&CE phone rule relaxed 14 Oct 2026; local enforcement may differ.",
+    "sources": [
+      "https://rameswaramramanathar.hrce.tn.gov.in/",
+      "https://rameswaramramanathar.hrce.tn.gov.in/hrcehome/index_temple.php?action=pooja_info&tid=35671",
+      "https://www.thehindu.com/news/national/tamil-nadu/ban-on-mobile-phones-in-tamil-nadu-temples-comes-into-effect-phones-without-cameras-to-be-allowed/article71414783.ece",
+      "https://www.dtnext.in/news/tamilnadu/tamil-nadu-eases-mobile-phone-restrictions-at-52-temples-bans-photography-and-selfies",
+      "https://www.tnurbantree.tn.gov.in/rameswaram/how-to-reach/",
+      "https://travell.cc/mandir/rameswaram-guide/",
+      "https://tripunder.com/blog/rameswaram-trip-cost/",
+      "https://www.waytoindia.com/destinations/sacred-temple-circuits/ramanathaswamy-jyotirlinga",
+      "https://en.wikipedia.org/wiki/Ramanathaswamy_Temple",
+      "https://en.wikipedia.org/wiki/Rameswaram"
+    ]
+  },
+  {
+    "id": "thanjavur",
+    "lat": 10.7828,
+    "lon": 79.1317,
+    "elevation_m": 66,
+    "timings": "6:00 AM-12:30 PM and 4:00-8:30 PM. Poojas: 8:30 AM, 12 noon (Uchikalam), 6 PM, 8 PM (Ardhajamam).",
+    "closures": "Open all year; sanctum closed 12:30-4:00 PM daily.",
+    "entry": "Free for all visitors.",
+    "booking": {
+      "name": "Tamil Nadu HR&CE temple portal (sevas/abhishekam)",
+      "url": "https://hrce.tn.gov.in/hrcehome/index_temple.php?tid=13968"
+    },
+    "official_site": "https://hrce.tn.gov.in/hrcehome/index_temple.php?tid=13968",
+    "dress_code": "Boards at entrance: men in dhoti or trousers with shirt; women in saree, half-saree or salwar with dupatta.",
+    "rules": [
+      "Remove footwear at the cloakroom before entering",
+      "Under HR&CE rules (Oct 2026), phones must be switched off inside; no photos or videos of deities or pujas, no selfies",
+      "No photography inside the sanctum",
+      "Drones not permitted without ASI permission (protected UNESCO site)"
+    ],
+    "best_time": "Nov-Feb; early morning or evening to avoid hot granite floors.",
+    "festivals": [
+      { "name": "Maha Shivaratri", "when": "Feb-Mar" },
+      { "name": "Brihan Natyanjali dance festival", "when": "Around Maha Shivaratri (Feb)" },
+      { "name": "Sathaya Vizha (Raja Raja Chola's birth star)", "when": "Aippasi (Oct-Nov)" },
+      { "name": "Chariot festival", "when": "Annual" }
+    ],
+    "reach": {
+      "airport": { "name": "Tiruchirappalli International Airport", "code": "TRZ", "km": 61 },
+      "railway": { "name": "Thanjavur Junction", "km": 1.5 },
+      "road": "Thanjavur bus stand ~1 km; buses from Chennai, Madurai, Tiruchirappalli and Coimbatore.",
+      "local": "Walkable from town centre; autos available. Temple car park charges a small fee."
+    },
+    "trek": null,
+    "avg_visit_time": "1.5-2 hrs",
+    "tips": [
+      "Visit at opening (6 AM) or after 5 PM when the granite courtyard is cooler",
+      "Combine with Gangaikonda Cholapuram and Darasuram, the other Great Living Chola Temples",
+      "Book abhishekam/seva tickets only on the HR&CE portal",
+      "Look for the monolithic Nandi and the 13-tier vimana"
+    ],
+    "notes": "HR&CE page text says closed '12.30 pm to 4:30 pm' but reopen at 4:00 PM; the timetable shows 4:00 PM. Brihadeeswarar is on the 52-temple HR&CE phone list per Daijiworld (listed as Thanjavur Devasthanam temples). Camera fee not officially confirmed.",
+    "sources": [
+      "https://hrce.tn.gov.in/hrcehome/index_temple.php?tid=13968",
+      "https://www.tamilnadutourism.tn.gov.in/destinations/brihadeeswara-temple",
+      "https://www.thehindu.com/news/cities/Tiruchirapalli/introduction-of-dress-code-catches-visitors-by-surprise-at-the-big-temple/article67590972.ece",
+      "https://www.daijiworld.com/index.php/news/newsDisplay?newsID=1324396",
+      "https://www.dtnext.in/news/tamilnadu/tamil-nadu-eases-mobile-phone-restrictions-at-52-temples-bans-photography-and-selfies",
+      "https://www.trypdeals.com/temples/thanjavur-brihadeeswarar-temple/",
+      "https://en.wikipedia.org/wiki/Brihadisvara_Temple,_Thanjavur"
+    ]
+  },
+  {
+    "id": "kamakhya",
+    "lat": 26.1664,
+    "lon": 91.7055,
+    "elevation_m": 244,
+    "timings": "Doors open for devotees 8:00 AM-1:00 PM and 2:30-5:15 PM; Aarti 7:30 PM. Snana 5:30 AM, Nitya puja 6 AM.",
+    "closures": "Closed during Ambubachi (2026: 23-25 June, reopened 26 June morning). Special schedule during Durga Puja.",
+    "entry": "General darshan free. Special Darshan ticket Rs 501 (online only since 15 June 2026).",
+    "booking": {
+      "name": "Maa Kamakhya Devalaya Special Darshan portal",
+      "url": "https://www.mkdonline.co.in"
+    },
+    "official_site": "https://www.maakamakhya.org",
+    "dress_code": "No official dress code published; modest traditional clothing advised.",
+    "rules": [
+      "Counter booking of Special Darshan tickets discontinued from 15 June 2026; book online only",
+      "Footwear must be left at designated stands; none allowed past the main entrance",
+      "Entire Nilachal Hill is a tobacco-free zone",
+      "Only maakamakhya.org and maakamakhyadevalaya.org are official; the temple authorises no online puja platforms"
+    ],
+    "best_time": "Oct-Apr (drier); ~90% of Guwahati's rain falls May-Sep. Weekday mornings are calmer.",
+    "festivals": [
+      { "name": "Ambubachi Mela", "when": "June (2026: 22-26 June)" },
+      { "name": "Durga Puja", "when": "Navaratri, Sep-Oct" },
+      { "name": "Manasha Puja", "when": "Annual" }
+    ],
+    "reach": {
+      "airport": { "name": "Lokpriya Gopinath Bordoloi International Airport, Guwahati", "code": "GAU", "km": 20 },
+      "railway": { "name": "Kamakhya Junction (Guwahati station ~8 km)", "km": 7 },
+      "road": "Within Guwahati city; ISBT ~16.5 km. Hill road leads up to the temple.",
+      "local": "Taxis, app cabs, autos and buses; shared vehicles run from Nilachal foothill to the temple."
+    },
+    "trek": null,
+    "avg_visit_time": "2-4 hrs (general queue can take several hours)",
+    "tips": [
+      "Special Darshan (Rs 501) is not offered on peak days such as the Ambubachi reopening",
+      "Ambubachi reopening day draws the year's largest crowds; arrive very early",
+      "Avoid touts offering online pujas; use only the official portals",
+      "Visit nearby Nilachal shrines such as Bagala Devi after darshan"
+    ],
+    "notes": "Elevation sources vary (235-293 m); 244 m is from Assam govt (ASTC) '800 ft'. Walking-steps route up the hill is optional; no formal trek. Ambubachi dates change yearly.",
+    "sources": [
+      "https://www.maakamakhya.org/",
+      "https://maakamakhya.org/festival",
+      "https://news.abplive.com/religion/ambubachi-mela-2026-complete-guide-to-kamakhya-temple-darshan-rituals-vip-passes-and-travel-tips-1851839",
+      "https://kamakhya.org/how-to-reach/",
+      "https://www.aai.aero/en/airports/transport-details/Guwahati/Rail-Transport",
+      "https://astc.assam.gov.in/information-services/swachh-kamakhya-clean-green-technology",
+      "https://doi.org/10.70729/ijser18210",
+      "https://en.wikipedia.org/wiki/Kamakhya_Temple"
+    ]
+  },
+  {
+    "id": "bodhgaya",
+    "lat": 24.6953,
+    "lon": 84.9939,
+    "elevation_m": null,
+    "timings": "5:00 AM-9:00 PM. Sutta chanting 5:30-6 AM; kheer offering 10 AM; chanting 6-6:30 PM (Mahayana) and 6:30-7 PM (Pali).",
+    "closures": "Open all days of the week, all year.",
+    "entry": "Free.",
+    "booking": {
+      "name": "No booking needed; Bodhgaya Temple Management Committee (BTMC)",
+      "url": "https://bodhgayatemple.com/"
+    },
+    "official_site": "https://bodhgayatemple.com/",
+    "dress_code": "Dress modestly; remove footwear before entering.",
+    "rules": [
+      "Mobile phones, cameras and electronic gadgets prohibited inside; deposit at counters before entry (Gaya DM order, Mar 2025)",
+      "Bags are security-checked at entry",
+      "Remove footwear before entering",
+      "Maintain silence and respect meditating monks and pilgrims"
+    ],
+    "best_time": "Sep-Apr (Bihar Tourism); summers exceed 40 C. Dawn and evening chanting are the best hours.",
+    "festivals": [
+      { "name": "Buddha Purnima", "when": "Apr-May (Vaishakha full moon)" },
+      { "name": "Nyingma Monlam Chenmo", "when": "January" },
+      { "name": "Bodh Mahotsav", "when": "January" }
+    ],
+    "reach": {
+      "airport": { "name": "Gaya International Airport", "code": "GAY", "km": 10 },
+      "railway": { "name": "Gaya Junction", "km": 16 },
+      "road": "~11-15 km from Gaya town; ~110 km from Patna. Buses from Patna, Rajgir and Varanasi.",
+      "local": "E-rickshaws and autos within Bodh Gaya; vehicle movement near the temple is restricted."
+    },
+    "trek": null,
+    "avg_visit_time": "1.5-2 hrs",
+    "tips": [
+      "Leave phones and cameras at your hotel to skip the deposit queue",
+      "Come at 5 AM opening for morning chanting around the Bodhi Tree",
+      "Carry socks in summer; the stone paving gets very hot",
+      "Combine with the 80 ft Great Buddha Statue (~2 km) and international monasteries"
+    ],
+    "notes": "Elevation not verified. Camera fee (reported Rs 100 still / Rs 200-300 video) not confirmed by BTMC; Bihar Tourism lists cameras as prohibited. Airport distance: 7 km (Bihar Tourism) vs 10.6 km (Gaya district).",
+    "sources": [
+      "https://bodhgayatemple.com/",
+      "https://bodhgayatemple.com/whats-new-bodhgaya-temple/",
+      "https://tourism.bihar.gov.in/en/destinations/gaya/mahabodhi-temple",
+      "https://www.amarujala.com/bihar/bihar-news-carrying-mobile-and-camera-is-banned-in-mahabodhi-temple-gaya-district-administration-2025-03-23",
+      "https://gaya.nic.in/tourist-place/mahabodhi-mandir/",
+      "https://mahabodhimahavihara.org/bodhgaya/map.aspx",
+      "https://tourism.bihar.gov.in/in/en/home/destinations/gaya",
+      "https://www.incredibleindia.gov.in/en/bihar/gaya/mahabodhi-temple",
+      "https://en.wikipedia.org/wiki/Bodh_Gaya",
+      "https://en.wikipedia.org/wiki/Mahabodhi_Temple"
+    ]
+  }
+]
