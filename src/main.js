@@ -293,14 +293,29 @@ $('actTemple').onclick = async () => {
     viewer = new TempleViewer($('templeCanvas'), {
       tradition: $('tvTradition'), name: $('tvName'), style: $('tvStyle'), part: $('tvPart'),
       pradakshina: $('tvPradakshina'), walk: $('tvWalk'), aarti: $('tvAarti'), time: $('tvTime'),
-      reset: $('tvReset'), hint: $('tvHint'), tooltip: $('tvTooltip'),
+      reset: $('tvReset'), hint: $('tvHint'), tooltip: $('tvTooltip'), hud: $('templeHud'),
     });
   }
   globe.viewer.useDefaultRenderLoop = false;
   viewer.open(current);
+  $('templeHud').classList.toggle('minimized', window.matchMedia('(max-width: 900px)').matches);
 };
+$('tvMin').onclick = (e) => {
+  e.stopPropagation();
+  $('templeHud').classList.add('minimized');
+};
+$('tvMax').onclick = (e) => {
+  e.stopPropagation();
+  $('templeHud').classList.remove('minimized');
+};
+$('templeHud').addEventListener('click', (e) => {
+  if (!$('templeHud').classList.contains('minimized')) return;
+  if (e.target.closest('#tvClose, #tvMin')) return;
+  $('templeHud').classList.remove('minimized');
+});
 $('tvClose').onclick = () => {
   viewer?.close();
+  $('templeHud').classList.remove('minimized');
   $('templeView').classList.add('hidden');
   $('globeHud').classList.remove('hidden');
   globe.viewer.useDefaultRenderLoop = true;

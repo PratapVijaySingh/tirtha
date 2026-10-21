@@ -79,25 +79,31 @@
     <canvas id="templeCanvas"></canvas>
     <div id="templeHud" class="glass">
       <div class="th-head">
-        <div>
+        <div class="th-titles">
           <div id="tvTradition" class="pill"></div>
           <h3 id="tvName"></h3>
           <div id="tvStyle" class="muted"></div>
         </div>
-        <button class="close" id="tvClose" aria-label="Close">×</button>
+        <div class="th-controls">
+          <button id="tvMin" type="button" title="Minimise panel" aria-label="Minimise panel">–</button>
+          <button id="tvMax" type="button" title="Expand panel" aria-label="Expand panel">▢</button>
+          <button class="close" id="tvClose" aria-label="Close 3D view">×</button>
+        </div>
       </div>
-      <div id="tvPart" class="part-card">
-        <b>Click any part of the temple</b>
-        <p>Shikhara, vimana, gopuram, mandapa, sanctum, flag… each one explains its meaning.</p>
+      <div class="tv-body">
+        <div id="tvPart" class="part-card">
+          <b>Click any part of the temple</b>
+          <p>Shikhara, vimana, gopuram, mandapa, sanctum, flag… each one explains its meaning.</p>
+        </div>
+        <div class="tv-actions">
+          <button id="tvPradakshina">↻ Pradakshina</button>
+          <button id="tvWalk">🚶 Walk inside</button>
+          <button id="tvAarti" class="accent">🪔 Aarti</button>
+          <button id="tvTime">☀ Day</button>
+          <button id="tvReset">⟲ Reset view</button>
+        </div>
+        <div class="muted small" id="tvHint">Drag to orbit · Right-drag to pan · Scroll to zoom · Click to inspect</div>
       </div>
-      <div class="tv-actions">
-        <button id="tvPradakshina">↻ Pradakshina</button>
-        <button id="tvWalk">🚶 Walk inside</button>
-        <button id="tvAarti" class="accent">🪔 Aarti</button>
-        <button id="tvTime">☀ Day</button>
-        <button id="tvReset">⟲ Reset view</button>
-      </div>
-      <div class="muted small" id="tvHint">Drag to orbit · Right-drag to pan · Scroll to zoom · Click to inspect</div>
     </div>
     <div id="tvTooltip" class="hidden"></div>
   </div>

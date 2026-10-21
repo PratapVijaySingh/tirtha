@@ -171,11 +171,26 @@ body.walking #sitesPanel, body.walking #infoPanel { display: none !important; }
 #templeView { position: fixed; inset: 0; z-index: 30; background: #000; }
 #templeCanvas { width: 100%; height: 100%; display: block; }
 #templeHud {
-  position: absolute; top: 16px; left: 16px; width: 340px; padding: 16px; display: flex; flex-direction: column; gap: 12px;
+  position: absolute; top: 16px; left: 16px; width: 340px; max-width: calc(100vw - 32px); padding: 16px;
+  display: flex; flex-direction: column; gap: 12px; z-index: 32;
+  transition: width 0.2s ease, padding 0.2s ease;
 }
-.th-head { position: relative; padding-right: 36px; }
+.th-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+.th-titles { min-width: 0; flex: 1; padding-right: 4px; }
 .th-head h3 { font-family: Cinzel, serif; font-size: 21px; margin: 8px 0 2px; }
-.th-head .close { top: -4px; right: -4px; }
+.th-controls { display: flex; gap: 6px; flex: none; }
+.th-controls button {
+  position: static; width: 36px; height: 36px; padding: 0; border-radius: 50%;
+  font-size: 18px; line-height: 1; background: rgba(0, 0, 0, 0.5); z-index: 2;
+}
+#tvMax { display: none; }
+#templeHud.minimized { width: min(280px, calc(100vw - 24px)); padding: 8px 10px; gap: 0; }
+#templeHud.minimized .tv-body,
+#templeHud.minimized #tvStyle { display: none; }
+#templeHud.minimized h3 { font-size: 15px; margin: 2px 0 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+#templeHud.minimized #tvMin { display: none; }
+#templeHud.minimized #tvMax { display: grid; place-items: center; }
+#templeHud.minimized .th-titles { cursor: pointer; }
 .part-card {
   border: 1px solid var(--line); border-radius: 10px; padding: 12px; background: rgba(255, 153, 51, 0.06);
   font-size: 13px; line-height: 1.5; min-height: 92px;
@@ -215,5 +230,8 @@ body.walking #globeHud { bottom: 88px; }
   #sitesPanel { width: auto; right: 14px; bottom: auto; max-height: 45%; }
   #infoPanel { top: auto; bottom: 14px; left: 14px; right: 14px; width: auto; max-height: 55%; }
   .brand small { display: none; }
-  #templeHud { width: auto; right: 16px; }
+  #templeHud:not(.minimized) {
+    width: auto; right: 16px; max-height: min(48vh, 420px); overflow-y: auto;
+  }
+  .th-controls button { width: 40px; height: 40px; }
 }

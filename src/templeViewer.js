@@ -340,6 +340,7 @@ export class TempleViewer {
     this.ui.part.innerHTML = p
       ? `<b>${p.userData.part.name}</b><p>${p.userData.part.desc}</p>`
       : '<b>Click any part of the temple</b><p>Tower, sanctum, halls, gateways, flags, lamps and pilgrims each explain their meaning and history.</p>';
+    if (p) this.ui.hud?.classList.remove('minimized');
   }
 
   // ------------------------------------------------------------ aarti
