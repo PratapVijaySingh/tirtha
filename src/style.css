@@ -81,9 +81,8 @@ kbd {
   position: fixed; top: 14px; left: 14px; right: 14px; height: 52px; z-index: 10;
   display: flex; align-items: center; justify-content: space-between; padding: 0 10px 0 16px;
 }
-.brand { font-family: Cinzel, serif; font-size: 20px; font-weight: 700; letter-spacing: 0.04em; }
-.brand small { font-family: Inter, sans-serif; font-size: 11px; font-weight: 500; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; margin-left: 8px; }
-.brand-mark { color: var(--saffron); margin-right: 4px; }
+.brand { font-family: Cinzel, serif; font-size: 20px; font-weight: 700; letter-spacing: 0.04em; display: flex; align-items: center; gap: 8px; }
+.brand small { font-family: Inter, sans-serif; font-size: 11px; font-weight: 500; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; margin-left: 4px; }
 #topbar nav { display: flex; gap: 2px; }
 
 /* ---------- sites ---------- */
@@ -170,8 +169,17 @@ body.walking #sitesPanel, body.walking #infoPanel { display: none !important; }
   pointer-events: none; transition: opacity 1.2s ease;
 }
 #intro.gone { opacity: 0; }
-.intro-inner { text-align: center; max-width: 560px; padding: 20px; pointer-events: auto; }
-.intro-inner .om { font-size: 56px; color: var(--saffron); text-shadow: 0 0 30px rgba(255, 153, 51, 0.8); }
+.intro-inner { text-align: center; max-width: 620px; padding: 20px; pointer-events: auto; }
+.faith-marks {
+  display: flex; justify-content: center; align-items: center; gap: 18px;
+  font-size: 42px; line-height: 1; margin: 0 0 10px; flex-wrap: wrap;
+}
+.faith-marks span {
+  display: grid; place-items: center; min-width: 1.1em;
+  filter: drop-shadow(0 0 12px currentColor);
+}
+.faith-marks.compact { gap: 6px; font-size: 16px; margin: 0; }
+.faith-marks.compact span { filter: drop-shadow(0 0 6px currentColor); }
 .intro-inner h1 {
   font-family: Cinzel, serif; font-size: 72px; margin: 0; letter-spacing: 0.08em;
   background: linear-gradient(180deg, #fff3d6, #f6c453 60%, #d4802a); -webkit-background-clip: text; background-clip: text; color: transparent;
@@ -259,7 +267,7 @@ body.walking #globeHud { bottom: 88px; }
     background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.12) 0%, rgba(0, 0, 0, 0.38) 52%, rgba(0, 0, 0, 0.62) 100%);
   }
   .intro-inner { padding: 12px 16px; }
-  .intro-inner .om { font-size: 36px; }
+  .faith-marks { font-size: 28px; gap: 12px; }
   .intro-inner h1 { font-size: 44px; }
   .intro-inner p { font-size: 15px; margin: 8px 0 20px; }
 }

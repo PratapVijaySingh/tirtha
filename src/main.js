@@ -23,6 +23,14 @@ let tour = null;
 let you = null;
 const filters = new Set(Object.keys(TRADITIONS));
 
+function paintFaithMarks(el) {
+  if (!el) return;
+  el.innerHTML = Object.entries(TRADITIONS).map(([name, t]) =>
+    `<span title="${name}" style="color:${t.color}">${t.glyph}</span>`).join('');
+}
+paintFaithMarks($('introFaiths'));
+paintFaithMarks($('brandFaiths'));
+
 function toast(msg, ms = 4000) {
   const t = $('toast');
   t.textContent = msg;
