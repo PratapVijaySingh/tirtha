@@ -264,10 +264,22 @@ body.walking #globeHud { bottom: 88px; }
   }
   .th-controls button { width: 40px; height: 40px; }
   #intro {
-    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.12) 0%, rgba(0, 0, 0, 0.38) 52%, rgba(0, 0, 0, 0.62) 100%);
+    display: flex; align-items: stretch; justify-content: stretch;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0) 42%);
+    padding: 10px 12px calc(12px + env(safe-area-inset-bottom, 0px));
   }
-  .intro-inner { padding: 12px 16px; }
-  .faith-marks { font-size: 28px; gap: 12px; }
-  .intro-inner h1 { font-size: 44px; }
-  .intro-inner p { font-size: 15px; margin: 8px 0 20px; }
+  .intro-inner {
+    width: 100%; height: 100%; max-width: none;
+    display: flex; flex-direction: column; align-items: center;
+    padding: 0;
+  }
+  .faith-marks { font-size: 26px; gap: 12px; margin: 4px 0 0; }
+  .intro-inner h1 {
+    font-size: 34px; margin-top: auto; margin-bottom: 10px;
+    filter: drop-shadow(0 2px 10px #000);
+  }
+  .intro-inner p,
+  .intro-hint { display: none; }
+  .intro-inner .primary.big { width: min(100%, 360px); font-size: 16px; padding: 12px 22px; }
+  .intro-legal { margin-top: 10px; }
 }
