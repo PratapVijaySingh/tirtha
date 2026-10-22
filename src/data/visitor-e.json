@@ -1,0 +1,466 @@
+[
+  {
+    "id": "velankanni",
+    "name": "Shrine Basilica of Our Lady of Good Health",
+    "location": "Velankanni, Nagapattinam, Tamil Nadu",
+    "lat": 10.6800,
+    "lon": 79.8497,
+    "elevation_m": 5,
+    "timings": "Main shrine open 24 hours from 3 Oct 2026 (was 5 AM–9 PM). Masses through the day in Tamil, English, Malayalam, Telugu, Hindi, Kannada and Konkani; morning prayer 5:40 AM.",
+    "closures": "Open all year; expect very heavy crowds 29 Aug–8 Sep (annual feast), Holy Week and Christmas",
+    "entry": "Free",
+    "booking": {
+      "name": "Shrine Basilica of Our Lady of Health, Vailankanni (official site)",
+      "url": "https://www.vailankannishrine.net/"
+    },
+    "official_site": "https://www.vailankannishrine.net/",
+    "dress_code": "Modest clothing covering shoulders and knees",
+    "rules": [
+      "Keep quiet if Mass is underway; sit at the back rather than walking the aisle",
+      "Confession is offered through the day with multilingual confessors",
+      "The annual feast procession and car festival are the busiest days of the year"
+    ],
+    "best_time": "November–February for cooler weather; 29 Aug–8 Sep for the feast if you want the pilgrimage (book stays weeks ahead)",
+    "festivals": [
+      { "name": "Annual Feast of Our Lady of Good Health", "when": "29 Aug–8 Sep every year (flag hoisting 29 Aug, grand feast 8 Sep)" },
+      { "name": "Christmas", "when": "24–25 Dec" },
+      { "name": "Holy Week / Easter", "when": "Mar–Apr (Easter Sunday 5 Apr 2026)" }
+    ],
+    "reach": {
+      "airport": { "name": "Tiruchirappalli International Airport", "code": "TRZ", "km": 165 },
+      "railway": { "name": "Velankanni (VLNK)", "km": 1 },
+      "road": "On the Nagapattinam coast; Nagapattinam town is about 12 km. Frequent buses from Chennai, Trichy and Thanjavur.",
+      "local": "The shrine, beach and tank are walkable; autos from the station and bus stand"
+    },
+    "trek": null,
+    "avg_visit_time": "2–4 hours (a full day during the feast)",
+    "tips": [
+      "Main shrine is 24 hours from Oct 2026, so late-night arrivals can pray inside",
+      "Chennai (MAA) is farther (~300 km) but has more flights than Trichy",
+      "Book rooms well before 29 Aug–8 Sep; 7 Sep night is the hardest to find a stay",
+      "People of other faiths commonly join the pilgrimage; dress modestly"
+    ],
+    "notes": "24-hour opening of the main shrine was announced by the Bishop of Thanjavur for 3 Oct 2026 (The Hindu / Manorama). Confirm Mass language rooms on the shrine site. Airport km is an approximate road distance.",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Basilica_of_Our_Lady_of_Good_Health",
+      "https://www.vailankannishrine.net/",
+      "https://www.thehindu.com/news/national/tamil-nadu/velankanni-basilica-to-remain-open-24-hours-from-october-3/article71453386.ece"
+    ]
+  },
+  {
+    "id": "bomjesus",
+    "name": "Basilica of Bom Jesus",
+    "location": "Old Goa, Goa",
+    "lat": 15.5009,
+    "lon": 73.9115,
+    "elevation_m": 20,
+    "timings": "Weekdays 9:00 AM–6:30 PM; Sundays 10:30 AM–6:30 PM. Masses: weekdays 7:00 and 8:00 AM; Sundays 8:00 and 9:15 AM (Goa government / NRI Goa tourism).",
+    "closures": "Open all year; expect queues around the feast of St Francis Xavier (3 Dec) and during relic expositions",
+    "entry": "Free",
+    "booking": {
+      "name": "No ticket; ASI / Church of St Francis Xavier information",
+      "url": "https://stfrancisxavierofficial.com"
+    },
+    "official_site": "https://www.goa.gov.in/places/basilica-church-for-churches/",
+    "dress_code": "Modest clothing; shoulders and knees covered",
+    "rules": [
+      "This is a living church and a protected monument — keep voices low",
+      "The silver casket of St Francis Xavier is inside; follow staff directions around the relics",
+      "Combine with Se Cathedral, a short walk across the road"
+    ],
+    "best_time": "November–February; 3 December for the feast of St Francis Xavier",
+    "festivals": [
+      { "name": "Feast of St Francis Xavier", "when": "3 December" },
+      { "name": "Christmas", "when": "24–25 Dec" },
+      { "name": "Exposition of the relics", "when": "Held roughly once a decade; last major exposition Dec 2024–Jan 2025" }
+    ],
+    "reach": {
+      "airport": { "name": "Dabolim Airport", "code": "GOI", "km": 28 },
+      "railway": { "name": "Karmali (KRMI)", "km": 8 },
+      "road": "About 10 km east of Panaji on the Old Goa road; also reachable from Madgaon (~25 km).",
+      "local": "Kadamba buses to Old Goa; taxis and hired scooters from Panaji"
+    },
+    "trek": null,
+    "avg_visit_time": "45–90 minutes (half a day with the other Old Goa churches)",
+    "tips": [
+      "Manohar International (GOX) is the newer North Goa airport; Dabolim is usually closer to Old Goa",
+      "Se Cathedral, Church of St Cajetan and the Archaeological Museum are within walking distance",
+      "Laterite façade photographs best in morning light"
+    ],
+    "notes": "Timings from the Government of Goa portal and NRI Goa tourism. Madgaon (MAO) is also used. Relic-exposition years are periodic, not annual.",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Basilica_of_Bom_Jesus",
+      "https://www.goa.gov.in/places/basilica-church-for-churches/",
+      "https://nri.goa.gov.in/tourism/",
+      "https://www.incredibleindia.gov.in/en/goa/goa/basilica-of-bom-jesus"
+    ]
+  },
+  {
+    "id": "santhome",
+    "name": "National Shrine of St Thomas Cathedral Basilica",
+    "location": "Mylapore, Chennai, Tamil Nadu",
+    "lat": 13.0336,
+    "lon": 80.2777,
+    "elevation_m": 6,
+    "timings": "Open 5:00 AM–8:00 PM daily (parish site). Sunday Mass in Tamil, English and Malayalam; weekday Mass 6:00 AM English, 11:00 AM and 6:00 PM Tamil (archdiocese shrine page).",
+    "closures": "Open all year",
+    "entry": "Free",
+    "booking": {
+      "name": "Santhome Cathedral Basilica (official parish site)",
+      "url": "https://www.santhomechurch.org/"
+    },
+    "official_site": "https://www.santhomechurch.org/",
+    "dress_code": "Modest clothing",
+    "rules": [
+      "The tomb of St Thomas is in the crypt below the sanctuary — follow signs and keep silent",
+      "Photography rules inside the sanctuary can change; ask at the office",
+      "Office hours are typically 9:00 AM–1:00 PM"
+    ],
+    "best_time": "November–February; 3 July (feast of St Thomas) if you want the pilgrimage",
+    "festivals": [
+      { "name": "Feast of St Thomas the Apostle", "when": "3 July" },
+      { "name": "Christmas", "when": "24–25 Dec" },
+      { "name": "Easter", "when": "5 Apr 2026" }
+    ],
+    "reach": {
+      "airport": { "name": "Chennai International Airport", "code": "MAA", "km": 16 },
+      "railway": { "name": "Chennai Beach / Mylapore MRTS", "km": 2 },
+      "road": "On Santhome High Road along the Marina; 8 km south of Chennai Central.",
+      "local": "MRTS to Thirumayilai or Light House, then a short auto; buses along Kamarajar Salai"
+    },
+    "trek": null,
+    "avg_visit_time": "1–2 hours",
+    "tips": [
+      "Pair with St Thomas Mount (south-west Chennai) if you are following the apostle’s trail",
+      "Marina Beach is a 10-minute walk",
+      "Sundays are parish-busy; weekdays are calmer for the crypt"
+    ],
+    "notes": "Opening hours from santhomechurch.org. Mass-language list from the Archdiocese of Madras–Mylapore shrine page. Airport km is approximate.",
+    "sources": [
+      "https://www.santhomechurch.org/",
+      "https://www.santhomechurch.org/contact.html",
+      "https://archdioceseofmadrasmylapore.in/shrine/",
+      "https://en.wikipedia.org/wiki/San_Thome_Church"
+    ]
+  },
+  {
+    "id": "mountmary",
+    "name": "Basilica of Our Lady of the Mount",
+    "location": "Bandra West, Mumbai, Maharashtra",
+    "lat": 19.0466,
+    "lon": 72.8225,
+    "elevation_m": 50,
+    "timings": "Basilica Masses: Sundays 6:30, 7:30, 8:30, 9:30 AM (no evening Mass on the official site); weekdays 6:30 and 7:30 AM. Visitor hours commonly 6 AM–about 8 PM; confirm at the basilica.",
+    "closures": "Open all year; Bandra Fair week (around 8 Sep) is extremely crowded",
+    "entry": "Free",
+    "booking": {
+      "name": "Basilica of Our Lady of the Mount, Bandra (official site)",
+      "url": "http://mountmarybasilicabandra.in/"
+    },
+    "official_site": "http://mountmarybasilicabandra.in/",
+    "dress_code": "Modest clothing",
+    "rules": [
+      "Keep quiet during Mass; the nave is a parish church, not only a viewpoint",
+      "The hill road is steep and parking is tight during the fair"
+    ],
+    "best_time": "November–February; September for Bandra Fair if you want the feast",
+    "festivals": [
+      { "name": "Feast of the Nativity of Mary / Bandra Fair", "when": "Week of 8 September" },
+      { "name": "Christmas", "when": "24–25 Dec" }
+    ],
+    "reach": {
+      "airport": { "name": "Chhatrapati Shivaji Maharaj International Airport", "code": "BOM", "km": 8 },
+      "railway": { "name": "Bandra (Western line)", "km": 3 },
+      "road": "Mount Mary Road from Bandra West; taxis and autos from Bandra station and Linking Road.",
+      "local": "Walk or auto up the hill from St Andrews / Bandra market; the sea-facing steps are a short walk from the basilica"
+    },
+    "trek": null,
+    "avg_visit_time": "45–90 minutes",
+    "tips": [
+      "Sunset over the Arabian Sea from the hill is the usual photograph",
+      "Bandra Fair stalls fill Mount Mary Road — go early or on a weekday",
+      "Official site currently lists no evening Mass; check before you plan around one"
+    ],
+    "notes": "Mass times from the basilica site. Some maps list 6 AM–1 PM; popular hours run later. Confirm visitor hours by phone (022-6501 0125).",
+    "sources": [
+      "http://mountmarybasilicabandra.in/",
+      "https://en.wikipedia.org/wiki/Basilica_of_Our_Lady_of_the_Mount,_Mumbai"
+    ]
+  },
+  {
+    "id": "malayattoor",
+    "name": "St Thomas International Shrine, Malayattoor",
+    "location": "Malayattoor, Ernakulam, Kerala",
+    "lat": 10.2160,
+    "lon": 76.5094,
+    "elevation_m": 313,
+    "timings": "Daily pilgrimage on Kurisumudi 6:00 AM–4:00 PM; Lent, Holy Week and Thirunnal open day and night (official shrine). Mass: Sundays 5:00, 7:00, 9:00 AM and 5:15 PM; weekdays 6:00 AM and 5:15 PM.",
+    "closures": "Open all year; the hill path can be closed or difficult in heavy monsoon",
+    "entry": "Free",
+    "booking": {
+      "name": "Malayattoor St Thomas Church (official shrine)",
+      "url": "https://malayattoorchurch.com/"
+    },
+    "official_site": "https://malayattoorchurch.com/",
+    "dress_code": "Modest, comfortable clothes and shoes for the hill; many pilgrims go barefoot",
+    "rules": [
+      "Fourteen Stations of the Cross mark the climb; keep to the path",
+      "Carry water; the hill is steep in the sun",
+      "There is also an ancient parish church by the Periyar at the foot of the hill"
+    ],
+    "best_time": "November–February; first Sunday after Easter (Malayattoor Perunnal) for the main feast",
+    "festivals": [
+      { "name": "Malayattoor Perunnal", "when": "First Sunday after Easter (12 Apr 2026 if Easter is 5 Apr)" },
+      { "name": "Feast of the Arrival of St Thomas in India", "when": "21 November" }
+    ],
+    "reach": {
+      "airport": { "name": "Cochin International Airport", "code": "COK", "km": 22 },
+      "railway": { "name": "Angamaly (AFK)", "km": 16 },
+      "road": "About 15 km from Kalady; buses and taxis from Angamaly and Perumbavoor.",
+      "local": "Start at the riverside church; climb Kurisumudi on foot. Jeeps may run part-way in season."
+    },
+    "trek": { "km": 2.5, "from": "the riverside parish church", "notes": "Kurisumudi hill climb with 14 stations of the cross; distance is approximate" },
+    "avg_visit_time": "3–5 hours including the climb",
+    "tips": [
+      "Start early; 6 AM opening is the coolest climb",
+      "Lent and the week after Easter are the busiest",
+      "Combine with Kalady (Adi Shankara) if you are already on this side of the Periyar"
+    ],
+    "notes": "Hill hours and Mass times from malayattoorchurch.com. Trek km is not from an official measured trail — treat as a rough climb, not a surveyed distance. Elevation is the hill shrine, not the riverside parish.",
+    "sources": [
+      "https://malayattoorchurch.com/daily-pilgrimage-365-days/",
+      "https://malayattoorchurch.com/mass-timings/",
+      "https://en.wikipedia.org/wiki/Malayattoor_Saint_Thomas_Church",
+      "https://www.keralatourism.org/destination/malayattoor-church-ernakulam/354/"
+    ]
+  },
+  {
+    "id": "stfrancis",
+    "name": "St Francis CSI Church",
+    "location": "Fort Kochi, Kerala",
+    "lat": 9.9661,
+    "lon": 76.2409,
+    "elevation_m": 4,
+    "timings": "Weekdays commonly 9:00 AM–5:00 PM for visitors; Sunday worship 7:30 AM English and 10:00 AM Malayalam (church sites). Visitor access on Sunday is often after service, about 1:00–5:00 PM.",
+    "closures": "Closed to casual visitors during Sunday morning service; ASI-protected monument",
+    "entry": "Free",
+    "booking": {
+      "name": "St Francis CSI Church, Fort Kochi",
+      "url": "https://www.stfranciscsichurch.org/"
+    },
+    "official_site": "https://www.stfranciscsichurch.org/",
+    "dress_code": "Modest clothing",
+    "rules": [
+      "Still photography is usually allowed; video is often restricted (secondary guides — ask on site)",
+      "Vasco da Gama’s tombstone is inside; do not step on grave slabs",
+      "The Dutch cemetery nearby is maintained by the same church"
+    ],
+    "best_time": "November–February",
+    "festivals": [
+      { "name": "Christmas", "when": "24–25 Dec" },
+      { "name": "Sunday CSI worship", "when": "Weekly, 7:30 AM English / 10:00 AM Malayalam" }
+    ],
+    "reach": {
+      "airport": { "name": "Cochin International Airport", "code": "COK", "km": 42 },
+      "railway": { "name": "Ernakulam Junction (ERS)", "km": 13 },
+      "road": "Fort Kochi is 13 km from Ernakulam; ferries from Ernakulam boat jetty, or road via Willingdon Island.",
+      "local": "Walkable from Fort Kochi bus stand, the Chinese fishing nets and Santa Cruz Basilica"
+    },
+    "trek": null,
+    "avg_visit_time": "30–45 minutes",
+    "tips": [
+      "Santa Cruz Basilica is a few minutes’ walk if you want a living Catholic basilica as well",
+      "Weekday late morning is the busiest tourist window",
+      "Published visitor hours differ (9–5 vs 9–3 on one church page) — go in the morning to be safe"
+    ],
+    "notes": "Hours disagree slightly across the church’s own pages and tourism listings. Sunday morning is worship, not sightseeing. Airport km is approximate.",
+    "sources": [
+      "https://www.stfranciscsichurch.org/",
+      "https://stfranciscsichurch.com/",
+      "https://en.wikipedia.org/wiki/St._Francis_Church,_Kochi"
+    ]
+  },
+  {
+    "id": "philomena",
+    "name": "St Joseph's Cathedral (St Philomena's)",
+    "location": "Mysuru, Karnataka",
+    "lat": 12.3211,
+    "lon": 76.6583,
+    "elevation_m": 770,
+    "timings": "Visitors 6:00 AM–8:00 PM daily (cathedral site). District tourism lists 8:00 AM–8:00 PM. Weekday Masses morning; Sundays several Masses in Tamil, Kannada and English.",
+    "closures": "Open all year; Novena of St Philomena (2–10 Aug) is crowded",
+    "entry": "Free",
+    "booking": {
+      "name": "St Philomena's Cathedral / Diocese of Mysore",
+      "url": "https://mysorestphilomenachurch.com/"
+    },
+    "official_site": "https://mysorestphilomenachurch.com/",
+    "dress_code": "Modest, respectful attire; some visitors remove footwear in the sanctuary",
+    "rules": [
+      "Photography is fine outside; be discreet inside, and do not photograph during Mass",
+      "The relic chapel / crypt is open for veneration through the day",
+      "If Mass is on, sit at the back and do not walk the nave"
+    ],
+    "best_time": "October–February; 2–10 August for the novena",
+    "festivals": [
+      { "name": "Novena and feast of St Philomena", "when": "2–10 August" },
+      { "name": "Christmas", "when": "24–25 Dec" },
+      { "name": "Easter", "when": "5 Apr 2026" }
+    ],
+    "reach": {
+      "airport": { "name": "Mysore Airport", "code": "MYQ", "km": 13 },
+      "railway": { "name": "Mysuru Junction (MYS)", "km": 3 },
+      "road": "On Ashoka Road, Lourdes Nagar, about 1 km from the suburban bus stand. Bengaluru is ~140 km.",
+      "local": "Autos from the palace and railway station; parking on the grounds fills on Sundays"
+    },
+    "trek": null,
+    "avg_visit_time": "45–90 minutes (include the crypt)",
+    "tips": [
+      "Bengaluru (BLR) has far more flights than Mysore airport",
+      "Twin spires are ~52 m; morning light on the white Gothic façade is best",
+      "Pair with Mysore Palace, 2 km south"
+    ],
+    "notes": "Visitor hours 6 AM–8 PM from the cathedral site; 8 AM–8 PM from Mysuru district tourism. Mass-language lists on the same site vary between pages — confirm in the parish office.",
+    "sources": [
+      "https://mysorestphilomenachurch.com/",
+      "https://mysorestphilomenachurch.com/about/chapels",
+      "https://mysore.nic.in/en/tourist-place/st-philomenas-church/",
+      "https://en.wikipedia.org/wiki/St._Philomena's_Cathedral,_Mysore"
+    ]
+  },
+  {
+    "id": "medak",
+    "name": "Medak Cathedral",
+    "location": "Medak, Telangana",
+    "lat": 18.0537,
+    "lon": 78.2671,
+    "elevation_m": 430,
+    "timings": "Open for viewing and silent prayer about 6:00/7:00 AM–6:00 PM (church site vs district site). Sunday communion ~7:00 AM; general service ~9:30 or 10:00 AM.",
+    "closures": "Open all year",
+    "entry": "Free",
+    "booking": {
+      "name": "Medak Church",
+      "url": "https://www.medakchurch.com/"
+    },
+    "official_site": "https://www.medakchurch.com/",
+    "dress_code": "Modest clothing",
+    "rules": [
+      "This is a Church of South India cathedral — keep silent prayer in the nave",
+      "Stained glass is the main reason to visit; go inside, not only the grounds"
+    ],
+    "best_time": "November–February; Christmas for the consecration anniversary (25 Dec 1924)",
+    "festivals": [
+      { "name": "Christmas (consecration day)", "when": "25 December" },
+      { "name": "Easter", "when": "5 Apr 2026" }
+    ],
+    "reach": {
+      "airport": { "name": "Rajiv Gandhi International Airport, Hyderabad", "code": "HYD", "km": 100 },
+      "railway": { "name": "Akkannapet / Kamareddy", "km": 19 },
+      "road": "About 95–100 km north of Hyderabad / Secunderabad; frequent TSRTC buses to Medak town.",
+      "local": "The cathedral is about 1.5 km from Medak bus stand in the mission compound"
+    },
+    "trek": null,
+    "avg_visit_time": "45–90 minutes",
+    "tips": [
+      "Hyderabad is the practical airport; Medak has no station of its own",
+      "District tourism still quotes 7 AM–6 PM and Sunday services at 7:00 and 9:30 — the church site says 6 AM–6 PM and 10:00 AM general service",
+      "Allow a half-day from Hyderabad including the drive"
+    ],
+    "notes": "Opening and Sunday service times differ between medakchurch.com and medak.telangana.gov.in. Airport km is the usual Hyderabad figure (~100 km); RGIA is farther than the city (~146 km in one district page).",
+    "sources": [
+      "https://www.medakchurch.com/",
+      "https://medak.telangana.gov.in/medak-cathedral-church/",
+      "https://en.wikipedia.org/wiki/Medak_Cathedral"
+    ]
+  },
+  {
+    "id": "stpauls",
+    "name": "St Paul's Cathedral",
+    "location": "Cathedral Road, Kolkata, West Bengal",
+    "lat": 22.5443,
+    "lon": 88.3467,
+    "elevation_m": 9,
+    "timings": "Visitors Mon–Sat 10:00 AM–6:00 PM; Sunday 12:00 noon–6:00 PM (official cathedral). Sunday worship from 7:30 AM (Eucharist, sung Eucharist, Bengali worship, evening Eucharist 6:00 PM).",
+    "closures": "Open all year; visitor hours start after Sunday morning worship",
+    "entry": "Free",
+    "booking": {
+      "name": "St Paul's Cathedral, Kolkata",
+      "url": "https://www.stpaulscathedralkolkata.org/"
+    },
+    "official_site": "https://www.stpaulscathedralkolkata.org/",
+    "dress_code": "Modest clothing",
+    "rules": [
+      "Visitor hours are separate from worship — on Sunday the nave opens to sightseers at noon",
+      "Keep quiet; this is the CNI mother church of Calcutta"
+    ],
+    "best_time": "November–February",
+    "festivals": [
+      { "name": "Christmas", "when": "24–25 Dec" },
+      { "name": "Easter", "when": "5 Apr 2026" }
+    ],
+    "reach": {
+      "airport": { "name": "Netaji Subhas Chandra Bose International Airport", "code": "CCU", "km": 18 },
+      "railway": { "name": "Howrah / Sealdah", "km": 6 },
+      "road": "On Cathedral Road by the Maidan, next to the Victoria Memorial and Birla Planetarium.",
+      "local": "Metro to Maidan or Rabindra Sadan; taxis and buses along AJC Bose Road"
+    },
+    "trek": null,
+    "avg_visit_time": "45–60 minutes",
+    "tips": [
+      "Walk across to Victoria Memorial in the same visit",
+      "Sunday sightseeing starts at noon so that morning worship is undisturbed",
+      "Phone 033-2223 0127"
+    ],
+    "notes": "Visitor hours from stpaulscathedralkolkata.org. Some maps list Sunday from 10 AM; the cathedral’s own visitor notice is noon–6 PM on Sunday.",
+    "sources": [
+      "https://www.stpaulscathedralkolkata.org/",
+      "https://www.stpaulscathedralkolkata.org/contact-us",
+      "https://en.wikipedia.org/wiki/St._Paul%27s_Cathedral,_Kolkata"
+    ]
+  },
+  {
+    "id": "sacredheart",
+    "name": "Sacred Heart Cathedral",
+    "location": "Ashok Place, New Delhi",
+    "lat": 28.6287,
+    "lon": 77.2067,
+    "elevation_m": 216,
+    "timings": "Church commonly 6:00 AM–8:00 PM. Weekday Mass (Apr–Oct): 6:00 AM, 1:00 PM, 6:30 PM. Sunday: 6:30 AM English, 7:30 AM Malayalam, 9:00 AM English, 10:15 AM Hindi, 11:30 AM English (cathedral site, Apr–Oct 2026).",
+    "closures": "Open all year",
+    "entry": "Free",
+    "booking": {
+      "name": "Sacred Heart Cathedral, New Delhi",
+      "url": "https://sacredheartcathedraldelhi.org/"
+    },
+    "official_site": "https://sacredheartcathedraldelhi.org/",
+    "dress_code": "Modest clothing",
+    "rules": [
+      "Masses in English, Hindi and Malayalam — check the current weekly notice for winter vs summer times",
+      "The cathedral shares a campus with St Columba's School; follow entry directions"
+    ],
+    "best_time": "October–March; Christmas midnight Mass if you can get a seat",
+    "festivals": [
+      { "name": "Christmas", "when": "24–25 Dec" },
+      { "name": "Easter", "when": "5 Apr 2026" },
+      { "name": "Feast of the Sacred Heart", "when": "June, date varies (19 Jun 2026)" }
+    ],
+    "reach": {
+      "airport": { "name": "Indira Gandhi International Airport", "code": "DEL", "km": 16 },
+      "railway": { "name": "New Delhi (NDLS)", "km": 2 },
+      "road": "1 Ashok Place, Gol Dak Khana roundabout, a short walk from Connaught Place.",
+      "local": "Metro to Patel Chowk or Rajiv Chowk, then 10–15 minutes’ walk"
+    },
+    "trek": null,
+    "avg_visit_time": "30–60 minutes",
+    "tips": [
+      "Winter Mass times (Nov–Mar) differ from the April–October list on the cathedral site",
+      "Office hours are split morning and evening on weekdays",
+      "Connaught Place is the easy landmark"
+    ],
+    "notes": "Mass schedule taken from sacredheartcathedraldelhi.org (April–October block). Winter list is posted as a separate notice each November.",
+    "sources": [
+      "https://sacredheartcathedraldelhi.org/",
+      "https://en.wikipedia.org/wiki/Sacred_Heart_Cathedral,_New_Delhi"
+    ]
+  }
+]

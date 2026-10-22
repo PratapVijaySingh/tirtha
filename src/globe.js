@@ -311,7 +311,7 @@ export class Globe {
     if (this.tileset) return 420;
     if ((site.elev || 0) > 2500) return 3800;
     if ((site.elev || 0) > 800) return 1800;
-    if (site.temple?.style === 'gurudwara' || site.id === 'akshardham' || site.id === 'palitana') return 1400;
+    if (site.temple?.style === 'gurudwara' || site.temple?.style === 'church' || site.id === 'akshardham' || site.id === 'palitana') return 1600;
     return 1400;
   }
 

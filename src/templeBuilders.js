@@ -11,6 +11,7 @@ export const STYLE_LABELS = {
   gurudwara: 'Sikh architecture · Gilded sanctum in the sarovar',
   dargah: 'Indo-Islamic · Marble domes & arches',
   mahabodhi: 'Gupta-era brick tower · Buddhist',
+  church: 'Basilica · Nave, towers, stained glass & cross',
 };
 
 const PALETTES = {
@@ -20,6 +21,7 @@ const PALETTES = {
   white: { base: 0xfaf0dc, trim: 0xe2d4ba, dark: 0x8a857a },
   granite: { base: 0xb59c7a, trim: 0x977f60, dark: 0x54432f },
   painted: { base: 0xeadcc2, trim: 0xc23b2a, dark: 0x2b4a8f },
+  laterite: { base: 0xb45a38, trim: 0x8a3d24, dark: 0x4a2418 },
 };
 
 const BRIGHT = ['#e63946', '#f4a261', '#2a9d8f', '#e9c46a', '#3a86ff', '#ff006e', '#8ac926', '#ffbe0b', '#8338ec', '#fb5607', '#06d6a0', '#118ab2'];
@@ -1558,9 +1560,139 @@ function buildMahabodhi(ctx) {
   };
 }
 
+// ---------------------------------------------------------------- CHURCH
+
+function churchCross(mat, s, x, y, z) {
+  const g = new THREE.Group();
+  g.add(box(0.16 * s, 2.4 * s, 0.16 * s, mat, x, y, z));
+  g.add(box(1.35 * s, 0.16 * s, 0.16 * s, mat, x, y + 1.55 * s, z));
+  return g;
+}
+
+function stainedGlass(w, h, d, x, y, z) {
+  const cols = [0x1d4e89, 0xc1121f, 0x2d6a4f, 0xf4d35e, 0x7b2cbf];
+  const mat = new THREE.MeshStandardMaterial({
+    color: cols[(Math.abs(Math.round(x + z)) || 0) % cols.length],
+    emissive: cols[(Math.abs(Math.round(x + y)) || 1) % cols.length],
+    emissiveIntensity: 0.55, roughness: 0.35, metalness: 0.1,
+  });
+  mat.userData.keepEmissive = true;
+  return box(w, h, d, mat, x, y, z);
+}
+
+function gothicTower(ctx, h, base, x, z) {
+  const { M } = ctx;
+  const g = new THREE.Group();
+  g.add(box(base, h * 0.58, base, M.base, x, 0, z));
+  g.add(box(base * 0.84, h * 0.16, base * 0.84, M.trim, x, h * 0.58, z));
+  const cone = shade(new THREE.Mesh(new THREE.ConeGeometry(base * 0.5, h * 0.36, 4), M.base));
+  cone.rotation.y = Math.PI / 4;
+  cone.position.set(x, h * 0.74 + h * 0.18, z);
+  g.add(cone);
+  g.add(churchCross(M.gold, 1.15, x, h * 0.95, z));
+  g.add(stainedGlass(base * 0.22, h * 0.14, 0.18, x, h * 0.38, z + base * 0.51));
+  return g;
+}
+
+function buildChurch(ctx) {
+  const { M, site } = ctx;
+  const t = site.temple;
+  const root = new THREE.Group();
+  const simple = !!t.simple;
+  const baroque = !!t.baroque;
+  const naveW = simple ? 14 : 18;
+  const naveH = simple ? 10 : baroque ? 14 : 16;
+  const naveD = simple ? 28 : 40;
+  const roofMat = M.paint(simple || baroque ? 0x7a2e12 : 0x4a5560);
+
+  const nave = new THREE.Group();
+  nave.add(box(naveW, naveH, naveD, M.base, 0, 0, 0));
+  nave.add(box(naveW + 1.6, 0.5, naveD + 1.2, M.trim, 0, naveH, 0));
+  const roof = shade(new THREE.Mesh(new THREE.ConeGeometry(naveW * 0.72, simple ? 5 : 7, 4), roofMat));
+  roof.rotation.y = Math.PI / 4;
+  roof.scale.z = naveD / naveW;
+  roof.position.set(0, naveH + (simple ? 2.6 : 3.6), 0);
+  nave.add(roof);
+  for (let i = -2; i <= 2; i++) {
+    if (i === 0) continue;
+    nave.add(stainedGlass(0.2, naveH * 0.35, 2.2, naveW * 0.51, naveH * 0.35, i * (naveD / 6)));
+    nave.add(stainedGlass(0.2, naveH * 0.35, 2.2, -naveW * 0.51, naveH * 0.35, i * (naveD / 6)));
+  }
+  root.add(part('Nave', 'The long hall where the congregation sits, facing the altar. Light from the windows is meant to lift the eye toward heaven.', nave));
+
+  const apseZ = -naveD / 2 - 4;
+  const apse = new THREE.Group();
+  apse.add(box(naveW * 0.72, naveH * 0.85, 8, M.base, 0, 0, apseZ));
+  apse.add(box(4.2, 1.1, 2.2, M.marble, 0, 0.2, apseZ + 1.2));
+  apse.add(box(1.6, 3.4, 0.5, M.gold, 0, 1.4, apseZ + 0.4));
+  apse.add(churchCross(M.gold, 1.4, 0, naveH * 0.85 + 0.2, apseZ));
+  root.add(part('Sanctuary & altar', 'The east end of the church, where the altar stands. In a basilica the priest celebrates Mass here, and pilgrims approach for Communion or to light a candle.', apse));
+  ctx.lights.push(new THREE.Vector3(0, 4, apseZ + 2));
+
+  const facadeZ = naveD / 2 + 1.2;
+  const facade = new THREE.Group();
+  facade.add(box(naveW + 4, naveH + (simple ? 2 : 4), 3.2, M.base, 0, 0, facadeZ));
+  const door = box(3.2, 5.4, 0.4, M.door, 0, 0, facadeZ + 1.7);
+  facade.add(door);
+  const rose = shade(new THREE.Mesh(new THREE.CircleGeometry(simple ? 1.4 : 2.2, 24), new THREE.MeshStandardMaterial({
+    color: 0x1d4e89, emissive: 0xc1121f, emissiveIntensity: 0.45, roughness: 0.4, side: THREE.DoubleSide,
+  })));
+  rose.material.userData.keepEmissive = true;
+  rose.position.set(0, naveH * 0.72, facadeZ + 1.65);
+  facade.add(rose);
+  if (baroque) {
+    facade.add(box(naveW + 5, 1.2, 3.6, M.trim, 0, naveH + 4, facadeZ));
+    const ped = shade(new THREE.Mesh(new THREE.ConeGeometry((naveW + 4) * 0.55, 4.5, 3), M.base));
+    ped.rotation.y = Math.PI;
+    ped.position.set(0, naveH + 7.4, facadeZ);
+    facade.add(ped);
+    facade.add(churchCross(M.gold, 1.3, 0, naveH + 9.6, facadeZ));
+  }
+  root.add(part('West front', baroque
+    ? 'The laterite Baroque façade of Bom Jesus, with stacked classical orders. Unlike a Gothic cathedral it has no twin spires — the eye stops on the pediment and the cross.'
+    : simple
+      ? 'A plain gabled west front, closer to the first Portuguese churches on this coast than to later Gothic cathedrals.'
+      : 'The entrance façade, with a rose window above the doors. Twin towers (when present) mark the church on the skyline.', facade));
+
+  if (!simple && !baroque) {
+    const spires = t.spires === 1 ? [0] : [-1, 1];
+    const towers = new THREE.Group();
+    const th = t.spires === 1 ? 42 : 36;
+    spires.forEach((s) => towers.add(gothicTower(ctx, th, 6.2, s * (naveW / 2 + 2.2), facadeZ)));
+    root.add(part('Towers & spires', 'Pointed Gothic spires carry a cross at the summit. Bells in the belfry call people to Mass, a wedding or a funeral.', towers));
+  } else if (simple) {
+    const bell = cyl(0.9, 1.0, 3.2, 12, M.trim, 0, naveH + 2, facadeZ);
+    root.add(part('Bell-cote', 'A small gable for the bell, typical of the first European churches built on the Kerala coast.', bell, churchCross(M.gold, 0.9, 0, naveH + 5.4, facadeZ)));
+  }
+
+  const churchyard = new THREE.Group();
+  [-1, 1].forEach((s) => {
+    churchyard.add(box(1.1, 0.4, naveD * 0.7, M.paint(0x5c6b4a), s * (naveW / 2 + 6), 0, 0));
+    for (let i = 0; i < 5; i++) churchyard.add(tree(ctx, s * (naveW / 2 + 10 + ctx.rnd() * 6), -naveD / 2 + 4 + i * 8, 0.9 + ctx.rnd() * 0.4));
+  });
+  root.add(part('Churchyard', 'The garden and paths around the church. Funerary stones, processions and festival stalls often occupy this ground.', churchyard));
+
+  for (let i = 0; i < 24; i++) ctx.lamps.push(rectPath(0, 0, naveW / 2 - 2, naveD / 2 - 2, 1.2)(i / 24, 0));
+  ctx.lights.push(new THREE.Vector3(0, 6, facadeZ - 4), new THREE.Vector3(0, 5, 0));
+
+  return {
+    root,
+    height: simple ? 18 : baroque ? 28 : 48,
+    focus: new THREE.Vector3(0, 10, 4),
+    radius: simple ? 48 : 70,
+    bounds: { w: naveW + 28, d: naveD + 24, cz: 0 },
+    path: rectPath(0, 0, naveW / 2 + 4, naveD / 2 + 4, 0),
+    walkStart: new THREE.Vector3(0, 0, facadeZ + 8),
+    noWall: true, noCourtyard: true,
+    backdrop: t.hill ? 'hills' : t.sea ? 'sea' : null,
+    ground: t.sea ? 0xcbb892 : t.hill ? 0x6d7a4e : 0x7a7568,
+    robes: ['#1b2838', '#f4f1ea', '#9b2226', '#3d5a80', '#ffffff', '#6b7058'],
+  };
+}
+
 // ---------------------------------------------------------------- entry
 
-const BUILDERS = { nagara: buildNagara, dravida: buildDravida, kalinga: buildKalinga, gurudwara: buildGurudwara, dargah: buildDargah, mahabodhi: buildMahabodhi };
+const BUILDERS = { nagara: buildNagara, dravida: buildDravida, kalinga: buildKalinga, gurudwara: buildGurudwara, dargah: buildDargah, mahabodhi: buildMahabodhi, church: buildChurch };
 
 export function buildTemple(site) {
   const t = site.temple;

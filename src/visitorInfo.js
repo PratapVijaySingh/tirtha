@@ -2,10 +2,11 @@ import a from './data/visitor-a.json';
 import b from './data/visitor-b.json';
 import c from './data/visitor-c.json';
 import d from './data/visitor-d.json';
+import e from './data/visitor-e.json';
 
 export const INFO_VERIFIED = 'October 2026';
 
-export const VISITOR_INFO = Object.fromEntries([...a, ...b, ...c, ...d].map((v) => [v.id, v]));
+export const VISITOR_INFO = Object.fromEntries([...a, ...b, ...c, ...d, ...e].map((v) => [v.id, v]));
 
 const WMO = {
   0: ['Clear sky', '☀️'], 1: ['Mainly clear', '🌤️'], 2: ['Partly cloudy', '⛅'], 3: ['Overcast', '☁️'],

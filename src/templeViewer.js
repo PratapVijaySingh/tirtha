@@ -368,6 +368,7 @@ export class TempleViewer {
     else if (r.sound === 'qawwali') this.playQawwali(ac, master, t0);
     else if (r.sound === 'bowl') this.playBowl(ac, master, t0);
     else if (r.sound === 'stavan') this.playStavan(ac, master, t0);
+    else if (r.sound === 'hymn') this.playHymn(ac, master, t0);
     if (r.petals) this.petals.burst(this.temple.focus, this.temple.radius, r.petals);
     this.aartiUntil = this.clock.elapsedTime + (r.glow || 11);
   }
@@ -416,6 +417,16 @@ export class TempleViewer {
     this.singingBowl(ac, out, t + 6.6, 220);
     this.woodblock(ac, out, t);
     this.woodblock(ac, out, t + 3.2);
+  }
+
+  playHymn(ac, out, t) {
+    for (let i = 0; i < 8; i++) this.bell(ac, out, t + i * 0.82, i % 3 === 0 ? 0.72 : i % 2 ? 1.08 : 0.92);
+    this.drone(ac, out, t + 1, 130.8, 12, 0.05);
+    this.harmonium(ac, out, t + 1.1, 261.6, 11, 0.04);
+    this.harmonium(ac, out, t + 1.1, 329.6, 11, 0.03);
+    this.harmonium(ac, out, t + 1.1, 392, 11, 0.028);
+    const notes = [392, 440, 523.25, 587.33, 523.25, 440, 392, 349.23, 392];
+    notes.forEach((f, i) => this.voice(ac, out, t + 2.4 + i * 0.85, f, 0.9, 0.08));
   }
 
   playStavan(ac, out, t) {
@@ -702,6 +713,7 @@ export class TempleViewer {
       else if (s === 'qawwali') this.applyLamps(1.55 + Math.sin(t * 1.7) * 0.22);
       else if (s === 'bowl') this.applyLamps(1.16 + Math.sin(t * 1.1) * 0.06);
       else if (s === 'stavan') this.applyLamps(1.38 + Math.sin(t * 5) * 0.14);
+      else if (s === 'hymn') this.applyLamps(1.28 + Math.sin(t * 1.4) * 0.1);
       else this.applyLamps(1.8 + Math.sin(t * 9) * 0.35 + Math.sin(t * 23) * 0.2);
     } else if (this.aartiUntil) {
       this.aartiUntil = 0;
