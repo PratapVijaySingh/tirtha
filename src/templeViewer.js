@@ -146,6 +146,7 @@ export class TempleViewer {
     this.pointLights.forEach((l, i) => (l.visible = i < this.temple.lightAnchors.length));
 
     this.setMode('orbit');
+    if (window.matchMedia('(max-width: 900px)').matches) this.ui.hud.classList.add('minimized');
     this.setTime(ORDER[this.timeIdx]);
     this.resize();
     this.resetView(false);
@@ -227,7 +228,9 @@ export class TempleViewer {
     this.ui.walk.classList.toggle('active', mode === 'walk');
     this.controls.enabled = mode !== 'walk';
     this.ui.hint.textContent = mode === 'walk'
-      ? 'W A S D to walk · drag to look · Shift to run · climb steps by walking into them · Esc to stop'
+      ? (window.matchMedia('(max-width: 900px)').matches
+        ? 'Use the arrows to walk · drag to look'
+        : 'W A S D to walk · drag to look · Shift to run · climb steps by walking into them · Esc to stop')
       : mode === 'pradakshina'
         ? (this.ritual?.circleHint || 'Circling clockwise, keeping the shrine on your right · drag to stop')
         : 'Drag to orbit · Right-drag to pan · Scroll to zoom · Click to inspect';
@@ -244,6 +247,8 @@ export class TempleViewer {
       this.prad = { angle: Math.atan2(off.z, off.x), r: Math.max(this.temple.radius * 0.75, 25) };
     }
     this.prevMode = mode;
+    document.getElementById('templeView')?.classList.toggle('tv-walking', mode === 'walk');
+    if (mode === 'walk' && window.matchMedia('(max-width: 900px)').matches) this.ui.hud.classList.add('minimized');
   }
 
   onKey(e, down) {

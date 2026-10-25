@@ -66,8 +66,14 @@
   </aside>
 
   <div id="walkHud" class="glass hidden">
-    <div><b>Street walk</b> · <span id="walkMode"></span></div>
-    <div class="keys"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> move · drag mouse to look · <kbd>Shift</kbd> run · <kbd>Q</kbd>/<kbd>E</kbd> rise/lower · wheel speed · <kbd>Esc</kbd> exit</div>
+    <div class="walk-head"><b>Street walk</b> · <span id="walkMode"></span></div>
+    <div class="keys"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> move · drag to look · <kbd>Shift</kbd> run · <kbd>Q</kbd>/<kbd>E</kbd> rise/lower · wheel speed · <kbd>Esc</kbd> exit</div>
+    <div id="walkPad" class="walk-pad">
+      <button type="button" data-code="KeyA" aria-label="Move left">◀</button>
+      <button type="button" data-code="KeyW" aria-label="Move forward">▲</button>
+      <button type="button" data-code="KeyS" aria-label="Move back">▼</button>
+      <button type="button" data-code="KeyD" aria-label="Move right">▶</button>
+    </div>
     <button id="walkExit">Exit walk</button>
   </div>
 
@@ -120,6 +126,12 @@
       </div>
     </div>
     <div id="tvTooltip" class="hidden"></div>
+    <div id="tvPad" class="walk-pad glass">
+      <button type="button" data-code="KeyA" aria-label="Step left">◀</button>
+      <button type="button" data-code="KeyW" aria-label="Step forward">▲</button>
+      <button type="button" data-code="KeyS" aria-label="Step back">▼</button>
+      <button type="button" data-code="KeyD" aria-label="Step right">▶</button>
+    </div>
   </div>
 
   <dialog id="settings" class="glass">

@@ -64,7 +64,7 @@ async function begin() {
   setTimeout(() => $('intro').classList.add('hidden'), 1200);
   await globe.flyIndia();
   $('topbar').classList.remove('hidden');
-  $('sitesPanel').classList.remove('hidden');
+  if (!current) $('sitesPanel').classList.remove('hidden');
   $('globeHud').classList.remove('hidden');
   getUserPosition()
     .then((p) => {
@@ -267,6 +267,7 @@ async function selectSite(site, { orbit = true, fromTour = false } = {}) {
   globe.select(site);
   showInfo(site);
   renderList();
+  if (window.matchMedia('(max-width: 900px)').matches) $('sitesPanel').classList.add('hidden');
   return globe.flyToSite(site, { orbit });
 }
 globe.onSelect = (s) => selectSite(s);
@@ -289,6 +290,23 @@ $('actWalk').onclick = async () => {
   walker.start(current, h);
 };
 $('walkExit').onclick = () => walker.stop();
+
+document.querySelectorAll('.walk-pad button').forEach((btn) => {
+  const code = btn.dataset.code;
+  const send = (down) => window.dispatchEvent(new KeyboardEvent(down ? 'keydown' : 'keyup', { code }));
+  btn.addEventListener('pointerdown', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    btn.setPointerCapture(e.pointerId);
+    send(true);
+  });
+  const release = (e) => {
+    if (btn.hasPointerCapture(e.pointerId)) btn.releasePointerCapture(e.pointerId);
+    send(false);
+  };
+  btn.addEventListener('pointerup', release);
+  btn.addEventListener('pointercancel', release);
+});
 
 // ------------------------------------------------------------ temple viewer
 
@@ -321,7 +339,7 @@ $('tvMax').onclick = (e) => {
 };
 $('templeHud').addEventListener('click', (e) => {
   if (!$('templeHud').classList.contains('minimized')) return;
-  if (e.target.closest('#tvClose, #tvMin')) return;
+  if (e.target.closest('#tvClose, #tvMin, button')) return;
   $('templeHud').classList.remove('minimized');
 });
 $('tvClose').onclick = () => {
@@ -334,7 +352,16 @@ $('tvClose').onclick = () => {
 
 // ------------------------------------------------------------ top bar
 
-$('btnSites').onclick = () => $('sitesPanel').classList.toggle('hidden');
+$('btnSites').onclick = () => {
+  const panel = $('sitesPanel');
+  panel.classList.toggle('hidden');
+  if (!panel.classList.contains('hidden') && window.matchMedia('(max-width: 900px)').matches) {
+    $('infoPanel').classList.add('hidden');
+    globe.select(null);
+    current = null;
+    renderList();
+  }
+};
 $('btnIndia').onclick = () => {
   stopTour();
   endWalk();

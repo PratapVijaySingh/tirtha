@@ -104,7 +104,9 @@ export class StreetWalker {
   }
 
   status() {
-    const mode = this.photoreal ? 'Photorealistic 3D' : 'Satellite (add a Google key in ⚙ for 3D streets)';
+    const mode = this.photoreal
+    ? '3D streets'
+    : (window.matchMedia('(max-width: 900px)').matches ? 'Satellite · drag to look' : 'Satellite (add a Google key in ⚙ for 3D streets)');
     this.onStatus?.(`${mode} · speed ×${this.speedMul.toFixed(1)}`);
   }
 
