@@ -245,8 +245,97 @@ export async function loadRoadPack(id) {
   return pack;
 }
 
+const ROUTERS = [
+  'https://routing.openstreetmap.de/routed-car/route/v1/driving',
+  'https://router.project-osrm.org/route/v1/driving',
+];
+
+function thinCoords(coords, max) {
+  if (coords.length <= max) return coords;
+  const step = (coords.length - 1) / (max - 1);
+  const out = [];
+  for (let i = 0; i < max; i++) out.push(coords[Math.round(i * step)]);
+  out[out.length - 1] = coords[coords.length - 1];
+  return out;
+}
+
+function osrmTurn(step) {
+  const kind = step.maneuver?.type;
+  const mod = step.maneuver?.modifier || '';
+  if (kind === 'depart') return 'Start';
+  if (kind === 'arrive') return 'Arrive';
+  if (kind === 'roundabout' || kind === 'rotary' || kind === 'exit roundabout') return 'Roundabout';
+  if (mod.includes('uturn')) return 'Make a U-turn';
+  if (mod.includes('right')) return 'Turn right';
+  if (mod.includes('left')) return 'Turn left';
+  return 'Continue';
+}
+
+function osrmSteps(steps) {
+  const groups = [];
+  steps.forEach((step) => {
+    const turn = osrmTurn(step);
+    const name = step.name || '';
+    const dist = (step.distance || 0) / 1000;
+    if (turn === 'Arrive' || dist < 0.04) return;
+    const last = groups.at(-1);
+    if (last && last.turn === 'Continue' && turn === 'Continue' && last.name === name) last.km += dist;
+    else groups.push({ turn, name, km: dist });
+  });
+  const shown = groups.slice(0, 12).map((group) => {
+    const road = group.name ? ` on ${group.name}` : '';
+    const dist = group.km < 1 ? `${Math.round(group.km * 1000)} m` : `${group.km.toFixed(group.km < 10 ? 1 : 0)} km`;
+    return `${group.turn}${road} · ${dist}`;
+  });
+  if (groups.length > shown.length) shown.push('Continue on the driving roads to the gate');
+  return shown;
+}
+
+async function roadRoute(from, site) {
+  const path = `${from.lon},${from.lat};${site.lon},${site.lat}`;
+  const query = '?overview=full&geometries=geojson&steps=true&alternatives=false';
+  let last;
+  for (const base of ROUTERS) {
+    try {
+      const res = await fetch(`${base}/${path}${query}`, { signal: AbortSignal.timeout(25000) });
+      if (!res.ok) throw new Error(String(res.status));
+      const json = await res.json();
+      const route = json.routes?.[0];
+      if (json.code !== 'Ok' || !route?.geometry?.coordinates?.length) throw new Error(json.code || 'no route');
+      const coords = thinCoords(route.geometry.coordinates, 2800);
+      const points = coords.map(([lon, lat]) => ({ lat, lon }));
+      const hours = Math.floor(route.duration / 3600);
+      const mins = Math.round((route.duration % 3600) / 60);
+      return {
+        points,
+        roadKm: route.distance / 1000,
+        steps: osrmSteps(route.legs?.[0]?.steps || []),
+        driveTime: hours > 0 ? `${hours} h ${mins} min` : `${mins} min`,
+        onRoads: true,
+        outside: false,
+        straightKm: km(from.lat, from.lon, site.lat, site.lon),
+        snapKm: 0,
+        goalKm: 0,
+        radiusKm: 0,
+      };
+    } catch (error) {
+      last = error;
+    }
+  }
+  throw last;
+}
+
 export async function driveToShrine(site, from) {
   const pack = await loadRoadPack(site.id);
+  const straight = from ? km(from.lat, from.lon, site.lat, site.lon) : 0;
+  const localKm = (pack.radius || 7000) / 1000;
+  if (from && straight > localKm + 1) {
+    try {
+      return await roadRoute(from, site);
+    } catch {
+      /* the saved streets around the shrine still draw */
+    }
+  }
   if (!pack.nodes?.length) return { error: 'This shrine has no drivable roads in the offline pack.' };
   const goal = gateNode(pack, site.lat, site.lon);
   const start = from ? startNode(pack, goal.index, from.lat, from.lon) : null;

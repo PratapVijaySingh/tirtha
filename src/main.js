@@ -284,7 +284,7 @@ async function runDrive(from, fromLabel) {
   const token = ++driveToken;
   const box = $('driveBox');
   box.classList.remove('hidden');
-  box.innerHTML = '<h4>Drive to the gate</h4><p>Reading the offline road file…</p>';
+  box.innerHTML = '<h4>Drive to the gate</h4><p>Finding the driving roads…</p>';
   try {
     const route = await driveToShrine(site, from);
     if (token !== driveToken || current?.id !== site.id) return;
@@ -293,15 +293,20 @@ async function runDrive(from, fromLabel) {
       box.innerHTML = `<h4>Drive to the gate</h4><p>${route.error}</p>`;
       return;
     }
-    globe.showDriveRoute(route.points, from);
-    const lead = route.outside
-      ? `From ${fromLabel}, the shrine is ${fmtKm(route.straightKm)} away in a straight line. Saved roads cover about ${route.radiusKm} km around it, so the turns start ${fmtKm(route.snapKm)} from that point.`
-      : `From ${fromLabel}. Road distance ${fmtKm(route.roadKm)}.`;
+    globe.showDriveRoute(route.points, route.onRoads ? null : from);
+    const lead = route.onRoads
+      ? `From ${fromLabel}, the car route follows roads for ${fmtKm(route.roadKm)}. About ${route.driveTime} with no live traffic.`
+      : route.outside
+        ? `From ${fromLabel}, the shrine is ${fmtKm(route.straightKm)} away in a straight line. Saved roads cover about ${route.radiusKm} km around it, so the turns start ${fmtKm(route.snapKm)} from that point.`
+        : `From ${fromLabel}. Road distance ${fmtKm(route.roadKm)}.`;
     const gate = route.goalKm > 0.4
       ? ` The last saved road is ${fmtKm(route.goalKm)} from the gate.`
       : '';
     const steps = route.steps.map((step) => `<li>${step.replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]))}</li>`).join('');
-    box.innerHTML = `<h4>Drive to the gate</h4><p>${lead}${gate}</p><ol>${steps}</ol><p class="muted small">Your position stays on this device. Roads © OpenStreetMap contributors. No live traffic. One-way streets are followed.</p>`;
+    const note = route.onRoads
+      ? 'The line follows OpenStreetMap driving roads. The two end points are sent to an OpenStreetMap routing service. No live traffic.'
+      : 'Your position stays on this device. Roads © OpenStreetMap contributors. No live traffic. One-way streets are followed.';
+    box.innerHTML = `<h4>Drive to the gate</h4><p>${lead}${gate}</p><ol>${steps}</ol><p class="muted small">${note}</p>`;
   } catch {
     if (token !== driveToken) return;
     box.innerHTML = '<h4>Drive to the gate</h4><p>This shrine’s road file is not on the site yet.</p>';
