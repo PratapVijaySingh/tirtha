@@ -3,7 +3,7 @@ import { fillInfoAd } from './adsense.js';
 import { Globe } from './globe.js';
 import { StreetWalker } from './streetWalk.js';
 import { loadRealPhotos, realPhotoNote } from './realPhotos.js';
-import { INFO_VERIFIED, fetchWeather, haversineKm, getUserPosition, watchUserPosition } from './visitorInfo.js';
+import { INFO_VERIFIED, fetchWeather, fetchAir, haversineKm, getUserPosition, watchUserPosition } from './visitorInfo.js';
 import { driveToShrine } from './osmDrive.js';
 
 const $ = (id) => document.getElementById(id);
@@ -192,7 +192,7 @@ function visitHtml(site) {
   `;
 }
 
-function liveChips(site, weather) {
+function liveChips(site, weather, air) {
   const bits = [];
   if (you) bits.push(`<span class="chip" data-you>📍 ${fmtKm(haversineKm(you.lat, you.lon, site.lat, site.lon))} from you</span>`);
   const elev = site.elev;
@@ -200,7 +200,8 @@ function liveChips(site, weather) {
   const trek = site.visitor?.trek;
   if (trek) bits.push(`<span class="chip">🥾 ${trek.km} km trek</span>`);
   if (weather) bits.push(`<span class="chip">${weather.icon} ${weather.temp}°C · ${weather.text}</span>`);
-  else bits.push(`<span class="chip" id="wxPending">Live weather…</span>`);
+  else if (!air) bits.push(`<span class="chip" id="wxPending">Live weather…</span>`);
+  if (air) bits.push(`<span class="chip aqi-${air.tone}">AQI ${air.aqi} · ${air.band}</span>`);
   return bits.join('');
 }
 
@@ -238,27 +239,46 @@ function showInfo(site) {
   loadWeather(site);
 }
 
+function airHtml(air) {
+  if (!air) return '<p>Air quality is unavailable right now.</p>';
+  const parts = [`US AQI ${air.aqi} (${air.band})`];
+  if (air.pm25 != null) parts.push(`PM2.5 ${air.pm25} µg/m³`);
+  if (air.pm10 != null) parts.push(`PM10 ${air.pm10} µg/m³`);
+  if (air.uv) parts.push(`UV ${air.uv.uv} (${air.uv.band})`);
+  return `<p class="aqi-${air.tone}">${parts.join(' · ')}</p>
+    <p>Live model for this shrine from Open-Meteo. This is the US air-quality index, not a government roadside monitor.</p>`;
+}
+
 let wxGen = 0;
 async function loadWeather(site) {
   const gen = ++wxGen;
-  try {
-    const w = await fetchWeather(site.lat, site.lon);
-    if (gen !== wxGen || current?.id !== site.id) return;
-    $('infoLive').innerHTML = liveChips(site, w);
-    if ($('infoVisit').querySelector('[data-weather]')) return;
-    const d0 = w.days[0];
-    const extra = document.createElement('div');
-    extra.className = 'visit-block';
-    extra.dataset.weather = '1';
-    extra.innerHTML = `<h4>Weather now (Open-Meteo)</h4>
-      <p>${w.icon} ${w.temp}°C, feels ${w.feels}°C · ${w.text} · wind ${w.wind} km/h · humidity ${w.humidity}%</p>
-      <p>Today ${d0.min}–${d0.max}°C, rain chance ${d0.rain}%. Sunrise ${d0.sunrise}, sunset ${d0.sunset} (IST).</p>`;
-    const first = $('infoVisit').querySelector('.visit-block');
-    if (first) $('infoVisit').insertBefore(extra, first);
-  } catch {
+  const [wx, air] = await Promise.allSettled([
+    fetchWeather(site.lat, site.lon),
+    fetchAir(site.lat, site.lon),
+  ]);
+  if (gen !== wxGen || current?.id !== site.id) return;
+  const w = wx.status === 'fulfilled' ? wx.value : null;
+  const a = air.status === 'fulfilled' ? air.value : null;
+  if (!w && !a) {
     const pending = $('wxPending');
     if (pending) pending.textContent = 'Weather unavailable';
+    return;
   }
+  $('infoLive').innerHTML = liveChips(site, w, a);
+  if ($('infoVisit').querySelector('[data-weather]')) return;
+  const lines = [];
+  if (w) {
+    const d0 = w.days[0];
+    lines.push(`<p>${w.icon} ${w.temp}°C, feels ${w.feels}°C · ${w.text} · wind ${w.wind} km/h · humidity ${w.humidity}%</p>`);
+    lines.push(`<p>Today ${d0.min}–${d0.max}°C, rain chance ${d0.rain}%. Sunrise ${d0.sunrise}, sunset ${d0.sunset} (IST).</p>`);
+  }
+  lines.push(airHtml(a));
+  const extra = document.createElement('div');
+  extra.className = 'visit-block';
+  extra.dataset.weather = '1';
+  extra.innerHTML = `<h4>Weather and air now</h4>${lines.join('')}`;
+  const first = $('infoVisit').querySelector('.visit-block');
+  if (first) $('infoVisit').insertBefore(extra, first);
 }
 
 function endWalk() {

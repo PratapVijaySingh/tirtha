@@ -134,6 +134,12 @@ kbd {
   padding: 4px 8px; border-radius: 8px; font-size: 12px;
   background: rgba(255,255,255,0.06); border: 1px solid var(--line);
 }
+.aqi-good { color: #8fd19a; }
+.aqi-mod { color: #f0d060; }
+.aqi-usg { color: #e8a04a; }
+.aqi-bad { color: #e07a6a; }
+.aqi-worse { color: #d39bd3; }
+.aqi-hazard { color: #f0a0a8; }
 .visit-block { margin: 12px 0; }
 .visit-block h4 {
   margin: 0 0 6px; font-size: 11px; letter-spacing: 0.1em;
