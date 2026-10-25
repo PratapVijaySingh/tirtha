@@ -4,6 +4,15 @@ const C = window.Cesium;
 const IMAGERY = 'https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer';
 const LABELS = 'https://services.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer';
 const ROADS = 'https://services.arcgisonline.com/ArcGIS/rest/services/Reference/World_Transportation/MapServer';
+const CLOUDS = `${import.meta.env.BASE_URL}textures/earth_clouds_4k.jpg`;
+const CLOUD_HEIGHT = 12000;
+const LABELS_ALPHA = 0.9;
+const ROADS_ALPHA = 0.55;
+
+function smoothstep(a, b, x) {
+  const t = Math.min(1, Math.max(0, (x - a) / (b - a)));
+  return t * t * (3 - 2 * t);
+}
 
 function isPhone() {
   return /Android|iPhone|iPad|iPod|Mobile|webOS/i.test(navigator.userAgent)
@@ -59,6 +68,18 @@ export class Globe {
     globe.dynamicAtmosphereLighting = !phone;
     globe.depthTestAgainstTerrain = false;
     globe.baseColor = C.Color.fromCssColorString('#1a3a5c');
+    if (!phone) {
+      globe.maximumScreenSpaceError = 1.5;
+      globe.tileCacheSize = 400;
+      globe.preloadSiblings = true;
+      // Defaults fade sun lighting out beyond 10,000 km, which hides the
+      // day/night line in the full-Earth view.
+      globe.lightingFadeOutDistance = 6.5e7;
+      globe.lightingFadeInDistance = 9e7;
+      globe.nightFadeOutDistance = 6.5e7;
+      globe.nightFadeInDistance = 9e7;
+      globe.atmosphereLightIntensity = 12;
+    }
     this.viewer = new C.Viewer(el, {
       globe,
       baseLayer: C.ImageryLayer.fromProviderAsync(C.ArcGisMapServerImageryProvider.fromUrl(IMAGERY, { enablePickFeatures: false })),
@@ -67,6 +88,7 @@ export class Globe {
       infoBox: false, selectionIndicator: false,
       msaaSamples: phone ? 1 : 4,
       orderIndependentTranslucency: !phone,
+      useBrowserRecommendedResolution: phone,
       contextOptions: {
         webgl: { alpha: false, antialias: true, failIfMajorPerformanceCaveat: false },
       },
@@ -74,13 +96,36 @@ export class Globe {
     const v = this.viewer;
     const scene = v.scene;
     if (!phone) {
-      v.imageryLayers.add(C.ImageryLayer.fromProviderAsync(C.ArcGisMapServerImageryProvider.fromUrl(ROADS, { enablePickFeatures: false }), { alpha: 0.55, minimumTerrainLevel: 12 }));
+      // Native pixel density, capped at 2x so 4K/3x screens stay smooth.
+      v.resolutionScale = Math.min(1, 2 / (window.devicePixelRatio || 1));
+      this.roadsLayer = C.ImageryLayer.fromProviderAsync(C.ArcGisMapServerImageryProvider.fromUrl(ROADS, { enablePickFeatures: false }), { alpha: ROADS_ALPHA, minimumTerrainLevel: 12 });
+      v.imageryLayers.add(this.roadsLayer);
     }
-    v.imageryLayers.add(C.ImageryLayer.fromProviderAsync(C.ArcGisMapServerImageryProvider.fromUrl(LABELS, { enablePickFeatures: false }), { alpha: 0.9 }));
+    this.labelsLayer = C.ImageryLayer.fromProviderAsync(C.ArcGisMapServerImageryProvider.fromUrl(LABELS, { enablePickFeatures: false }), { alpha: LABELS_ALPHA });
+    v.imageryLayers.add(this.labelsLayer);
     scene.fog.enabled = !phone;
     scene.skyAtmosphere.show = true;
-    scene.highDynamicRange = false;
+    scene.highDynamicRange = !phone;
     scene.postProcessStages.fxaa.enabled = !phone;
+    if (!phone) {
+      const sky = scene.skyAtmosphere;
+      sky.atmosphereLightIntensity = 60;
+      sky.saturationShift = 0.1;
+      sky.brightnessShift = 0.05;
+      scene.sun.glowFactor = 2.2;
+      // Cesium's lens flare stage forms a framebuffer feedback loop when
+      // combined with HDR or bloom, so the sun glow comes from glowFactor only.
+      const bloom = scene.postProcessStages.bloom;
+      bloom.enabled = true;
+      bloom.uniforms.glowOnly = false;
+      bloom.uniforms.contrast = 119;
+      bloom.uniforms.brightness = -0.4;
+      bloom.uniforms.delta = 0.9;
+      bloom.uniforms.sigma = 2.5;
+      bloom.uniforms.stepSize = 1;
+      this.addClouds();
+      if (import.meta.env.VITE_CESIUM_ION_TOKEN) this.loadIonTerrain(import.meta.env.VITE_CESIUM_ION_TOKEN);
+    }
     if (phone) scene.globe.maximumScreenSpaceError = 3;
     v.clock.currentTime = C.JulianDate.fromIso8601('2026-10-21T06:30:00Z');
     v.clock.shouldAnimate = false;
@@ -109,6 +154,7 @@ export class Globe {
     scene.preUpdate.addEventListener(() => {
       if (this.spin) v.camera.rotate(C.Cartesian3.UNIT_Z, -0.0009);
       if (this.orbit) this.stepOrbit();
+      this.updateAltitudeFades();
       if (this.onHud) this.onHud(this.hudState());
     });
     v.camera.setView({ destination: C.Cartesian3.fromDegrees(20, 18, 2.6e7) });
@@ -143,6 +189,69 @@ export class Globe {
     el.style.width = `${w}px`;
     el.style.height = `${h}px`;
     this.viewer.resize();
+  }
+
+  addClouds() {
+    const material = new C.Material({
+      translucent: true,
+      fabric: {
+        uniforms: { image: CLOUDS, opacity: 0.9 },
+        source: `
+          czm_material czm_getMaterial(czm_materialInput materialInput) {
+            czm_material m = czm_getDefaultMaterial(materialInput);
+            float c = texture(image, materialInput.st).r;
+            m.diffuse = vec3(1.0);
+            m.alpha = smoothstep(0.06, 0.85, c) * opacity;
+            return m;
+          }`,
+      },
+    });
+    const r = C.Ellipsoid.WGS84.radii;
+    this.clouds = this.viewer.scene.primitives.add(new C.Primitive({
+      geometryInstances: new C.GeometryInstance({
+        geometry: new C.EllipsoidGeometry({
+          radii: new C.Cartesian3(r.x + CLOUD_HEIGHT, r.y + CLOUD_HEIGHT, r.z + CLOUD_HEIGHT),
+          slicePartitions: 160,
+          stackPartitions: 80,
+          vertexFormat: C.MaterialAppearance.MaterialSupport.TEXTURED.vertexFormat,
+        }),
+      }),
+      appearance: new C.MaterialAppearance({
+        material,
+        materialSupport: C.MaterialAppearance.MaterialSupport.TEXTURED,
+        faceForward: false,
+        translucent: true,
+      }),
+      asynchronous: false,
+    }));
+    this.cloudAngle = 0;
+  }
+
+  updateAltitudeFades() {
+    const h = this.viewer.camera.positionCartographic.height;
+    const near = 1 - smoothstep(1.5e6, 6e6, h);
+    if (this.labelsLayer) this.labelsLayer.alpha = LABELS_ALPHA * near;
+    if (this.roadsLayer) this.roadsLayer.alpha = ROADS_ALPHA * near;
+    if (this.clouds) {
+      const a = 0.9 * smoothstep(1.5e6, 6e6, h);
+      this.clouds.show = a > 0.01 && this.viewer.scene.globe.show;
+      if (this.clouds.show) {
+        this.clouds.appearance.material.uniforms.opacity = a;
+        this.cloudAngle += 0.00002;
+        this.clouds.modelMatrix = C.Matrix4.fromRotationTranslation(C.Matrix3.fromRotationZ(this.cloudAngle));
+      }
+    }
+  }
+
+  async loadIonTerrain(token) {
+    try {
+      C.Ion.defaultAccessToken = token;
+      this.viewer.terrainProvider = await C.createWorldTerrainAsync({ requestWaterMask: true, requestVertexNormals: true });
+      this.viewer.scene.globe.showWaterEffect = true;
+      this.hasTerrain = true;
+    } catch (e) {
+      console.warn('Cesium ion terrain unavailable', e);
+    }
   }
 
   makeRing(metres, color, alpha) {
