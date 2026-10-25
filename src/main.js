@@ -294,6 +294,7 @@ async function runDrive(from, fromLabel) {
       return;
     }
     globe.showDriveRoute(route.points, route.onRoads ? null : from);
+    if (window.matchMedia('(max-width: 900px)').matches) $('infoPanel').classList.add('hidden');
     const lead = route.onRoads
       ? `From ${fromLabel}, the car route follows roads for ${fmtKm(route.roadKm)}. About ${route.driveTime} with no live traffic.`
       : route.outside
@@ -313,27 +314,29 @@ async function runDrive(from, fromLabel) {
   }
 }
 
-async function selectSite(site, { orbit = true, fromTour = false } = {}) {
+async function selectSite(site, { orbit = true, fromTour = false, keepRoute = false } = {}) {
+  const keep = keepRoute && globe.driveEntity && current?.id === site.id;
   if (!fromTour) stopTour();
   endWalk();
   closeReal();
-  clearDrive();
+  if (!keep) clearDrive();
   current = site;
   history.replaceState(null, '', `#${site.id}`);
   globe.select(site);
   showInfo(site);
   renderList();
   if (window.matchMedia('(max-width: 900px)').matches) $('sitesPanel').classList.add('hidden');
+  if (keep) {
+    $('infoPanel').classList.remove('hidden');
+    return;
+  }
   return globe.flyToSite(site, { orbit });
 }
-globe.onSelect = (s) => selectSite(s);
+globe.onSelect = (s) => selectSite(s, { keepRoute: true });
 
 $('infoClose').onclick = () => {
   $('infoPanel').classList.add('hidden');
-  globe.select(null);
-  clearDrive();
-  current = null;
-  renderList();
+  if (window.matchMedia('(max-width: 900px)').matches) $('sitesPanel').classList.add('hidden');
 };
 $('actDrive').onclick = async () => {
   if (!current) return;
