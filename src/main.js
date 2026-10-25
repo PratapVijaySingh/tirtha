@@ -2,6 +2,7 @@ import { SITES, TRADITIONS, RITUALS } from './sites.js';
 import { fillInfoAd } from './adsense.js';
 import { Globe } from './globe.js';
 import { StreetWalker } from './streetWalk.js';
+import { loadRealPhotos, realPhotoNote } from './realPhotos.js';
 import { INFO_VERIFIED, fetchWeather, haversineKm, getUserPosition } from './visitorInfo.js';
 
 const $ = (id) => document.getElementById(id);
@@ -224,6 +225,7 @@ function showInfo(site) {
   $('linkWiki').href = `https://en.wikipedia.org/wiki/${site.wiki}`;
   $('infoDisclaimer').textContent = `Confirm hours and tickets on the official site before you travel. Visitor facts last checked ${INFO_VERIFIED}.`;
   $('actTemple').textContent = (RITUALS[site.tradition] || RITUALS.Hindu).explore;
+  $('actWalk').textContent = globe.tileset ? '🚶 Walk the real 3D streets' : '🚶 Walk the streets';
   $('infoPanel').classList.remove('hidden');
   fillInfoAd($('infoAd'));
   loadWikiImage(site);
@@ -262,6 +264,7 @@ function endWalk() {
 async function selectSite(site, { orbit = true, fromTour = false } = {}) {
   if (!fromTour) stopTour();
   endWalk();
+  closeReal();
   current = site;
   history.replaceState(null, '', `#${site.id}`);
   globe.select(site);
@@ -281,6 +284,7 @@ $('infoClose').onclick = () => {
 $('actOrbit').onclick = () => current && selectSite(current);
 $('actWalk').onclick = async () => {
   if (!current) return;
+  closeReal();
   stopTour();
   globe.stopOrbit();
   const h = await globe.groundHeight(current);
@@ -312,6 +316,7 @@ document.querySelectorAll('.walk-pad button').forEach((btn) => {
 
 $('actTemple').onclick = async () => {
   if (!current) return;
+  closeReal();
   stopTour();
   endWalk();
   globe.stopOrbit();
@@ -426,3 +431,93 @@ $('settings').addEventListener('close', () => {
 });
 const savedKey = localStorage.getItem(KEY_STORE) || import.meta.env.VITE_GOOGLE_MAPS_KEY;
 if (savedKey) loadPhotoreal(savedKey);
+
+// ------------------------------------------------------------ real photographs
+
+let realPhotos = [];
+let realIndex = 0;
+let realSite = null;
+
+function showReal(i) {
+  if (!realPhotos.length) return;
+  realIndex = (i + realPhotos.length) % realPhotos.length;
+  const photo = realPhotos[realIndex];
+  $('realPhoto').src = photo.url;
+  $('realPhoto').alt = photo.caption || photo.title;
+  $('realCount').textContent = `${realIndex + 1} / ${realPhotos.length}`;
+  $('realTitle').textContent = realSite?.name || photo.title;
+  $('realDate').textContent = photo.when ? photo.when.label : 'Date not recorded';
+  $('realCaption').textContent = photo.caption || photo.title;
+  $('realCredit').textContent = [photo.artist, photo.license].filter(Boolean).join(' · ');
+  $('realNote').textContent = realPhotoNote(photo);
+}
+
+async function openReal(site) {
+  realSite = site;
+  realPhotos = [];
+  $('realView').classList.remove('hidden');
+  $('realTitle').textContent = site.name;
+  $('realCount').textContent = '…';
+  $('realDate').textContent = '';
+  $('realCaption').textContent = 'Looking up the latest public photographs of this shrine…';
+  $('realCredit').textContent = '';
+  $('realNote').textContent = '';
+  $('realPhoto').removeAttribute('src');
+  try {
+    const photos = await loadRealPhotos(site);
+    if (realSite?.id !== site.id) return;
+    realPhotos = photos;
+    if (!photos.length) {
+      $('realCount').textContent = '0';
+      $('realCaption').textContent = 'No public photograph of this shrine could be loaded just now.';
+      return;
+    }
+    showReal(0);
+  } catch (e) {
+    console.warn(e);
+    $('realCaption').textContent = 'Photographs could not be loaded. Check your connection and try again.';
+  }
+}
+
+function closeReal() {
+  if ($('realView').classList.contains('hidden')) return;
+  $('realView').classList.add('hidden');
+  $('realPhoto').removeAttribute('src');
+  realSite = null;
+}
+
+$('actReal').onclick = () => {
+  if (current) openReal(current);
+};
+$('realClose').onclick = closeReal;
+$('realPrev').onclick = () => showReal(realIndex - 1);
+$('realNext').onclick = () => showReal(realIndex + 1);
+$('realWalk3d').onclick = async () => {
+  if (!current) return;
+  const key = localStorage.getItem(KEY_STORE) || import.meta.env.VITE_GOOGLE_MAPS_KEY;
+  if (!key) {
+    toast('Real 3D buildings need a Google Map Tiles key. Add it in ⚙. The photographs stay available without one.', 7000);
+    $('googleKey').value = '';
+    $('settings').showModal();
+    return;
+  }
+  closeReal();
+  if (!globe.tileset) await loadPhotoreal(key);
+  if (globe.tileset) $('actWalk').click();
+};
+
+let realSwipe = null;
+$('realPhoto').addEventListener('pointerdown', (e) => { realSwipe = e.clientX; });
+$('realPhoto').addEventListener('pointerup', (e) => {
+  if (realSwipe == null) return;
+  const dx = e.clientX - realSwipe;
+  realSwipe = null;
+  if (dx > 48) showReal(realIndex - 1);
+  else if (dx < -48) showReal(realIndex + 1);
+});
+window.addEventListener('keydown', (e) => {
+  if ($('realView').classList.contains('hidden')) return;
+  if (e.code === 'Escape') closeReal();
+  if (e.code === 'ArrowRight') showReal(realIndex + 1);
+  if (e.code === 'ArrowLeft') showReal(realIndex - 1);
+});

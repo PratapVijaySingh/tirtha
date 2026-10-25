@@ -124,8 +124,8 @@ export class Globe {
       bloom.uniforms.sigma = 2.5;
       bloom.uniforms.stepSize = 1;
       this.addClouds();
-      if (import.meta.env.VITE_CESIUM_ION_TOKEN) this.loadIonTerrain(import.meta.env.VITE_CESIUM_ION_TOKEN);
     }
+    this.hideCesiumMark();
     if (phone) scene.globe.maximumScreenSpaceError = 3;
     v.clock.currentTime = C.JulianDate.fromIso8601('2026-10-21T06:30:00Z');
     v.clock.shouldAnimate = false;
@@ -243,15 +243,18 @@ export class Globe {
     }
   }
 
-  async loadIonTerrain(token) {
-    try {
-      C.Ion.defaultAccessToken = token;
-      this.viewer.terrainProvider = await C.createWorldTerrainAsync({ requestWaterMask: true, requestVertexNormals: true });
-      this.viewer.scene.globe.showWaterEffect = true;
-      this.hasTerrain = true;
-    } catch (e) {
-      console.warn('Cesium ion terrain unavailable', e);
-    }
+  hideCesiumMark() {
+    const root = this.viewer.cesiumWidget.creditContainer;
+    const scrub = () => {
+      root.querySelector('.cesium-credit-logoContainer')?.remove();
+      root.querySelectorAll('a, div, span, button').forEach((el) => {
+        const href = el.getAttribute('href') || '';
+        const own = Array.from(el.childNodes).filter((n) => n.nodeType === 3).map((n) => n.textContent).join('');
+        if (/cesium/i.test(href) || /cesium/i.test(own)) el.remove();
+      });
+    };
+    scrub();
+    new MutationObserver(scrub).observe(root, { childList: true, subtree: true });
   }
 
   makeRing(metres, color, alpha) {

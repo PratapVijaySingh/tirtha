@@ -46,7 +46,8 @@
       <div class="actions">
         <button id="actOrbit" class="primary">✈ Fly in &amp; orbit</button>
         <button id="actWalk">🚶 Walk the streets</button>
-        <button id="actTemple" class="accent">🛕 Explore temple in 3D</button>
+        <button id="actReal">📷 Real temple photos</button>
+        <button id="actTemple" class="accent">🛕 Walk inside the model</button>
       </div>
       <div class="links">
         <a id="linkOfficial" target="_blank" rel="noopener">Official site ↗</a>
@@ -92,6 +93,28 @@
       <button id="btnBegin" class="primary big">Begin the Yatra</button>
       <div class="intro-hint">Drag to spin the Earth · Scroll to zoom</div>
       <div class="intro-legal"><a href="/privacy.html">Privacy</a></div>
+    </div>
+  </div>
+
+  <div id="realView" class="hidden">
+    <img id="realPhoto" alt="" />
+    <div id="realHud" class="glass">
+      <div class="th-head">
+        <div class="th-titles">
+          <div id="realCount" class="pill"></div>
+          <h3 id="realTitle"></h3>
+          <div id="realDate" class="muted"></div>
+        </div>
+        <button id="realClose" class="close" type="button" aria-label="Close real photos">×</button>
+      </div>
+      <p id="realCaption"></p>
+      <p id="realCredit" class="muted small"></p>
+      <p id="realNote" class="muted small"></p>
+      <div class="tv-actions">
+        <button id="realPrev" type="button">◀ Previous</button>
+        <button id="realNext" type="button">Next ▶</button>
+        <button id="realWalk3d" class="accent" type="button">🚶 Walk the real outside in 3D</button>
+      </div>
     </div>
   </div>
 
