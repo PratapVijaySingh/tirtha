@@ -140,7 +140,8 @@ kbd {
   text-transform: uppercase; color: var(--gold); font-weight: 600;
 }
 .visit-block p, .visit-block li { font-size: 13px; line-height: 1.5; color: #e6dccb; margin: 0 0 6px; }
-.visit-block ul { margin: 0; padding-left: 16px; }
+.visit-block ul, #driveBox ol { margin: 0; padding-left: 16px; }
+#driveBox li { margin: 3px 0; font-size: 13px; line-height: 1.5; }
 .visit-block li { margin: 3px 0; }
 .nearby-btn {
   display: block; width: 100%; text-align: left; margin: 4px 0; padding: 8px 10px;

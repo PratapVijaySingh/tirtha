@@ -3,7 +3,8 @@ import { fillInfoAd } from './adsense.js';
 import { Globe } from './globe.js';
 import { StreetWalker } from './streetWalk.js';
 import { loadRealPhotos, realPhotoNote } from './realPhotos.js';
-import { INFO_VERIFIED, fetchWeather, haversineKm, getUserPosition } from './visitorInfo.js';
+import { INFO_VERIFIED, fetchWeather, haversineKm, getUserPosition, watchUserPosition } from './visitorInfo.js';
+import { driveToShrine } from './osmDrive.js';
 
 const $ = (id) => document.getElementById(id);
 const KEY_STORE = 'tirtha.googleKey';
@@ -67,12 +68,17 @@ async function begin() {
   $('topbar').classList.remove('hidden');
   if (!current) $('sitesPanel').classList.remove('hidden');
   $('globeHud').classList.remove('hidden');
-  getUserPosition()
-    .then((p) => {
-      you = p;
-      if (current) showInfo(current);
-    })
-    .catch(() => {});
+  watchUserPosition((p) => {
+    you = p;
+    globe.showHere(p.lat, p.lon);
+    if (!current) return;
+    const live = $('infoLive');
+    if (!live) return;
+    const text = `📍 ${fmtKm(haversineKm(p.lat, p.lon, current.lat, current.lon))} from you`;
+    const chip = live.querySelector('[data-you]');
+    if (chip) chip.textContent = text;
+    else live.insertAdjacentHTML('afterbegin', `<span class="chip" data-you>${text}</span>`);
+  });
 }
 $('btnBegin').onclick = async () => {
   await begin();
@@ -188,7 +194,7 @@ function visitHtml(site) {
 
 function liveChips(site, weather) {
   const bits = [];
-  if (you) bits.push(`<span class="chip">📍 ${fmtKm(haversineKm(you.lat, you.lon, site.lat, site.lon))} from you</span>`);
+  if (you) bits.push(`<span class="chip" data-you>📍 ${fmtKm(haversineKm(you.lat, you.lon, site.lat, site.lon))} from you</span>`);
   const elev = site.elev;
   if (elev) bits.push(`<span class="chip">⛰ ${elev.toLocaleString()} m</span>`);
   const trek = site.visitor?.trek;
@@ -261,10 +267,52 @@ function endWalk() {
   document.body.classList.remove('walking');
 }
 
+let driveToken = 0;
+let pickingStart = false;
+function clearDrive() {
+  driveToken += 1;
+  pickingStart = false;
+  $('actDrivePick')?.classList.remove('active');
+  globe.clearDriveRoute();
+  $('driveBox').classList.add('hidden');
+  $('driveBox').innerHTML = '';
+}
+
+async function runDrive(from, fromLabel) {
+  if (!current || !from) return;
+  const site = current;
+  const token = ++driveToken;
+  const box = $('driveBox');
+  box.classList.remove('hidden');
+  box.innerHTML = '<h4>Drive to the gate</h4><p>Reading the offline road file…</p>';
+  try {
+    const route = await driveToShrine(site, from);
+    if (token !== driveToken || current?.id !== site.id) return;
+    if (route.error) {
+      globe.clearDriveRoute();
+      box.innerHTML = `<h4>Drive to the gate</h4><p>${route.error}</p>`;
+      return;
+    }
+    globe.showDriveRoute(route.points, from);
+    const lead = route.outside
+      ? `From ${fromLabel}, the shrine is ${fmtKm(route.straightKm)} away in a straight line. Saved roads cover about ${route.radiusKm} km around it, so the turns start ${fmtKm(route.snapKm)} from that point.`
+      : `From ${fromLabel}. Road distance ${fmtKm(route.roadKm)}.`;
+    const gate = route.goalKm > 0.4
+      ? ` The last saved road is ${fmtKm(route.goalKm)} from the gate.`
+      : '';
+    const steps = route.steps.map((step) => `<li>${step.replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]))}</li>`).join('');
+    box.innerHTML = `<h4>Drive to the gate</h4><p>${lead}${gate}</p><ol>${steps}</ol><p class="muted small">Your position stays on this device. Roads © OpenStreetMap contributors. No live traffic. One-way streets are followed.</p>`;
+  } catch {
+    if (token !== driveToken) return;
+    box.innerHTML = '<h4>Drive to the gate</h4><p>This shrine’s road file is not on the site yet.</p>';
+  }
+}
+
 async function selectSite(site, { orbit = true, fromTour = false } = {}) {
   if (!fromTour) stopTour();
   endWalk();
   closeReal();
+  clearDrive();
   current = site;
   history.replaceState(null, '', `#${site.id}`);
   globe.select(site);
@@ -278,8 +326,38 @@ globe.onSelect = (s) => selectSite(s);
 $('infoClose').onclick = () => {
   $('infoPanel').classList.add('hidden');
   globe.select(null);
+  clearDrive();
   current = null;
   renderList();
+};
+$('actDrive').onclick = async () => {
+  if (!current) return;
+  pickingStart = false;
+  $('actDrivePick').classList.remove('active');
+  globe.clearStart();
+  if (!you) {
+    try { you = await getUserPosition(); } catch { /* location stays off */ }
+  }
+  if (!you) {
+    toast('Location is off. Choose start on the map, then tap where the drive begins.', 6000);
+    return;
+  }
+  globe.showHere(you.lat, you.lon);
+  if ($('infoLive')) $('infoLive').innerHTML = liveChips(current);
+  runDrive(you, 'your GPS position');
+};
+$('actDrivePick').onclick = () => {
+  if (!current) return;
+  pickingStart = true;
+  $('actDrivePick').classList.add('active');
+  toast('Tap the map where the drive should start. The selected temple stays the destination.', 6000);
+};
+globe.onMapClick = (lat, lon) => {
+  if (!pickingStart || !current) return;
+  pickingStart = false;
+  $('actDrivePick').classList.remove('active');
+  globe.showStart(lat, lon);
+  runDrive({ lat, lon }, 'the point you tapped');
 };
 $('actOrbit').onclick = () => current && selectSite(current);
 $('actWalk').onclick = async () => {

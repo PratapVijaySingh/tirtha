@@ -177,7 +177,15 @@ export class Globe {
     }, C.ScreenSpaceEventType.MOUSE_MOVE);
     this.handler.setInputAction((c) => {
       const site = this.siteAt(c.position);
-      if (site && this.onSelect) this.onSelect(site);
+      if (site && this.onSelect) {
+        this.onSelect(site);
+        return;
+      }
+      if (!this.onMapClick) return;
+      const cart = this.viewer.camera.pickEllipsoid(c.position, this.viewer.scene.globe.ellipsoid);
+      if (!cart) return;
+      const carto = C.Cartographic.fromCartesian(cart);
+      this.onMapClick(C.Math.toDegrees(carto.latitude), C.Math.toDegrees(carto.longitude));
     }, C.ScreenSpaceEventType.LEFT_CLICK);
   }
 
@@ -446,7 +454,7 @@ export class Globe {
         cancel: resolve,
       }),
     );
-    if (orbit) this.startOrbit(center, heading, pitch, range);
+    if (orbit && !this.routing) this.startOrbit(center, heading, pitch, range);
     return h;
   }
 
@@ -482,5 +490,96 @@ export class Globe {
     this.viewer.scene.primitives.remove(this.tileset);
     this.tileset = null;
     this.viewer.scene.globe.show = true;
+  }
+
+  marker(lat, lon, color, text) {
+    return this.viewer.entities.add({
+      position: C.Cartesian3.fromDegrees(lon, lat),
+      point: {
+        pixelSize: 14,
+        color: C.Color.fromCssColorString(color),
+        outlineColor: C.Color.WHITE,
+        outlineWidth: 3,
+        disableDepthTestDistance: Number.POSITIVE_INFINITY,
+      },
+      label: {
+        text,
+        font: '600 13px sans-serif',
+        pixelOffset: new C.Cartesian2(0, -20),
+        fillColor: C.Color.WHITE,
+        outlineColor: C.Color.BLACK,
+        outlineWidth: 3,
+        style: C.LabelStyle.FILL_AND_OUTLINE,
+        disableDepthTestDistance: Number.POSITIVE_INFINITY,
+      },
+    });
+  }
+
+  showHere(lat, lon) {
+    const pos = C.Cartesian3.fromDegrees(lon, lat);
+    if (!this.hereEntity) this.hereEntity = this.marker(lat, lon, '#2f7dff', 'You');
+    else this.hereEntity.position = pos;
+  }
+
+  showStart(lat, lon) {
+    if (this.startEntity) this.viewer.entities.remove(this.startEntity);
+    this.startEntity = this.marker(lat, lon, '#ff9933', 'Start');
+  }
+
+  clearStart() {
+    if (!this.startEntity) return;
+    this.viewer.entities.remove(this.startEntity);
+    this.startEntity = null;
+  }
+
+  clearDriveRoute() {
+    this.routing = false;
+    if (this.driveEntity) this.viewer.entities.remove(this.driveEntity);
+    if (this.driveLink) this.viewer.entities.remove(this.driveLink);
+    this.driveEntity = null;
+    this.driveLink = null;
+  }
+
+  showDriveRoute(points, origin) {
+    this.clearDriveRoute();
+    this.routing = true;
+    this.spin = false;
+    this.stopOrbit();
+    const flat = [];
+    points.forEach((p) => flat.push(p.lon, p.lat));
+    const positions = C.Cartesian3.fromDegreesArray(flat);
+    const saffron = C.Color.fromCssColorString('#ff9933');
+    this.driveEntity = this.viewer.entities.add({
+      polyline: {
+        positions,
+        width: 6,
+        material: saffron,
+        depthFailMaterial: saffron.withAlpha(0.85),
+        clampToGround: true,
+        arcType: C.ArcType.GEODESIC,
+      },
+    });
+    let frame = positions;
+    if (origin && points.length) {
+      const from = C.Cartesian3.fromDegrees(origin.lon, origin.lat);
+      const gap = C.Cartesian3.distance(from, positions[0]);
+      if (gap > 250) {
+        this.driveLink = this.viewer.entities.add({
+          polyline: {
+            positions: [from, positions[0]],
+            width: 3,
+            material: new C.PolylineDashMaterialProperty({ color: C.Color.fromCssColorString('#7eb6ff') }),
+            clampToGround: true,
+            arcType: C.ArcType.GEODESIC,
+          },
+        });
+      }
+      if (gap < 8e4) frame = [from, ...positions];
+    }
+    const sphere = C.BoundingSphere.fromPoints(frame);
+    this.viewer.camera.flyToBoundingSphere(sphere, {
+      offset: new C.HeadingPitchRange(0, C.Math.toRadians(-45), Math.max(sphere.radius * 2.6, 900)),
+      duration: 1.8,
+    });
   }
 }

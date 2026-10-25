@@ -47,6 +47,8 @@ export function haversineKm(lat1, lon1, lat2, lon2) {
 }
 
 let userPos = null;
+const geoOptions = { enableHighAccuracy: true, timeout: 20000, maximumAge: 10000 };
+
 export function getUserPosition() {
   if (userPos) return Promise.resolve(userPos);
   return new Promise((resolve, reject) => {
@@ -54,7 +56,20 @@ export function getUserPosition() {
     navigator.geolocation.getCurrentPosition(
       (p) => resolve((userPos = { lat: p.coords.latitude, lon: p.coords.longitude })),
       (e) => reject(e),
-      { enableHighAccuracy: false, timeout: 12000, maximumAge: 600000 },
+      geoOptions,
     );
   });
+}
+
+export function watchUserPosition(onPos) {
+  if (!navigator.geolocation) return () => {};
+  const id = navigator.geolocation.watchPosition(
+    (p) => {
+      userPos = { lat: p.coords.latitude, lon: p.coords.longitude };
+      onPos(userPos);
+    },
+    () => {},
+    geoOptions,
+  );
+  return () => navigator.geolocation.clearWatch(id);
 }
